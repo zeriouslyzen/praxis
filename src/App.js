@@ -1,4 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import AnimatedAbout from './components/AnimatedAbout';
+import FeaturesPage from './components/FeaturesPage';
+import LandingPage from './pages/LandingPage';
+import ResearchPage from './pages/ResearchPage';
+
+// Theme context
+export const ThemeContext = React.createContext();
 
 // --- Helper Components ---
 
@@ -10,10 +18,40 @@ const Icon = ({ path, className = "w-6 h-6" }) => (
 );
 
 // --- SVG Icons (as components for clarity) ---
+// eslint-disable-next-line no-unused-vars
 const BrainCircuitIcon = () => <Icon path="M12 2a10 10 0 0 0-10 10c0 4.42 2.87 8.17 6.84 9.5c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.89 1.53 2.34 1.09 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.94c0-1.1.39-1.99 1.03-2.69c-.1-.25-.45-1.27.1-2.65c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.38.2 2.4.1 2.65c.64.7 1.03 1.6 1.03 2.69c0 3.84-2.34 4.68-4.57 4.93c.36.31.69.92.69 1.85V21.5c0 .27.18.58.69.48A10 10 0 0 0 22 12A10 10 0 0 0 12 2Z" />;
 const ShieldCheckIcon = () => <Icon path="M9 12.75L11.25 15L15 9.75M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0Z" />;
 const NetworkIcon = () => <Icon path="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />;
 const ChartBarIcon = () => <Icon path="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />;
+
+// --- Theme Toggle Component ---
+const ThemeToggle = () => {
+  const { isDarkMode, toggleTheme } = React.useContext(ThemeContext);
+
+  return (
+    <button
+      onClick={toggleTheme}
+      className={`relative p-2 rounded-lg transition-all duration-300 transform hover:scale-110 ${
+        isDarkMode
+          ? 'bg-white/10 hover:bg-white/20 text-white'
+          : 'bg-black/10 hover:bg-black/20 text-black'
+      }`}
+      title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+    >
+      {isDarkMode ? (
+        // Sun icon for light mode
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+      ) : (
+        // Moon icon for dark mode
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+      )}
+    </button>
+  );
+};
 
 // --- Advanced Animation Components ---
 
@@ -266,6 +304,7 @@ const FloatingCode = () => {
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { isDarkMode } = React.useContext(ThemeContext);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -275,42 +314,62 @@ const Header = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const headerBgClass = isScrolled
+        ? isDarkMode
+            ? 'bg-black/90 backdrop-blur-xl border-b border-white/10'
+            : 'bg-white/90 backdrop-blur-xl border-b border-black/10'
+        : 'bg-transparent';
+
+    const textColorClass = isDarkMode ? 'text-white' : 'text-black';
+    const hoverTextColorClass = isDarkMode ? 'hover:text-white' : 'hover:text-black';
+    const mutedTextColorClass = isDarkMode ? 'text-gray-300' : 'text-gray-700';
+    const borderColorClass = isDarkMode ? 'border-white/20' : 'border-black/20';
+    const bgColorClass = isDarkMode ? 'bg-white/10' : 'bg-black/10';
+    const hoverBgColorClass = isDarkMode ? 'hover:bg-white/20' : 'hover:bg-black/20';
+    const shadowColorClass = isDarkMode ? 'hover:shadow-white/20' : 'hover:shadow-black/20';
+
     return (
-        <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-black/90 backdrop-blur-xl border-b border-white/10' : 'bg-transparent'}`}>
+        <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${headerBgClass}`}>
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex-shrink-0">
-                        <a href="#home" className="text-white text-lg font-mono font-bold tracking-wider relative group">
-                           <span className="text-white animate-pulse">PRAXIS</span>
-                           <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full shadow-lg shadow-white/50"></div>
+                        <a href="#home" className={`text-lg font-mono font-bold tracking-wider relative group ${textColorClass}`}>
+                           <span className={`${textColorClass} animate-pulse`}>PRAXIS</span>
+                           <div className={`absolute -bottom-1 left-0 w-0 h-0.5 ${isDarkMode ? 'bg-white' : 'bg-black'} transition-all duration-300 group-hover:w-full shadow-lg ${isDarkMode ? 'shadow-white/50' : 'shadow-black/50'}`}></div>
                         </a>
                     </div>
                     <nav className="hidden md:block">
                         <div className="ml-8 flex items-baseline space-x-6">
-                            <a href="#about" className="text-gray-300 hover:text-white px-2 py-1 rounded text-sm font-mono transition-all duration-300 relative group">
+                            <a href="#about" className={`${mutedTextColorClass} ${hoverTextColorClass} px-2 py-1 rounded text-sm font-mono transition-all duration-300 relative group`}>
                                 About
-                                <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></div>
+                                <div className={`absolute -bottom-1 left-0 w-0 h-0.5 ${isDarkMode ? 'bg-white' : 'bg-black'} transition-all duration-300 group-hover:w-full`}></div>
                             </a>
-                            <a href="#services" className="text-gray-300 hover:text-white px-2 py-1 rounded text-sm font-mono transition-all duration-300 relative group">
+                            <a href="#features" className={`${mutedTextColorClass} ${hoverTextColorClass} px-2 py-1 rounded text-sm font-mono transition-all duration-300 relative group`}>
+                                Features
+                                <div className={`absolute -bottom-1 left-0 w-0 h-0.5 ${isDarkMode ? 'bg-white' : 'bg-black'} transition-all duration-300 group-hover:w-full`}></div>
+                            </a>
+                            <a href="#services" className={`${mutedTextColorClass} ${hoverTextColorClass} px-2 py-1 rounded text-sm font-mono transition-all duration-300 relative group`}>
                                 Services
-                                <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></div>
+                                <div className={`absolute -bottom-1 left-0 w-0 h-0.5 ${isDarkMode ? 'bg-white' : 'bg-black'} transition-all duration-300 group-hover:w-full`}></div>
                             </a>
-                            <a href="#technology" className="text-gray-300 hover:text-white px-2 py-1 rounded text-sm font-mono transition-all duration-300 relative group">
+                            <a href="#technology" className={`${mutedTextColorClass} ${hoverTextColorClass} px-2 py-1 rounded text-sm font-mono transition-all duration-300 relative group`}>
                                 Technology
-                                <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></div>
+                                <div className={`absolute -bottom-1 left-0 w-0 h-0.5 ${isDarkMode ? 'bg-white' : 'bg-black'} transition-all duration-300 group-hover:w-full`}></div>
                             </a>
                         </div>
                     </nav>
-                    <div className="hidden md:block">
-                        <a href="#contact" className="relative bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-sm font-mono font-semibold transition-all duration-300 transform hover:scale-105 hover:bg-white/20 hover:shadow-2xl hover:shadow-white/20 group overflow-hidden border border-white/20">
+                    <div className="hidden md:flex items-center space-x-4">
+                        <ThemeToggle />
+                        <a href="#contact" className={`relative ${bgColorClass} backdrop-blur-sm ${textColorClass} px-4 py-2 rounded-lg text-sm font-mono font-semibold transition-all duration-300 transform hover:scale-105 ${hoverBgColorClass} hover:shadow-2xl ${shadowColorClass} group overflow-hidden ${borderColorClass}`}>
                             <span className="relative z-10">Demo</span>
-                            <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div className={`absolute inset-0 ${bgColorClass} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
                         </a>
                     </div>
-                    <div className="md:hidden">
-                        <button 
+                    <div className="md:hidden flex items-center space-x-2">
+                        <ThemeToggle />
+                        <button
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            className="text-gray-300 hover:text-white p-2"
+                            className={`${mutedTextColorClass} ${hoverTextColorClass} p-2`}
                         >
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -319,15 +378,16 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-            
+
             {/* Mobile Menu */}
             {isMenuOpen && (
-                <div className="md:hidden bg-black/95 backdrop-blur-xl border-t border-white/10">
+                <div className={`md:hidden ${isDarkMode ? 'bg-black/95' : 'bg-white/95'} backdrop-blur-xl border-t ${isDarkMode ? 'border-white/10' : 'border-black/10'}`}>
                     <div className="px-2 pt-2 pb-3 space-y-1">
-                        <a href="#about" className="block px-3 py-2 text-gray-300 hover:text-white transition-colors font-mono text-sm">About</a>
-                        <a href="#services" className="block px-3 py-2 text-gray-300 hover:text-white transition-colors font-mono text-sm">Services</a>
-                        <a href="#technology" className="block px-3 py-2 text-gray-300 hover:text-white transition-colors font-mono text-sm">Technology</a>
-                        <a href="#contact" className="block px-3 py-2 text-white font-semibold font-mono text-sm">Demo</a>
+                        <a href="#about" className={`block px-3 py-2 ${mutedTextColorClass} ${hoverTextColorClass} transition-colors font-mono text-sm`}>About</a>
+                        <a href="#features" className={`block px-3 py-2 ${mutedTextColorClass} ${hoverTextColorClass} transition-colors font-mono text-sm`}>Features</a>
+                        <a href="#services" className={`block px-3 py-2 ${mutedTextColorClass} ${hoverTextColorClass} transition-colors font-mono text-sm`}>Services</a>
+                        <a href="#technology" className={`block px-3 py-2 ${mutedTextColorClass} ${hoverTextColorClass} transition-colors font-mono text-sm`}>Technology</a>
+                        <a href="#contact" className={`block px-3 py-2 ${textColorClass} font-semibold font-mono text-sm`}>Demo</a>
                     </div>
                 </div>
             )}
@@ -338,6 +398,7 @@ const Header = () => {
 const Hero = () => {
     const [textIndex, setTextIndex] = useState(0);
     const [searchQuery, setSearchQuery] = useState('');
+    const { isDarkMode } = React.useContext(ThemeContext);
     const heroTexts = [
         "Research",
         "Development",
@@ -357,17 +418,32 @@ const Hero = () => {
         console.log('Searching for:', searchQuery);
     };
 
+    const bgColorClass = isDarkMode ? 'bg-black' : 'bg-white';
+    const textColorClass = isDarkMode ? 'text-white' : 'text-black';
+    const mutedTextColorClass = isDarkMode ? 'text-gray-400' : 'text-gray-600';
+    const placeholderColorClass = isDarkMode ? 'placeholder-gray-400' : 'placeholder-gray-600';
+    const borderColorClass = isDarkMode ? 'border-white/20' : 'border-black/20';
+    const focusBorderColorClass = isDarkMode ? 'focus:border-white/40' : 'focus:border-black/40';
+    const hoverBorderColorClass = isDarkMode ? 'group-hover:border-white/30' : 'group-hover:border-black/30';
+    const bgOpacityClass = isDarkMode ? 'bg-white/5' : 'bg-black/5';
+    const focusBgOpacityClass = isDarkMode ? 'focus:bg-white/10' : 'focus:bg-black/10';
+    const hoverBgOpacityClass = isDarkMode ? 'group-hover:bg-white/8' : 'group-hover:bg-black/8';
+    const buttonBgOpacityClass = isDarkMode ? 'bg-white/10' : 'bg-black/10';
+    const buttonHoverBgOpacityClass = isDarkMode ? 'hover:bg-white/20' : 'hover:bg-black/20';
+    const shadowColorClass = isDarkMode ? 'hover:shadow-white/20' : 'hover:shadow-black/20';
+    const gridBgColor = isDarkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
+
     return (
-        <section id="home" className="relative min-h-screen flex items-center justify-center text-center overflow-hidden bg-black pt-16">
+        <section id="home" className={`relative min-h-screen flex items-center justify-center text-center overflow-hidden ${bgColorClass} pt-16`}>
             <MatrixRain />
             <NeuralNetwork className="opacity-20" />
             <FloatingCode />
-            
+
             {/* Grid background */}
             <div className="absolute inset-0 opacity-10">
                 <div className="absolute inset-0" style={{
-                    backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                                    linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+                    backgroundImage: `linear-gradient(${gridBgColor} 1px, transparent 1px),
+                                    linear-gradient(90deg, ${gridBgColor} 1px, transparent 1px)`,
                     backgroundSize: '30px 30px'
                 }}></div>
             </div>
@@ -377,12 +453,12 @@ const Hero = () => {
                     <h1 className="text-3xl md:text-4xl lg:text-5xl font-mono font-bold text-white tracking-tight leading-tight mb-6">
                         Advanced
                         <br />
-                        <span className="text-white animate-pulse">
+                        <span className={`${textColorClass} animate-pulse`}>
                             {heroTexts[textIndex]}
                         </span>
                     </h1>
                 </div>
-                
+
                 {/* Search Bar */}
                 <div className="mb-12">
                     <form onSubmit={handleSearch} className="relative max-w-md mx-auto">
@@ -392,11 +468,11 @@ const Hero = () => {
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                                 placeholder="Search algorithms, research, development..."
-                                className="w-full bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl px-6 py-4 text-white placeholder-gray-400 font-mono text-sm focus:outline-none focus:border-white/40 focus:bg-white/10 transition-all duration-300 group-hover:border-white/30 group-hover:bg-white/8"
+                                className={`w-full ${bgOpacityClass} backdrop-blur-sm border ${borderColorClass} rounded-xl px-6 py-4 ${textColorClass} ${placeholderColorClass} font-mono text-sm focus:outline-none ${focusBorderColorClass} ${focusBgOpacityClass} transition-all duration-300 ${hoverBorderColorClass} ${hoverBgOpacityClass}`}
                             />
                             <button
                                 type="submit"
-                                className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-sm text-white p-2 rounded-lg hover:bg-white/20 transition-all duration-300"
+                                className={`absolute right-2 top-1/2 -translate-y-1/2 ${buttonBgOpacityClass} backdrop-blur-sm ${textColorClass} p-2 rounded-lg ${buttonHoverBgOpacityClass} transition-all duration-300`}
                             >
                                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -405,19 +481,19 @@ const Hero = () => {
                         </div>
                     </form>
                 </div>
-                
-                <p className="mb-8 max-w-lg mx-auto text-sm md:text-base text-gray-400 leading-relaxed font-mono">
+
+                <p className={`mb-8 max-w-lg mx-auto text-sm md:text-base ${mutedTextColorClass} leading-relaxed font-mono`}>
                     Research-driven development platform for advanced algorithms and computational systems.
                 </p>
-                
+
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="#services" className="group relative bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-lg text-sm font-mono font-semibold transition-all duration-300 transform hover:scale-105 hover:bg-white/20 hover:shadow-2xl hover:shadow-white/20 overflow-hidden border border-white/20">
-                        <span className="relative z-10">Explore</span>
-                        <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <a href="#features" className={`group relative ${buttonBgOpacityClass} backdrop-blur-sm ${textColorClass} px-6 py-3 rounded-lg text-sm font-mono font-semibold transition-all duration-300 transform hover:scale-105 ${buttonHoverBgOpacityClass} hover:shadow-2xl ${shadowColorClass} overflow-hidden ${borderColorClass}`}>
+                        <span className="relative z-10">Explore Features</span>
+                        <div className={`absolute inset-0 ${buttonBgOpacityClass} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
                     </a>
-                    <a href="#contact" className="group relative bg-transparent border border-white/20 text-white px-6 py-3 rounded-lg text-sm font-mono font-semibold transition-all duration-300 transform hover:scale-105 hover:border-white/40 hover:bg-white/5 overflow-hidden">
+                    <a href="#contact" className={`group relative bg-transparent border ${borderColorClass} ${textColorClass} px-6 py-3 rounded-lg text-sm font-mono font-semibold transition-all duration-300 transform hover:scale-105 hover:border-opacity-60 hover:bg-opacity-5 overflow-hidden`}>
                         <span className="relative z-10">Demo</span>
-                        <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className={`absolute inset-0 ${bgOpacityClass} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
                     </a>
                 </div>
             </div>
@@ -445,123 +521,76 @@ const SectionSubtitle = ({ children, className = "" }) => (
     </p>
 );
 
-const About = () => {
-    const capabilities = [
-        { 
-            name: "Algorithms", 
-            icon: <BrainCircuitIcon />, 
-            desc: "Advanced computational methods for complex problem solving.",
-            gradient: "from-white/20 to-white/10"
-        },
-        { 
-            name: "Research", 
-            icon: <NetworkIcon />, 
-            desc: "Cutting-edge research in neural networks and AI systems.",
-            gradient: "from-white/20 to-white/10"
-        },
-        { 
-            name: "Development", 
-            icon: <ShieldCheckIcon />, 
-            desc: "Rapid prototyping and development of innovative solutions.",
-            gradient: "from-white/20 to-white/10"
-        },
-        { 
-            name: "Innovation", 
-            icon: <ChartBarIcon />, 
-            desc: "Pushing boundaries with next-generation technology.",
-            gradient: "from-white/20 to-white/10"
-        }
-    ];
-
-    return (
-        <Section id="about" className="bg-black">
-            <SectionTitle>Research & Development</SectionTitle>
-            <SectionSubtitle>
-                Focused on advancing technology through sophisticated research and development.
-            </SectionSubtitle>
-            
-            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-                {capabilities.map((item, index) => (
-                    <div 
-                        key={item.name} 
-                        className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center transform transition-all duration-500 hover:-translate-y-2 hover:border-white/30 hover:bg-white/10 hover:shadow-2xl hover:shadow-white/10 overflow-hidden"
-                        style={{ animationDelay: `${index * 0.1}s` }}
-                    >
-                        {/* Animated background */}
-                        <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-                        
-                        <div className={`mx-auto h-12 w-12 flex items-center justify-center rounded-lg bg-white/10 text-white mb-4 transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3`}>
-                            {item.icon}
-                        </div>
-                        
-                        <h3 className="text-lg font-bold text-white mb-3 group-hover:text-white transition-colors duration-300 font-mono">
-                            {item.name}
-                        </h3>
-                        
-                        <p className="text-gray-400 leading-relaxed font-mono text-sm">
-                            {item.desc}
-                        </p>
-                    </div>
-                ))}
-            </div>
-        </Section>
-    );
-};
-
 const Services = () => {
+    const { isDarkMode } = React.useContext(ThemeContext);
     const services = [
-        { 
+        {
             title: "Algorithm Research",
             features: ["Neural network optimization", "Quantum algorithm design", "Pattern recognition"],
-            gradient: "from-white/10 to-white/5"
+            gradient: isDarkMode ? "from-white/10 to-white/5" : "from-black/10 to-black/5"
         },
-        { 
+        {
             title: "Development Platform",
             features: ["High-performance computing", "Distributed processing", "Real-time analytics"],
-            gradient: "from-white/10 to-white/5"
+            gradient: isDarkMode ? "from-white/10 to-white/5" : "from-black/10 to-black/5"
         },
-        { 
+        {
             title: "Innovation Lab",
             features: ["Research & development", "Prototype development", "Technology integration"],
-            gradient: "from-white/10 to-white/5"
+            gradient: isDarkMode ? "from-white/10 to-white/5" : "from-black/10 to-black/5"
         },
     ];
 
+    const bgColorClass = isDarkMode ? 'bg-black' : 'bg-white';
+    const textColorClass = isDarkMode ? 'text-white' : 'text-black';
+    const mutedTextColorClass = isDarkMode ? 'text-gray-300' : 'text-gray-700';
+    const hoverTextColorClass = isDarkMode ? 'hover:text-white' : 'hover:text-black';
+    const cardBgColorClass = isDarkMode ? 'bg-white/5' : 'bg-black/5';
+    const cardBorderColorClass = isDarkMode ? 'border-white/10' : 'border-black/10';
+    const hoverBorderColorClass = isDarkMode ? 'hover:border-white/30' : 'hover:border-black/30';
+    const hoverBgColorClass = isDarkMode ? 'hover:bg-white/10' : 'hover:bg-black/10';
+    const shadowColorClass = isDarkMode ? 'hover:shadow-white/10' : 'hover:shadow-black/10';
+    const checkmarkBgColorClass = isDarkMode ? 'bg-white/20' : 'bg-black/20';
+    const checkmarkHoverBgColorClass = isDarkMode ? 'group-hover/item:bg-white/30' : 'group-hover/item:bg-black/30';
+    const buttonBgColorClass = isDarkMode ? 'bg-white/10' : 'bg-black/10';
+    const buttonHoverBgColorClass = isDarkMode ? 'hover:bg-white/20' : 'hover:bg-black/20';
+    const buttonBorderColorClass = isDarkMode ? 'border-white/20' : 'border-black/20';
+
     return (
-        <Section id="services" className="bg-black">
-            <SectionTitle>Development Platform</SectionTitle>
-            <SectionSubtitle>
+        <Section id="services" className={bgColorClass}>
+            <SectionTitle className={textColorClass}>Development Platform</SectionTitle>
+            <SectionSubtitle className={isDarkMode ? 'text-gray-400' : 'text-gray-600'}>
                 Modular tools for research and development challenges.
             </SectionSubtitle>
-            
+
             <div className="mt-12 grid gap-8 md:grid-cols-1 lg:grid-cols-3">
                 {services.map((service, index) => (
-                    <div 
-                        key={service.title} 
-                        className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 flex flex-col transform transition-all duration-500 hover:-translate-y-2 hover:border-white/30 hover:bg-white/10 hover:shadow-2xl hover:shadow-white/10 overflow-hidden"
+                    <div
+                        key={service.title}
+                        className={`group relative ${cardBgColorClass} backdrop-blur-sm border ${cardBorderColorClass} rounded-xl p-8 flex flex-col transform transition-all duration-500 hover:-translate-y-2 ${hoverBorderColorClass} ${hoverBgColorClass} hover:shadow-2xl ${shadowColorClass} overflow-hidden`}
                         style={{ animationDelay: `${index * 0.2}s` }}
                     >
                         {/* Animated background */}
                         <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-                        
-                        <h3 className="text-xl font-bold text-white mb-6 group-hover:text-white transition-colors duration-300 font-mono">
+
+                        <h3 className={`text-xl font-bold ${textColorClass} mb-6 group-hover:${textColorClass} transition-colors duration-300 font-mono`}>
                             {service.title}
                         </h3>
-                        
-                        <ul className="space-y-4 text-gray-300 flex-grow">
+
+                        <ul className={`space-y-4 ${mutedTextColorClass} flex-grow`}>
                             {service.features.map(feature => (
                                 <li key={feature} className="flex items-start group/item">
-                                    <div className="flex-shrink-0 h-5 w-5 rounded-full bg-white/20 flex items-center justify-center mr-3 mt-0.5 group-hover/item:bg-white/30 transition-colors duration-300">
-                                        <svg className="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <div className={`flex-shrink-0 h-5 w-5 rounded-full ${checkmarkBgColorClass} flex items-center justify-center mr-3 mt-0.5 ${checkmarkHoverBgColorClass} transition-colors duration-300`}>
+                                        <svg className={`h-3 w-3 ${textColorClass}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                                         </svg>
                                     </div>
-                                    <span className="group-hover/item:text-white transition-colors duration-300 font-mono text-sm">{feature}</span>
+                                    <span className={`group-hover/item:${textColorClass} transition-colors duration-300 font-mono text-sm`}>{feature}</span>
                                 </li>
                             ))}
                         </ul>
-                        
-                        <a href="#services" className="mt-6 block text-center bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/20 transition-all duration-300 transform hover:scale-105 font-mono text-sm border border-white/20">
+
+                        <a href="#services" className={`mt-6 block text-center ${buttonBgColorClass} backdrop-blur-sm ${textColorClass} px-6 py-3 rounded-lg font-semibold ${buttonHoverBgColorClass} transition-all duration-300 transform hover:scale-105 font-mono text-sm ${buttonBorderColorClass}`}>
                             Learn More
                         </a>
                     </div>
@@ -571,99 +600,121 @@ const Services = () => {
     );
 };
 
-const Technology = () => (
-    <Section id="technology" className="bg-black">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <SectionTitle className="text-left">Research Infrastructure</SectionTitle>
-                <p className="mt-4 text-sm md:text-base text-gray-400 leading-relaxed font-mono">
-                    Built on cutting-edge technology with enterprise-level scalability and performance for research applications.
-                </p>
-                <ul className="mt-8 space-y-4">
-                    <li className="flex items-center text-gray-300 group">
-                        <div className="flex-shrink-0 h-10 w-10 rounded-lg bg-white/10 flex items-center justify-center mr-4 group-hover:bg-white/20 transition-colors duration-300">
-                            <ShieldCheckIcon />
-                        </div>
-                        <span className="text-sm group-hover:text-white transition-colors duration-300 font-mono">Security & Encryption</span>
-                    </li>
-                    <li className="flex items-center text-gray-300 group">
-                        <div className="flex-shrink-0 h-10 w-10 rounded-lg bg-white/10 flex items-center justify-center mr-4 group-hover:bg-white/20 transition-colors duration-300">
-                            <NetworkIcon />
-                        </div>
-                        <span className="text-sm group-hover:text-white transition-colors duration-300 font-mono">Distributed Architecture</span>
-                    </li>
-                    <li className="flex items-center text-gray-300 group">
-                        <div className="flex-shrink-0 h-10 w-10 rounded-lg bg-white/10 flex items-center justify-center mr-4 group-hover:bg-white/20 transition-colors duration-300">
-                            <ChartBarIcon />
-                        </div>
-                        <span className="text-sm group-hover:text-white transition-colors duration-300 font-mono">High-Performance Analytics</span>
-                    </li>
-                </ul>
-            </div>
-            <div className="relative h-64">
-                <NeuralNetwork />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white font-mono text-xs space-y-1">
-                    <p className="animate-fade-in-1 opacity-0 text-white">[RESEARCH]</p>
-                    <p className="animate-fade-in-2 opacity-0 text-white">[DEVELOPMENT]</p>
-                    <p className="animate-fade-in-3 opacity-0 text-white">[INNOVATION]</p>
+const Technology = () => {
+    const { isDarkMode } = React.useContext(ThemeContext);
+
+    const bgColorClass = isDarkMode ? 'bg-black' : 'bg-white';
+    const textColorClass = isDarkMode ? 'text-white' : 'text-black';
+    const mutedTextColorClass = isDarkMode ? 'text-gray-400' : 'text-gray-600';
+    const listTextColorClass = isDarkMode ? 'text-gray-300' : 'text-gray-700';
+    const hoverTextColorClass = isDarkMode ? 'group-hover:text-white' : 'group-hover:text-black';
+    const iconBgColorClass = isDarkMode ? 'bg-white/10' : 'bg-black/10';
+    const iconHoverBgColorClass = isDarkMode ? 'group-hover:bg-white/20' : 'group-hover:bg-black/20';
+
+    return (
+        <Section id="technology" className={bgColorClass}>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <SectionTitle className={`text-left ${textColorClass}`}>Research Infrastructure</SectionTitle>
+                    <p className={`mt-4 text-sm md:text-base ${mutedTextColorClass} leading-relaxed font-mono`}>
+                        Built on cutting-edge technology with enterprise-level scalability and performance for research applications.
+                    </p>
+                    <ul className="mt-8 space-y-4">
+                        <li className={`flex items-center ${listTextColorClass} group`}>
+                            <div className={`flex-shrink-0 h-10 w-10 rounded-lg ${iconBgColorClass} flex items-center justify-center mr-4 ${iconHoverBgColorClass} transition-colors duration-300`}>
+                                <ShieldCheckIcon />
+                            </div>
+                            <span className={`text-sm ${hoverTextColorClass} transition-colors duration-300 font-mono`}>Security & Encryption</span>
+                        </li>
+                        <li className={`flex items-center ${listTextColorClass} group`}>
+                            <div className={`flex-shrink-0 h-10 w-10 rounded-lg ${iconBgColorClass} flex items-center justify-center mr-4 ${iconHoverBgColorClass} transition-colors duration-300`}>
+                                <NetworkIcon />
+                            </div>
+                            <span className={`text-sm ${hoverTextColorClass} transition-colors duration-300 font-mono`}>Distributed Architecture</span>
+                        </li>
+                        <li className={`flex items-center ${listTextColorClass} group`}>
+                            <div className={`flex-shrink-0 h-10 w-10 rounded-lg ${iconBgColorClass} flex items-center justify-center mr-4 ${iconHoverBgColorClass} transition-colors duration-300`}>
+                                <ChartBarIcon />
+                            </div>
+                            <span className={`text-sm ${hoverTextColorClass} transition-colors duration-300 font-mono`}>High-Performance Analytics</span>
+                        </li>
+                    </ul>
+                </div>
+                <div className="relative h-64">
+                    <NeuralNetwork />
+                    <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${textColorClass} font-mono text-xs space-y-1`}>
+                        <p className="animate-fade-in-1 opacity-0 text-white">[RESEARCH]</p>
+                        <p className="animate-fade-in-2 opacity-0 text-white">[DEVELOPMENT]</p>
+                        <p className="animate-fade-in-3 opacity-0 text-white">[INNOVATION]</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </Section>
-);
+        </Section>
+    );
+};
 
 const CaseStudies = () => {
+    const { isDarkMode } = React.useContext(ThemeContext);
     const studies = [
-        { 
-            title: "Algorithm Research", 
-            improvement: "95%", 
-            field: "efficiency gain", 
+        {
+            title: "Algorithm Research",
+            improvement: "95%",
+            field: "efficiency gain",
             color: "white",
-            gradient: "from-white/10 to-white/5"
+            gradient: isDarkMode ? "from-white/10 to-white/5" : "from-black/10 to-black/5"
         },
-        { 
-            title: "Neural Networks", 
-            improvement: "400%", 
-            field: "performance boost", 
+        {
+            title: "Neural Networks",
+            improvement: "400%",
+            field: "performance boost",
             color: "white",
-            gradient: "from-white/10 to-white/5"
+            gradient: isDarkMode ? "from-white/10 to-white/5" : "from-black/10 to-black/5"
         },
-        { 
-            title: "Development", 
-            improvement: "75%", 
-            field: "faster iteration", 
+        {
+            title: "Development",
+            improvement: "75%",
+            field: "faster iteration",
             color: "white",
-            gradient: "from-white/10 to-white/5"
+            gradient: isDarkMode ? "from-white/10 to-white/5" : "from-black/10 to-black/5"
         },
     ];
 
+    const bgColorClass = isDarkMode ? 'bg-black' : 'bg-white';
+    const textColorClass = isDarkMode ? 'text-white' : 'text-black';
+    const borderColorClass = isDarkMode ? 'border-white/20' : 'border-black/20';
+    const cardBgColorClass = isDarkMode ? 'bg-white/5' : 'bg-black/5';
+    const hoverBorderColorClass = isDarkMode ? 'hover:border-white/40' : 'hover:border-black/40';
+    const hoverBgColorClass = isDarkMode ? 'hover:bg-white/10' : 'hover:bg-black/10';
+    const mutedTextColorClass = isDarkMode ? 'text-gray-400' : 'text-gray-600';
+    const descriptionTextColorClass = isDarkMode ? 'text-gray-500' : 'text-gray-700';
+
     return (
-        <Section id="casestudies" className="bg-black">
-            <SectionTitle>Research Outcomes</SectionTitle>
-            <SectionSubtitle>
+        <Section id="casestudies" className={bgColorClass}>
+            <SectionTitle className={textColorClass}>Research Outcomes</SectionTitle>
+            <SectionSubtitle className={isDarkMode ? 'text-gray-400' : 'text-gray-600'}>
                 Measurable results from our research and development initiatives.
             </SectionSubtitle>
-            
+
             <div className="mt-12 grid gap-6 md:grid-cols-3">
                 {studies.map((study, index) => (
-                    <div 
-                        key={study.title} 
-                        className={`group relative border-t border-white/20 bg-white/5 backdrop-blur-sm rounded-xl p-6 shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 hover:border-white/40 hover:bg-white/10 overflow-hidden`} 
+                    <div
+                        key={study.title}
+                        className={`group relative border-t ${borderColorClass} ${cardBgColorClass} backdrop-blur-sm rounded-xl p-6 shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 ${hoverBorderColorClass} ${hoverBgColorClass} overflow-hidden`}
                     >
                         {/* Animated background */}
                         <div className={`absolute inset-0 bg-gradient-to-br ${study.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-                        
-                        <h3 className="text-lg font-bold text-white mb-4 group-hover:text-white transition-colors duration-300 font-mono">
+
+                        <h3 className={`text-lg font-bold ${textColorClass} mb-4 group-hover:${textColorClass} transition-colors duration-300 font-mono`}>
                             {study.title}
                         </h3>
-                        
-                        <p className="text-4xl font-bold mb-2 text-white">
+
+                        <p className={`text-4xl font-bold mb-2 ${textColorClass}`}>
                             {study.improvement}
                         </p>
-                        
-                        <p className="text-gray-400 text-sm mb-4 font-mono">{study.field}</p>
-                        
-                        <p className="text-gray-500 leading-relaxed font-mono text-sm">
+
+                        <p className={`${mutedTextColorClass} text-sm mb-4 font-mono`}>{study.field}</p>
+
+                        <p className={`${descriptionTextColorClass} leading-relaxed font-mono text-sm`}>
                             Research breakthrough demonstrating significant performance improvements.
                         </p>
                     </div>
@@ -673,35 +724,65 @@ const CaseStudies = () => {
     );
 };
 
-const Footer = () => (
-    <footer className="bg-black border-t border-white/10 relative overflow-hidden">
-        {/* Animated background */}
-        <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0" style={{
-                backgroundImage: `radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%)`,
-                backgroundSize: '50px 50px'
-            }}></div>
-        </div>
-        
-        <div className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <p className="text-xl font-bold text-white mb-6 font-mono">
-                <span className="text-white">PRAXIS</span>
-            </p>
-            <div className="mt-6 flex justify-center space-x-6">
-                <a href="#about" className="text-gray-400 hover:text-white transition-colors duration-300 font-mono text-sm">About</a>
-                <a href="#services" className="text-gray-400 hover:text-white transition-colors duration-300 font-mono text-sm">Services</a>
-                <a href="#technology" className="text-gray-400 hover:text-white transition-colors duration-300 font-mono text-sm">Technology</a>
+const Footer = () => {
+    const { isDarkMode } = React.useContext(ThemeContext);
+
+    const bgColorClass = isDarkMode ? 'bg-black' : 'bg-white';
+    const borderColorClass = isDarkMode ? 'border-white/10' : 'border-black/10';
+    const textColorClass = isDarkMode ? 'text-white' : 'text-black';
+    const linkColorClass = isDarkMode ? 'text-gray-400' : 'text-gray-600';
+    const hoverLinkColorClass = isDarkMode ? 'hover:text-white' : 'hover:text-black';
+    const copyrightColorClass = isDarkMode ? 'text-gray-500' : 'text-gray-700';
+    const radialBgColor = isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
+
+    return (
+        <footer className={`${bgColorClass} border-t ${borderColorClass} relative overflow-hidden`}>
+            {/* Animated background */}
+            <div className="absolute inset-0 opacity-10">
+                <div className="absolute inset-0" style={{
+                    backgroundImage: `radial-gradient(circle at 25% 25%, ${radialBgColor} 0%, transparent 50%)`,
+                    backgroundSize: '50px 50px'
+                }}></div>
             </div>
-            <p className="mt-8 text-sm text-gray-500 font-mono">
-                &copy; {new Date().getFullYear()} Praxis Research & Development. All rights reserved.
-            </p>
-        </div>
-    </footer>
-);
+
+            <div className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <p className={`text-xl font-bold ${textColorClass} mb-6 font-mono`}>
+                    <span className={textColorClass}>PRAXIS</span>
+                </p>
+            <div className="mt-6 flex justify-center space-x-6">
+                <a href="#about" className={`${linkColorClass} ${hoverLinkColorClass} transition-colors duration-300 font-mono text-sm`}>About</a>
+                <a href="#features" className={`${linkColorClass} ${hoverLinkColorClass} transition-colors duration-300 font-mono text-sm`}>Features</a>
+                <a href="#services" className={`${linkColorClass} ${hoverLinkColorClass} transition-colors duration-300 font-mono text-sm`}>Services</a>
+                <a href="#technology" className={`${linkColorClass} ${hoverLinkColorClass} transition-colors duration-300 font-mono text-sm`}>Technology</a>
+            </div>
+                <p className={`mt-8 text-sm ${copyrightColorClass} font-mono`}>
+                    &copy; {new Date().getFullYear()} Praxis Research & Development. All rights reserved.
+                </p>
+            </div>
+        </footer>
+    );
+};
 
 // --- Main App Component ---
 
 export default function App() {
+    // Theme state management
+    const [isDarkMode, setIsDarkMode] = useState(() => {
+        // Check localStorage for saved theme preference
+        const saved = localStorage.getItem('praxis-theme');
+        return saved ? JSON.parse(saved) : true; // Default to dark mode
+    });
+
+    // Toggle theme function
+    const toggleTheme = () => {
+        setIsDarkMode(!isDarkMode);
+    };
+
+    // Save theme preference to localStorage
+    useEffect(() => {
+        localStorage.setItem('praxis-theme', JSON.stringify(isDarkMode));
+    }, [isDarkMode]);
+
     // Effect for scroll-based animations
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
@@ -719,17 +800,25 @@ export default function App() {
         return () => observer.disconnect();
     }, []);
 
+    const themeValue = {
+        isDarkMode,
+        toggleTheme
+    };
+
     return (
-        <div className="bg-black text-white font-mono overflow-x-hidden">
-            <Header />
-            <main>
-                <Hero />
-                <About />
-                <Services />
-                <Technology />
-                <CaseStudies />
-            </main>
-            <Footer />
-        </div>
+        <ThemeContext.Provider value={themeValue}>
+            <Router>
+                <div className={`font-mono overflow-x-hidden transition-colors duration-500 ${
+                    isDarkMode
+                        ? 'bg-black text-white'
+                        : 'bg-white text-black'
+                }`}>
+                    <Routes>
+                        <Route path="/" element={<LandingPage />} />
+                        <Route path="/research" element={<ResearchPage />} />
+                    </Routes>
+                </div>
+            </Router>
+        </ThemeContext.Provider>
     );
 }
