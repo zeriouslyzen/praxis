@@ -850,6 +850,12 @@ const AppContent = () => {
                 
                 {/* Terms & Policy Pages */}
                 <Route path="/terms/integrity" element={<DynamicPage pageKey="terms/integrity" />} />
+        
+        {/* Solutions Routes */}
+        <Route path="/solutions/education" element={<DynamicPage pageKey="solutions/education" />} />
+        <Route path="/solutions/financial" element={<DynamicPage pageKey="solutions/financial" />} />
+        <Route path="/solutions/government" element={<DynamicPage pageKey="solutions/government" />} />
+        <Route path="/solutions/community" element={<DynamicPage pageKey="solutions/community" />} />
                 <Route path="/terms/honesty" element={<DynamicPage pageKey="terms/honesty" />} />
                 <Route path="/terms/transparency" element={<DynamicPage pageKey="terms/transparency" />} />
                 <Route path="/terms/privacy" element={<DynamicPage pageKey="terms/privacy" />} />

@@ -607,110 +607,602 @@ export const pageContent = {
         ]
       },
       {
-        type: 'features',
-        title: 'Who We Seek',
-        features: [
+        type: 'academic',
+        title: 'Revolutionary Research Positions',
+        subtitle: 'Seeking paradigm-challenging researchers who bridge ancient wisdom with cutting-edge science',
+        positions: [
           {
             title: 'AI Researchers & Deep Learning Specialists',
-            description: 'Revolutionary minds who see beyond current AI limitations and challenge the fundamental assumptions of machine intelligence.',
-            icon: null,
-            features: [
+            department: 'Artificial Intelligence Research',
+            level: 'Senior Research Scientist',
+            description: 'Revolutionary minds who see beyond current AI limitations and challenge the fundamental assumptions of machine intelligence through cultural intelligence integration and hyper-aware system design.',
+            requirements: [
               'Challenge conventional AI paradigms',
               'Push boundaries of machine consciousness',
               'Integrate cultural intelligence into AI systems',
               'Develop breakthrough learning algorithms',
               'Question the nature of artificial intelligence',
               'Bridge human and machine cognition'
+            ],
+            benefits: [
+              'Revolutionary research environment',
+              'Cross-disciplinary collaboration',
+              'Ancient wisdom integration opportunities',
+              'Mind-body boundary pushing support',
+              'Cultural intelligence development'
             ]
           },
           {
             title: 'Anthropologists & Archaeologists',
-            description: 'Cultural intelligence specialists who understand human evolution, societal patterns, and the deep structures of human consciousness.',
-            icon: null,
-            features: [
+            department: 'Cultural Intelligence Research',
+            level: 'Research Anthropologist',
+            description: 'Cultural intelligence specialists who understand human evolution, societal patterns, and the deep structures of human consciousness through paradigm-challenging research methods.',
+            requirements: [
               'Decode cultural evolution patterns',
               'Understand human consciousness development',
               'Map societal transformation dynamics',
               'Bridge ancient wisdom with modern science',
               'Analyze cultural intelligence systems',
               'Study human potential boundaries'
+            ],
+            benefits: [
+              'Revolutionary archaeological methodologies',
+              'Cross-cultural intelligence development',
+              'Ancient wisdom research opportunities',
+              'Paradigm-challenging research environment',
+              'Cultural boundary pushing support'
             ]
           },
           {
             title: 'Physicists & Chemists',
-            description: 'Boundary-pushing scientists who question fundamental laws and explore the intersection of consciousness and physical reality.',
-            icon: null,
-            features: [
+            department: 'Revolutionary Science Research',
+            level: 'Senior Research Physicist',
+            description: 'Boundary-pushing scientists who question fundamental laws and explore the intersection of consciousness and physical reality through paradigm-challenging research.',
+            requirements: [
               'Challenge fundamental physics assumptions',
               'Explore consciousness-physics connections',
               'Investigate bioelectric phenomena',
               'Study quantum-classical interfaces',
               'Push boundaries of material science',
               'Integrate consciousness into physical models'
+            ],
+            benefits: [
+              'Mind-body integration research opportunities',
+              'Revolutionary scientific methodologies',
+              'Cross-disciplinary collaboration',
+              'Ancient wisdom integration',
+              'Physical boundary pushing support'
             ]
           },
           {
             title: 'Linguists & Multilingual Specialists',
-            description: 'Cultural intelligence experts who understand the deep structures of human communication and cross-cultural consciousness.',
-            icon: null,
-            features: [
+            department: 'Cultural Communication Research',
+            level: 'Research Linguist',
+            description: 'Cultural intelligence experts who understand the deep structures of human communication and cross-cultural consciousness through revolutionary language processing.',
+            requirements: [
               'Decode linguistic evolution patterns',
               'Map cross-cultural communication systems',
               'Understand consciousness-language connections',
               'Bridge cultural intelligence gaps',
               'Study multilingual cognitive patterns',
               'Develop cultural translation algorithms'
+            ],
+            benefits: [
+              'Revolutionary language processing research',
+              'Cultural intelligence development',
+              'Cross-cultural communication opportunities',
+              'Ancient wisdom integration',
+              'Multidisciplinary collaboration'
             ]
           },
           {
             title: 'Multidisciplinary Visionaries',
-            description: 'High-functioning individuals who naturally integrate across domains and see connections others miss.',
-            icon: null,
-            features: [
+            department: 'Revolutionary Research Synthesis',
+            level: 'Research Director',
+            description: 'High-functioning individuals who naturally integrate across domains and see connections others miss through paradigm-challenging approaches.',
+            requirements: [
               'Natural cross-domain integration',
               'Hyper-awareness of systemic patterns',
               'Intuitive understanding of complex systems',
               'Ability to bridge disparate fields',
               'Cultural intelligence and sensitivity',
               'Paradigm-challenging mindset'
+            ],
+            benefits: [
+              'Revolutionary research synthesis opportunities',
+              'Cross-disciplinary collaboration',
+              'Ancient wisdom integration',
+              'Cultural intelligence development',
+              'Boundary-pushing innovation support'
             ]
           },
           {
             title: 'Mind-Body Integration Specialists',
-            description: 'Researchers who understand the deep connections between consciousness, biology, and human potential.',
-            icon: null,
-            features: [
+            department: 'Consciousness Research',
+            level: 'Research Specialist',
+            description: 'Researchers who understand the deep connections between consciousness, biology, and human potential through revolutionary holistic methodologies.',
+            requirements: [
               'Study consciousness-biology interfaces',
               'Investigate human potential boundaries',
               'Research mind-body integration systems',
               'Explore bioelectric consciousness',
               'Develop holistic research methodologies',
               'Bridge ancient wisdom with modern science'
+            ],
+            benefits: [
+              'Revolutionary health research opportunities',
+              'Mind-body integration support',
+              'Consciousness studies development',
+              'Ancient wisdom integration',
+              'Physical boundary pushing resources'
             ]
           }
         ]
       },
       {
-        type: 'content',
-        title: 'The PRAXIS Mindset',
+        type: 'philosophy',
+        title: 'The PRAXIS Research Philosophy',
+        subtitle: 'Our approach to revolutionary research and paradigm-challenging innovation',
         content: [
           {
-            type: 'paragraph',
-            text: 'We seek individuals who naturally challenge paradigms, possess hyper-awareness of systemic patterns, and refuse to accept conventional limitations. Our researchers push boundaries - both intellectual and physical - through revolutionary approaches to consciousness, culture, and human potential.'
+            type: 'principle',
+            title: 'Paradigm-Challenging Research',
+            description: 'We seek researchers who are not afraid to challenge fundamental assumptions and question established paradigms in their fields.',
+            details: [
+              'Question conventional wisdom',
+              'Challenge established methodologies',
+              'Push boundaries of knowledge',
+              'Integrate ancient wisdom with modern science'
+            ]
           },
           {
-            type: 'paragraph',
-            text: 'If you see patterns others miss, question fundamental assumptions, and possess the cultural intelligence to bridge ancient wisdom with cutting-edge science, you belong at PRAXIS Labs.'
+            type: 'principle',
+            title: 'Cultural Intelligence Integration',
+            description: 'Our research integrates cultural intelligence, respecting diverse perspectives and bridging ancient wisdom with cutting-edge science.',
+            details: [
+              'Cross-cultural research methodologies',
+              'Ancient wisdom integration',
+              'Cultural intelligence development',
+              'Hyper-aware research approaches'
+            ]
+          },
+          {
+            type: 'principle',
+            title: 'Boundary-Pushing Innovation',
+            description: 'We push boundaries both intellectually and physically, integrating mind-body research with revolutionary scientific breakthroughs.',
+            details: [
+              'Intellectual boundary pushing',
+              'Physical boundary exploration',
+              'Mind-body integration research',
+              'Revolutionary breakthrough development'
+            ]
+          }
+        ]
+      },
+      {
+        type: 'application',
+        title: 'Revolutionary Research Application',
+        subtitle: 'Join our paradigm-challenging research mission',
+        description: 'Tell us how you challenge paradigms, what boundaries you push, and how you see the future of human potential. We want to know about your cultural intelligence, multidisciplinary insights, and your vision for revolutionary research.',
+        contact: {
+          email: 'jack@praxislabs.technology',
+          subject: 'Revolutionary Research Proposal - PRAXIS Labs',
+          template: 'Dear PRAXIS Team,\n\nI am writing to propose revolutionary research that challenges conventional paradigms and pushes the boundaries of human potential.\n\nMy Background:\n- [Describe your multidisciplinary expertise]\n- [Explain your paradigm-challenging approach]\n- [Detail your cultural intelligence and awareness]\n\nMy Vision:\n- [How you see the future of your field]\n- [What boundaries you want to push]\n- [Your revolutionary research ideas]\n\nWhy PRAXIS:\n- [Why you want to join our revolutionary mission]\n- [How you align with our boundary-pushing culture]\n\nBest regards,\n[Your Name]'
+        }
+      }
+    ]
+  },
+
+  // Terms & Policy Pages
+  'terms/integrity': {
+    title: 'Terms of Integrity',
+    description: 'PRAXIS Labs Terms of Integrity - Revolutionary commitment to data sovereignty, AI transparency, and human-centric technology that stands in direct opposition to big tech exploitation.',
+    keywords: 'integrity, data sovereignty, AI transparency, human-centric, anti-big tech, revolutionary ethics',
+    sections: [
+      {
+        type: 'hero',
+        title: 'Terms of Integrity',
+        subtitle: 'Revolutionary commitment to data sovereignty, AI transparency, and human-centric technology. We are the antithesis of big tech exploitation.',
+        stats: [
+          { value: '100%', label: 'Data Sovereignty' },
+          { value: 'Zero', label: 'Surveillance' },
+          { value: 'Revolutionary', label: 'Transparency' },
+          { value: 'Human-Centric', label: 'AI Ethics' }
+        ]
+      },
+      {
+        type: 'manifesto',
+        title: 'The PRAXIS Manifesto',
+        content: [
+          {
+            type: 'declaration',
+            text: 'We declare our fundamental opposition to the surveillance capitalism model that has corrupted modern technology.'
+          },
+          {
+            type: 'principle',
+            title: 'Data Sovereignty',
+            text: 'Your data belongs to you. We collect nothing, store nothing, and exploit nothing. Complete user sovereignty over personal information.'
+          },
+          {
+            type: 'principle',
+            title: 'AI Transparency',
+            text: 'Every AI decision must be explainable, every algorithm must be transparent, every training source must be disclosed. No black boxes.'
+          },
+          {
+            type: 'principle',
+            title: 'Human Agency',
+            text: 'Technology must enhance human potential, not diminish it. No behavioral manipulation, no attention harvesting, no dependency creation.'
+          },
+          {
+            type: 'principle',
+            title: 'Consciousness Respect',
+            text: 'We integrate ancient wisdom with cutting-edge science, respecting cultural intelligence and pushing boundaries of human potential.'
+          }
+        ]
+      },
+      {
+        type: 'comparison',
+        title: 'PRAXIS vs Big Tech',
+        sections: [
+          {
+            title: 'Data Practices',
+            praxis: 'Zero data collection. Complete user sovereignty. Radical privacy protection.',
+            bigtech: 'Massive data harvesting. User as product. Surveillance capitalism.'
+          },
+          {
+            title: 'AI Transparency',
+            praxis: 'Open source algorithms. Explainable decisions. Transparent training data.',
+            bigtech: 'Black box systems. Hidden manipulation. Proprietary algorithms.'
+          },
+          {
+            title: 'User Relationship',
+            praxis: 'Human enhancement. Agency preservation. Consciousness respect.',
+            bigtech: 'Attention exploitation. Behavioral manipulation. Dependency creation.'
+          },
+          {
+            title: 'Ethical Framework',
+            praxis: 'Paradigm-challenging. Cultural intelligence. Ancient wisdom integration.',
+            bigtech: 'Profit maximization. Growth at all costs. Corporate control.'
+          }
+        ]
+      },
+      {
+        type: 'legal',
+        title: 'Legal Framework & Enforcement',
+        content: [
+          {
+            type: 'section',
+            title: 'Binding Commitments',
+            text: 'These Terms of Integrity are legally binding and enforceable under international law. We maintain comprehensive legal frameworks that protect user rights, ensure AI transparency, and enforce our revolutionary ethical standards.'
+          },
+          {
+            type: 'section',
+            title: 'Legal Specialization',
+            text: 'Our legal team specializes in technology law, AI ethics, human rights protection, and international data sovereignty regulations. We provide complete legal transparency and user rights protection.'
+          },
+          {
+            type: 'section',
+            title: 'Enforcement Mechanisms',
+            text: 'Our framework ensures that our revolutionary principles are not just aspirational, but legally enforceable commitments. We stand in direct opposition to big tech legal manipulation and corporate control.'
+          }
+        ]
+      }
+    ]
+  },
+
+  // Solutions Pages
+  'solutions/education': {
+    title: 'Education Solutions',
+    description: 'Revolutionary learning enhancement through Iceberg AGI - personalized education that respects cultural diversity and individual learning styles.',
+    keywords: 'education, learning, AI, cultural intelligence, personalized education, ancient wisdom',
+    sections: [
+      {
+        type: 'hero',
+        title: 'Revolutionary Learning Enhancement',
+        subtitle: 'Transform education through Iceberg AGI that respects cultural diversity and individual learning styles',
+        stats: [
+          { value: '100%', label: 'Cultural Respect' },
+          { value: 'Personalized', label: 'Learning Paths' },
+          { value: 'Ancient', label: 'Wisdom Integration' },
+          { value: 'Transparent', label: 'AI Systems' }
+        ]
+      },
+      {
+        type: 'partnership',
+        title: 'Partnership Approach',
+        subtitle: 'Collaborative intelligence that enhances human teaching rather than replacing it',
+        approach: {
+          philosophy: 'We believe in enhancing human educators through AI that respects cultural boundaries and individual learning styles.',
+          benefits: [
+            'Personalized learning paths that adapt to each student',
+            'Cultural intelligence integration for diverse classrooms',
+            'Ancient wisdom synthesis with modern pedagogy',
+            'Transparent AI systems that educators can understand and trust',
+            'Student data sovereignty and privacy protection',
+            'Revolutionary learning outcomes through ethical AI'
+          ]
+        }
+      },
+      {
+        type: 'capabilities',
+        title: 'Revolutionary Education Capabilities',
+        capabilities: [
+          {
+            title: 'Personalized Learning Paths',
+            description: 'Iceberg AGI creates adaptive learning experiences that respect individual student needs and cultural backgrounds.',
+            features: [
+              'Adaptive curriculum that evolves with student progress',
+              'Cultural sensitivity in learning material selection',
+              'Individual learning style recognition and accommodation',
+              'Real-time feedback and adjustment mechanisms'
+            ]
+          },
+          {
+            title: 'Cultural Intelligence Integration',
+            description: 'Bridge ancient wisdom with modern education through culturally-aware AI systems.',
+            features: [
+              'Cross-cultural knowledge synthesis',
+              'Traditional wisdom integration in modern contexts',
+              'Culturally appropriate learning methodologies',
+              'Respect for diverse educational traditions'
+            ]
+          },
+          {
+            title: 'Transparent AI Mentorship',
+            description: 'Students receive AI research assistants that guide them through complex problem-solving with complete transparency.',
+            features: [
+              'Explainable AI decision-making processes',
+              'Student-accessible AI reasoning',
+              'Ethical research guidance and methodology',
+              'Transparent learning outcome predictions'
+            ]
           }
         ]
       },
       {
         type: 'cta',
-        title: 'Ready to Push Boundaries?',
-        subtitle: 'Send your revolutionary research proposal to jack@praxislabs.technology',
-        description: 'Tell us how you challenge paradigms, what boundaries you push, and how you see the future of human potential. We want to know about your cultural intelligence, multidisciplinary insights, and your vision for revolutionary research.',
-        buttonText: 'Send Research Proposal',
-        buttonLink: 'mailto:jack@praxislabs.technology?subject=Revolutionary Research Proposal - PRAXIS Labs&body=Dear PRAXIS Team,%0D%0A%0D%0AI am writing to propose revolutionary research that challenges conventional paradigms and pushes the boundaries of human potential.%0D%0A%0D%0AMy Background:%0D%0A- [Describe your multidisciplinary expertise]%0D%0A- [Explain your paradigm-challenging approach]%0D%0A- [Detail your cultural intelligence and awareness]%0D%0A%0D%0AMy Vision:%0D%0A- [How you see the future of your field]%0D%0A- [What boundaries you want to push]%0D%0A- [Your revolutionary research ideas]%0D%0A%0D%0AWhy PRAXIS:%0D%0A- [Why you want to join our revolutionary mission]%0D%0A- [How you align with our boundary-pushing culture]%0D%0A%0D%0ABest regards,%0D%0A[Your Name]'
+        title: 'Ready to Transform Education?',
+        subtitle: 'Partner with PRAXIS to revolutionize learning through ethical AI',
+        description: 'Join us in creating educational experiences that respect cultural diversity, individual learning styles, and ancient wisdom while leveraging cutting-edge AI technology.',
+        buttonText: 'Explore Education Partnership',
+        buttonLink: 'mailto:jack@praxislabs.technology?subject=Education Partnership Inquiry - PRAXIS Labs&body=Dear PRAXIS Team,%0D%0A%0D%0AI am interested in exploring how PRAXIS can enhance our educational institution through revolutionary AI that respects cultural diversity and individual learning styles.%0D%0A%0D%0AOur Institution:%0D%0A- [Describe your educational institution]%0D%0A- [Explain your current educational challenges]%0D%0A- [Detail your cultural diversity and learning needs]%0D%0A%0D%0AOur Vision:%0D%0A- [How you see AI enhancing education]%0D%0A- [What learning outcomes you want to achieve]%0D%0A- [Your commitment to cultural respect and transparency]%0D%0A%0D%0AWhy PRAXIS:%0D%0A- [Why you want to partner with our revolutionary approach]%0D%0A- [How you align with our ethical AI principles]%0D%0A%0D%0ABest regards,%0D%0A[Your Name]'
+      }
+    ]
+  },
+
+  'solutions/financial': {
+    title: 'Financial Services Solutions',
+    description: 'Ethical AI financial intelligence through Iceberg AGI - transparent, explainable financial analysis that prioritizes user sovereignty and cultural sensitivity.',
+    keywords: 'financial services, AI, ethical finance, transparency, cultural intelligence, user sovereignty',
+    sections: [
+      {
+        type: 'hero',
+        title: 'Ethical AI Financial Intelligence',
+        subtitle: 'Transform financial services through AI that prioritizes user sovereignty and cultural sensitivity',
+        stats: [
+          { value: 'Zero', label: 'Data Exploitation' },
+          { value: '100%', label: 'Transparency' },
+          { value: 'Cultural', label: 'Intelligence' },
+          { value: 'User', label: 'Sovereignty' }
+        ]
+      },
+      {
+        type: 'partnership',
+        title: 'Partnership Approach',
+        subtitle: 'Collaborative intelligence that enhances financial decision-making while maintaining complete transparency',
+        approach: {
+          philosophy: 'We believe in transforming financial services through AI that respects user sovereignty and cultural financial traditions.',
+          benefits: [
+            'Transparent, explainable financial analysis and recommendations',
+            'Cultural intelligence integration for diverse financial needs',
+            'Traditional financial wisdom synthesis with modern fintech',
+            'Complete user data sovereignty and privacy protection',
+            'Ethical risk assessment without surveillance capitalism',
+            'Revolutionary financial inclusion through cultural sensitivity'
+          ]
+        }
+      },
+      {
+        type: 'capabilities',
+        title: 'Revolutionary Financial Capabilities',
+        capabilities: [
+          {
+            title: 'Transparent Financial Analysis',
+            description: 'Iceberg AGI provides completely transparent and explainable financial analysis that users can understand and trust.',
+            features: [
+              'Explainable AI decision-making processes',
+              'User-accessible financial reasoning and logic',
+              'Transparent risk assessment methodologies',
+              'Clear financial recommendation explanations'
+            ]
+          },
+          {
+            title: 'Cultural Financial Intelligence',
+            description: 'Bridge traditional financial wisdom with modern fintech through culturally-aware AI systems.',
+            features: [
+              'Cross-cultural financial tradition integration',
+              'Traditional wisdom synthesis in modern contexts',
+              'Culturally appropriate financial advice and guidance',
+              'Respect for diverse financial practices and beliefs'
+            ]
+          },
+          {
+            title: 'Ethical Risk Assessment',
+            description: 'Advanced pattern recognition for ethical financial decision-making without surveillance or data exploitation.',
+            features: [
+              'Privacy-preserving risk analysis',
+              'Ethical financial pattern recognition',
+              'User-controlled data and decision processes',
+              'Transparent risk assessment criteria'
+            ]
+          }
+        ]
+      },
+      {
+        type: 'cta',
+        title: 'Ready to Transform Financial Services?',
+        subtitle: 'Partner with PRAXIS to revolutionize finance through ethical AI',
+        description: 'Join us in creating financial services that prioritize user sovereignty, cultural sensitivity, and complete transparency while leveraging cutting-edge AI technology.',
+        buttonText: 'Explore Financial Partnership',
+        buttonLink: 'mailto:jack@praxislabs.technology?subject=Financial Services Partnership Inquiry - PRAXIS Labs&body=Dear PRAXIS Team,%0D%0A%0D%0AI am interested in exploring how PRAXIS can enhance our financial services through revolutionary AI that prioritizes user sovereignty and cultural sensitivity.%0D%0A%0D%0AOur Organization:%0D%0A- [Describe your financial institution]%0D%0A- [Explain your current financial service challenges]%0D%0A- [Detail your commitment to user privacy and transparency]%0D%0A%0D%0AOur Vision:%0D%0A- [How you see AI enhancing financial services]%0D%0A- [What financial outcomes you want to achieve]%0D%0A- [Your commitment to ethical AI and user sovereignty]%0D%0A%0D%0AWhy PRAXIS:%0D%0A- [Why you want to partner with our revolutionary approach]%0D%0A- [How you align with our ethical AI principles]%0D%0A%0D%0ABest regards,%0D%0A[Your Name]'
+      }
+    ]
+  },
+
+  'solutions/government': {
+    title: 'Government Solutions',
+    description: 'Transparent governance AI through Iceberg AGI - open, explainable AI systems for public sector decision-making that maintains complete transparency.',
+    keywords: 'government, public sector, AI, transparency, governance, cultural intelligence, public service',
+    sections: [
+      {
+        type: 'hero',
+        title: 'Transparent Governance AI',
+        subtitle: 'Enhance government efficiency through AI that maintains complete transparency and cultural respect',
+        stats: [
+          { value: '100%', label: 'Transparency' },
+          { value: 'Open', label: 'AI Systems' },
+          { value: 'Cultural', label: 'Respect' },
+          { value: 'Public', label: 'Service' }
+        ]
+      },
+      {
+        type: 'partnership',
+        title: 'Partnership Approach',
+        subtitle: 'Collaborative intelligence that enhances public sector decision-making while maintaining complete transparency',
+        approach: {
+          philosophy: 'We believe in enhancing government efficiency through AI that maintains complete transparency and respects diverse cultural perspectives.',
+          benefits: [
+            'Open, explainable AI systems for public sector decision-making',
+            'Cultural policy integration through diverse perspective synthesis',
+            'Transparent governance processes that citizens can understand',
+            'Revolutionary public service enhancement through ethical AI',
+            'Complete transparency in AI decision-making processes',
+            'Cultural intelligence integration in policy development'
+          ]
+        }
+      },
+      {
+        type: 'capabilities',
+        title: 'Revolutionary Government Capabilities',
+        capabilities: [
+          {
+            title: 'Open AI Systems',
+            description: 'Iceberg AGI provides completely open and explainable AI systems that citizens and officials can understand and trust.',
+            features: [
+              'Transparent AI decision-making processes',
+              'Publicly accessible AI reasoning and logic',
+              'Explainable governance AI systems',
+              'Open source AI frameworks for public sector'
+            ]
+          },
+          {
+            title: 'Cultural Policy Integration',
+            description: 'Bridge diverse cultural perspectives in policy development through ancient wisdom synthesis.',
+            features: [
+              'Cross-cultural policy perspective integration',
+              'Traditional wisdom synthesis in modern governance',
+              'Culturally appropriate policy development',
+              'Respect for diverse governance traditions'
+            ]
+          },
+          {
+            title: 'Revolutionary Public Service',
+            description: 'Autonomous systems that enhance citizen services while maintaining complete transparency and cultural respect.',
+            features: [
+              'Enhanced citizen service delivery',
+              'Transparent public service processes',
+              'Cultural sensitivity in public service delivery',
+              'Ethical AI-powered government efficiency'
+            ]
+          }
+        ]
+      },
+      {
+        type: 'cta',
+        title: 'Ready to Transform Government?',
+        subtitle: 'Partner with PRAXIS to revolutionize public sector through transparent AI',
+        description: 'Join us in creating government services that maintain complete transparency, respect cultural diversity, and enhance public service through ethical AI technology.',
+        buttonText: 'Explore Government Partnership',
+        buttonLink: 'mailto:jack@praxislabs.technology?subject=Government Partnership Inquiry - PRAXIS Labs&body=Dear PRAXIS Team,%0D%0A%0D%0AI am interested in exploring how PRAXIS can enhance our government services through revolutionary AI that maintains complete transparency and cultural respect.%0D%0A%0D%0AOur Organization:%0D%0A- [Describe your government agency]%0D%0A- [Explain your current public service challenges]%0D%0A- [Detail your commitment to transparency and cultural diversity]%0D%0A%0D%0AOur Vision:%0D%0A- [How you see AI enhancing government services]%0D%0A- [What public service outcomes you want to achieve]%0D%0A- [Your commitment to transparent AI and cultural respect]%0D%0A%0D%0AWhy PRAXIS:%0D%0A- [Why you want to partner with our revolutionary approach]%0D%0A- [How you align with our ethical AI principles]%0D%0A%0D%0ABest regards,%0D%0A[Your Name]'
+      }
+    ]
+  },
+
+  'solutions/community': {
+    title: 'Community Solutions',
+    description: 'Community intelligence networks through Iceberg AGI - AI that enhances community bonds without surveillance or data exploitation.',
+    keywords: 'community, social connection, AI, cultural intelligence, local knowledge, community networks',
+    sections: [
+      {
+        type: 'hero',
+        title: 'Community Intelligence Networks',
+        subtitle: 'Strengthen communities through AI that respects local culture and enhances human connection',
+        stats: [
+          { value: 'Zero', label: 'Surveillance' },
+          { value: 'Cultural', label: 'Respect' },
+          { value: 'Local', label: 'Knowledge' },
+          { value: 'Human', label: 'Connection' }
+        ]
+      },
+      {
+        type: 'partnership',
+        title: 'Partnership Approach',
+        subtitle: 'Collaborative intelligence that enhances community bonds while respecting local culture and knowledge',
+        approach: {
+          philosophy: 'We believe in strengthening communities through AI that respects local culture and enhances human connection without surveillance or data exploitation.',
+          benefits: [
+            'Local knowledge networks that respect cultural boundaries',
+            'Ancient wisdom integration in modern community solutions',
+            'Revolutionary social connection enhancement through ethical AI',
+            'Community-controlled data and decision processes',
+            'Cultural sensitivity in community technology solutions',
+            'Transparent AI systems that communities can understand and trust'
+          ]
+        }
+      },
+      {
+        type: 'capabilities',
+        title: 'Revolutionary Community Capabilities',
+        capabilities: [
+          {
+            title: 'Local Knowledge Networks',
+            description: 'Iceberg AGI helps build community knowledge networks that respect cultural boundaries and local traditions.',
+            features: [
+              'Community-controlled knowledge sharing systems',
+              'Cultural boundary respect in information sharing',
+              'Local tradition integration in modern solutions',
+              'Community-driven knowledge network development'
+            ]
+          },
+          {
+            title: 'Ancient Wisdom Integration',
+            description: 'Bridge traditional community knowledge with modern technology solutions through culturally-aware AI.',
+            features: [
+              'Traditional wisdom synthesis in modern contexts',
+              'Cultural knowledge preservation and integration',
+              'Ancient community practices in contemporary solutions',
+              'Respect for diverse community traditions and knowledge'
+            ]
+          },
+          {
+            title: 'Revolutionary Social Connection',
+            description: 'AI that enhances community bonds without surveillance or data exploitation, maintaining human connection at the center.',
+            features: [
+              'Privacy-preserving social connection enhancement',
+              'Community-controlled social networking systems',
+              'Cultural sensitivity in social technology solutions',
+              'Human-centered AI that enhances rather than replaces connection'
+            ]
+          }
+        ]
+      },
+      {
+        type: 'cta',
+        title: 'Ready to Transform Your Community?',
+        subtitle: 'Partner with PRAXIS to strengthen communities through ethical AI',
+        description: 'Join us in creating community solutions that respect local culture, enhance human connection, and build knowledge networks without surveillance or data exploitation.',
+        buttonText: 'Explore Community Partnership',
+        buttonLink: 'mailto:jack@praxislabs.technology?subject=Community Partnership Inquiry - PRAXIS Labs&body=Dear PRAXIS Team,%0D%0A%0D%0AI am interested in exploring how PRAXIS can enhance our community through revolutionary AI that respects local culture and enhances human connection.%0D%0A%0D%0AOur Community:%0D%0A- [Describe your community organization]%0D%0A- [Explain your current community challenges]%0D%0A- [Detail your cultural diversity and local knowledge]%0D%0A%0D%0AOur Vision:%0D%0A- [How you see AI enhancing community bonds]%0D%0A- [What community outcomes you want to achieve]%0D%0A- [Your commitment to cultural respect and privacy]%0D%0A%0D%0AWhy PRAXIS:%0D%0A- [Why you want to partner with our revolutionary approach]%0D%0A- [How you align with our ethical AI principles]%0D%0A%0D%0ABest regards,%0D%0A[Your Name]'
       }
     ]
   }

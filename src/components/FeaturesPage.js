@@ -358,10 +358,10 @@ const FeaturesPage = () => {
         }}></div>
       </motion.div>
       
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-12 relative z-10">
         {/* Header Section with Advanced Animations */}
         <motion.div 
-          className="text-center mb-12"
+          className="text-center mb-8"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}

@@ -579,7 +579,7 @@ const AnimatedAbout = () => {
         </div>
 
         {/* Active Module Display */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-64">
           <div>
             <h3 className="text-2xl font-bold text-white mb-4 font-mono">
               {modules[activeModule].title}

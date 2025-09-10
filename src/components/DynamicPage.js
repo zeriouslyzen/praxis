@@ -71,7 +71,14 @@ export const DynamicPage = ({ pageKey, customContent = null }) => {
             />
             {section.content && (
               <div className={`mt-8 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} font-mono text-sm leading-relaxed`}>
-                {section.content}
+                {section.content.map((contentItem, contentIndex) => {
+                  if (typeof contentItem === 'string') {
+                    return <p key={contentIndex} className="mb-4">{contentItem}</p>;
+                  } else if (contentItem && contentItem.type === 'paragraph') {
+                    return <p key={contentIndex} className="mb-4">{contentItem.text}</p>;
+                  }
+                  return null;
+                })}
               </div>
             )}
           </SectionTemplate>
@@ -119,6 +126,351 @@ export const DynamicPage = ({ pageKey, customContent = null }) => {
                   </a>
                 </div>
               )}
+            </div>
+          </SectionTemplate>
+        );
+
+      case 'manifesto':
+        return (
+          <SectionTemplate key={index} delay={index * 0.2}>
+            <div className="max-w-4xl mx-auto">
+              <h2 className={`text-3xl md:text-4xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-12 text-center font-mono`}>
+                {section.title}
+              </h2>
+              <div className="space-y-8">
+                {section.content.map((item, itemIndex) => (
+                  <div key={itemIndex} className={`p-8 rounded-2xl border-2 ${
+                    isDarkMode 
+                      ? 'border-white/20 bg-white/5' 
+                      : 'border-black/20 bg-black/5'
+                  }`}>
+                    {item.type === 'declaration' && (
+                      <div className="text-center">
+                        <p className={`text-xl md:text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} font-mono leading-relaxed`}>
+                          {item.text}
+                        </p>
+                      </div>
+                    )}
+                    {item.type === 'principle' && (
+                      <div>
+                        <h3 className={`text-xl md:text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-4 font-mono`}>
+                          {item.title}
+                        </h3>
+                        <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} font-mono leading-relaxed`}>
+                          {item.text}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </SectionTemplate>
+        );
+
+      case 'comparison':
+        return (
+          <SectionTemplate key={index} delay={index * 0.2}>
+            <div className="max-w-6xl mx-auto">
+              <h2 className={`text-3xl md:text-4xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-12 text-center font-mono`}>
+                {section.title}
+              </h2>
+              <div className="grid gap-8 md:grid-cols-2">
+                {section.sections.map((comparison, compIndex) => (
+                  <div key={compIndex} className={`p-6 rounded-xl border-2 ${
+                    isDarkMode 
+                      ? 'border-white/20 bg-white/5' 
+                      : 'border-black/20 bg-black/5'
+                  }`}>
+                    <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-6 text-center font-mono`}>
+                      {comparison.title}
+                    </h3>
+                    <div className="space-y-4">
+                      <div className={`p-4 rounded-lg ${isDarkMode ? 'bg-green-900/30 border border-green-500/30' : 'bg-green-100 border border-green-300'}`}>
+                        <h4 className={`font-bold ${isDarkMode ? 'text-green-400' : 'text-green-800'} mb-2 font-mono`}>
+                          PRAXIS
+                        </h4>
+                        <p className={`${isDarkMode ? 'text-green-200' : 'text-green-700'} font-mono text-sm`}>
+                          {comparison.praxis}
+                        </p>
+                      </div>
+                      <div className={`p-4 rounded-lg ${isDarkMode ? 'bg-red-900/30 border border-red-500/30' : 'bg-red-100 border border-red-300'}`}>
+                        <h4 className={`font-bold ${isDarkMode ? 'text-red-400' : 'text-red-800'} mb-2 font-mono`}>
+                          Big Tech
+                        </h4>
+                        <p className={`${isDarkMode ? 'text-red-200' : 'text-red-700'} font-mono text-sm`}>
+                          {comparison.bigtech}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </SectionTemplate>
+        );
+
+      case 'legal':
+        return (
+          <SectionTemplate key={index} delay={index * 0.2}>
+            <div className="max-w-4xl mx-auto">
+              <h2 className={`text-3xl md:text-4xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-12 text-center font-mono`}>
+                {section.title}
+              </h2>
+              <div className="space-y-8">
+                {section.content.map((item, itemIndex) => (
+                  <div key={itemIndex} className={`p-8 rounded-2xl border-2 ${
+                    isDarkMode 
+                      ? 'border-white/20 bg-white/5' 
+                      : 'border-black/20 bg-black/5'
+                  }`}>
+                    <h3 className={`text-xl md:text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-4 font-mono`}>
+                      {item.title}
+                    </h3>
+                    <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} font-mono leading-relaxed`}>
+                      {item.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </SectionTemplate>
+        );
+
+      case 'academic':
+        return (
+          <SectionTemplate key={index} delay={index * 0.2}>
+            <div className="max-w-7xl mx-auto">
+              <div className="text-center mb-16">
+                <h2 className={`text-3xl md:text-4xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-6 font-mono`}>
+                  {section.title}
+                </h2>
+                <p className={`text-lg md:text-xl ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} font-mono max-w-4xl mx-auto leading-relaxed`}>
+                  {section.subtitle}
+                </p>
+              </div>
+              <div className="space-y-12">
+                {section.positions.map((position, posIndex) => (
+                  <div key={posIndex} className={`p-10 rounded-3xl border-2 ${
+                    isDarkMode 
+                      ? 'border-white/20 bg-white/5' 
+                      : 'border-black/20 bg-black/5'
+                  }`}>
+                    <div className="mb-8">
+                      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <h3 className={`text-2xl md:text-3xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} font-mono`}>
+                          {position.title}
+                        </h3>
+                        <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'} font-mono`}>
+                          {position.level}
+                        </div>
+                      </div>
+                      <div className={`text-sm ${isDarkMode ? 'text-blue-400' : 'text-blue-600'} font-mono mb-4`}>
+                        {position.department}
+                      </div>
+                      <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} font-mono leading-relaxed`}>
+                        {position.description}
+                      </p>
+                    </div>
+                    
+                    <div className="grid md:grid-cols-2 gap-8">
+                      <div>
+                        <h4 className={`text-lg font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-4 font-mono`}>
+                          Requirements
+                        </h4>
+                        <ul className="space-y-2">
+                          {position.requirements.map((req, reqIndex) => (
+                            <li key={reqIndex} className={`flex items-start ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} font-mono text-sm`}>
+                              <span className={`mr-3 mt-1 ${isDarkMode ? 'text-green-400' : 'text-green-600'}`}>•</span>
+                              {req}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <div>
+                        <h4 className={`text-lg font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-4 font-mono`}>
+                          Benefits
+                        </h4>
+                        <ul className="space-y-2">
+                          {position.benefits.map((benefit, benIndex) => (
+                            <li key={benIndex} className={`flex items-start ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} font-mono text-sm`}>
+                              <span className={`mr-3 mt-1 ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`}>•</span>
+                              {benefit}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </SectionTemplate>
+        );
+
+      case 'philosophy':
+        return (
+          <SectionTemplate key={index} delay={index * 0.2}>
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-16">
+                <h2 className={`text-3xl md:text-4xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-6 font-mono`}>
+                  {section.title}
+                </h2>
+                <p className={`text-lg md:text-xl ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} font-mono max-w-4xl mx-auto leading-relaxed`}>
+                  {section.subtitle}
+                </p>
+              </div>
+              <div className="grid md:grid-cols-3 gap-8">
+                {section.content.map((principle, princIndex) => (
+                  <div key={princIndex} className={`p-8 rounded-2xl border-2 ${
+                    isDarkMode 
+                      ? 'border-white/20 bg-white/5' 
+                      : 'border-black/20 bg-black/5'
+                  }`}>
+                    <h3 className={`text-xl md:text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-4 font-mono`}>
+                      {principle.title}
+                    </h3>
+                    <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} font-mono leading-relaxed mb-6`}>
+                      {principle.description}
+                    </p>
+                    <ul className="space-y-2">
+                      {principle.details.map((detail, detailIndex) => (
+                        <li key={detailIndex} className={`flex items-start ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} font-mono text-sm`}>
+                          <span className={`mr-3 mt-1 ${isDarkMode ? 'text-yellow-400' : 'text-yellow-600'}`}>•</span>
+                          {detail}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </SectionTemplate>
+        );
+
+      case 'application':
+        return (
+          <SectionTemplate key={index} delay={index * 0.2}>
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className={`text-3xl md:text-4xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-6 font-mono`}>
+                {section.title}
+              </h2>
+              <p className={`text-lg md:text-xl ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} font-mono mb-8 leading-relaxed`}>
+                {section.subtitle}
+              </p>
+              <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} font-mono mb-12 leading-relaxed max-w-3xl mx-auto`}>
+                {section.description}
+              </p>
+              
+              <div className={`p-8 rounded-2xl border-2 ${
+                isDarkMode 
+                  ? 'border-white/20 bg-white/5' 
+                  : 'border-black/20 bg-black/5'
+              }`}>
+                <h3 className={`text-xl md:text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-6 font-mono`}>
+                  Contact Information
+                </h3>
+                <div className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} font-mono mb-8`}>
+                  Email: <span className={`${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`}>{section.contact.email}</span>
+                </div>
+                <a
+                  href={`mailto:${section.contact.email}?subject=${encodeURIComponent(section.contact.subject)}&body=${encodeURIComponent(section.contact.template)}`}
+                  className={`inline-flex items-center px-8 py-4 rounded-lg font-mono font-semibold text-sm transition-all duration-300 transform hover:scale-105 ${
+                    isDarkMode 
+                      ? 'bg-white text-black hover:bg-gray-200 hover:shadow-white/20' 
+                      : 'bg-black text-white hover:bg-gray-800 hover:shadow-black/20'
+                  } hover:shadow-2xl`}
+                >
+                  Send Research Proposal
+                </a>
+              </div>
+            </div>
+          </SectionTemplate>
+        );
+
+      case 'partnership':
+        return (
+          <SectionTemplate key={index} delay={index * 0.2}>
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-20">
+                <h2 className={`text-3xl md:text-4xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-6 font-mono`}>
+                  {section.title}
+                </h2>
+                <p className={`text-lg md:text-xl ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} font-mono max-w-4xl mx-auto leading-relaxed`}>
+                  {section.subtitle}
+                </p>
+              </div>
+              
+              <div className={`p-12 rounded-3xl border-2 ${
+                isDarkMode 
+                  ? 'border-white/20 bg-white/5' 
+                  : 'border-black/20 bg-black/5'
+              }`}>
+                <div className="mb-12">
+                  <h3 className={`text-xl md:text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-6 font-mono`}>
+                    Our Philosophy
+                  </h3>
+                  <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} font-mono leading-relaxed`}>
+                    {section.approach.philosophy}
+                  </p>
+                </div>
+                
+                <div>
+                  <h3 className={`text-xl md:text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-8 font-mono`}>
+                    Partnership Benefits
+                  </h3>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {section.approach.benefits.map((benefit, benefitIndex) => (
+                      <div key={benefitIndex} className={`flex items-start ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} font-mono`}>
+                        <span className={`mr-4 mt-1 ${isDarkMode ? 'text-green-400' : 'text-green-600'}`}>•</span>
+                        <span className="text-sm leading-relaxed">{benefit}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SectionTemplate>
+        );
+
+      case 'capabilities':
+        return (
+          <SectionTemplate key={index} delay={index * 0.2}>
+            <div className="max-w-7xl mx-auto">
+              <div className="text-center mb-20">
+                <h2 className={`text-3xl md:text-4xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-6 font-mono`}>
+                  {section.title}
+                </h2>
+              </div>
+              
+              <div className="space-y-16">
+                {section.capabilities.map((capability, capIndex) => (
+                  <div key={capIndex} className={`p-12 rounded-3xl border-2 ${
+                    isDarkMode 
+                      ? 'border-white/20 bg-white/5' 
+                      : 'border-black/20 bg-black/5'
+                  }`}>
+                    <div className="mb-8">
+                      <h3 className={`text-2xl md:text-3xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-4 font-mono`}>
+                        {capability.title}
+                      </h3>
+                      <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} font-mono leading-relaxed`}>
+                        {capability.description}
+                      </p>
+                    </div>
+                    
+                    <div className="grid md:grid-cols-2 gap-6">
+                      {capability.features.map((feature, featureIndex) => (
+                        <div key={featureIndex} className={`flex items-start ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} font-mono`}>
+                          <span className={`mr-4 mt-1 ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`}>•</span>
+                          <span className="text-sm leading-relaxed">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </SectionTemplate>
         );
