@@ -90,6 +90,39 @@ export const DynamicPage = ({ pageKey, customContent = null }) => {
           </SectionTemplate>
         );
 
+      case 'cta':
+        return (
+          <SectionTemplate key={index} delay={index * 0.2}>
+            <div className="text-center">
+              <ContentBlock
+                title={section.title}
+                subtitle={section.subtitle}
+                titleSize="text-2xl md:text-3xl lg:text-4xl"
+                subtitleSize="text-lg md:text-xl"
+              />
+              {section.description && (
+                <p className={`mt-6 max-w-3xl mx-auto ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} font-mono text-sm leading-relaxed`}>
+                  {section.description}
+                </p>
+              )}
+              {section.buttonText && section.buttonLink && (
+                <div className="mt-8">
+                  <a
+                    href={section.buttonLink}
+                    className={`inline-flex items-center px-8 py-4 rounded-lg font-mono font-semibold text-sm transition-all duration-300 transform hover:scale-105 ${
+                      isDarkMode 
+                        ? 'bg-white text-black hover:bg-gray-200 hover:shadow-white/20' 
+                        : 'bg-black text-white hover:bg-gray-800 hover:shadow-black/20'
+                    } hover:shadow-2xl`}
+                  >
+                    {section.buttonText}
+                  </a>
+                </div>
+              )}
+            </div>
+          </SectionTemplate>
+        );
+
       default:
         return null;
     }

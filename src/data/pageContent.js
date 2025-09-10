@@ -587,6 +587,132 @@ export const pageContent = {
         ]
       }
     ]
+  },
+
+  // Explore Pages
+  'careers': {
+    title: 'Careers',
+    description: 'Join PRAXIS Labs - Revolutionary research positions for paradigm-challenging minds pushing the boundaries of human potential and scientific discovery.',
+    keywords: 'careers, AI research, deep learning, multidisciplinary, paradigm challengers, cultural intelligence, mind-body research',
+    sections: [
+      {
+        type: 'hero',
+        title: 'Join the Revolution',
+        subtitle: 'We seek paradigm-challenging minds who push physical and intellectual boundaries. If you question everything, see patterns others miss, and refuse to accept conventional limits, you belong here.',
+        stats: [
+          { value: 'Revolutionary', label: 'Research Positions' },
+          { value: 'Paradigm', label: 'Challenging Minds' },
+          { value: 'Boundary', label: 'Pushing Culture' },
+          { value: 'Multidisciplinary', label: 'Intelligence' }
+        ]
+      },
+      {
+        type: 'features',
+        title: 'Who We Seek',
+        features: [
+          {
+            title: 'AI Researchers & Deep Learning Specialists',
+            description: 'Revolutionary minds who see beyond current AI limitations and challenge the fundamental assumptions of machine intelligence.',
+            icon: null,
+            features: [
+              'Challenge conventional AI paradigms',
+              'Push boundaries of machine consciousness',
+              'Integrate cultural intelligence into AI systems',
+              'Develop breakthrough learning algorithms',
+              'Question the nature of artificial intelligence',
+              'Bridge human and machine cognition'
+            ]
+          },
+          {
+            title: 'Anthropologists & Archaeologists',
+            description: 'Cultural intelligence specialists who understand human evolution, societal patterns, and the deep structures of human consciousness.',
+            icon: null,
+            features: [
+              'Decode cultural evolution patterns',
+              'Understand human consciousness development',
+              'Map societal transformation dynamics',
+              'Bridge ancient wisdom with modern science',
+              'Analyze cultural intelligence systems',
+              'Study human potential boundaries'
+            ]
+          },
+          {
+            title: 'Physicists & Chemists',
+            description: 'Boundary-pushing scientists who question fundamental laws and explore the intersection of consciousness and physical reality.',
+            icon: null,
+            features: [
+              'Challenge fundamental physics assumptions',
+              'Explore consciousness-physics connections',
+              'Investigate bioelectric phenomena',
+              'Study quantum-classical interfaces',
+              'Push boundaries of material science',
+              'Integrate consciousness into physical models'
+            ]
+          },
+          {
+            title: 'Linguists & Multilingual Specialists',
+            description: 'Cultural intelligence experts who understand the deep structures of human communication and cross-cultural consciousness.',
+            icon: null,
+            features: [
+              'Decode linguistic evolution patterns',
+              'Map cross-cultural communication systems',
+              'Understand consciousness-language connections',
+              'Bridge cultural intelligence gaps',
+              'Study multilingual cognitive patterns',
+              'Develop cultural translation algorithms'
+            ]
+          },
+          {
+            title: 'Multidisciplinary Visionaries',
+            description: 'High-functioning individuals who naturally integrate across domains and see connections others miss.',
+            icon: null,
+            features: [
+              'Natural cross-domain integration',
+              'Hyper-awareness of systemic patterns',
+              'Intuitive understanding of complex systems',
+              'Ability to bridge disparate fields',
+              'Cultural intelligence and sensitivity',
+              'Paradigm-challenging mindset'
+            ]
+          },
+          {
+            title: 'Mind-Body Integration Specialists',
+            description: 'Researchers who understand the deep connections between consciousness, biology, and human potential.',
+            icon: null,
+            features: [
+              'Study consciousness-biology interfaces',
+              'Investigate human potential boundaries',
+              'Research mind-body integration systems',
+              'Explore bioelectric consciousness',
+              'Develop holistic research methodologies',
+              'Bridge ancient wisdom with modern science'
+            ]
+          }
+        ]
+      },
+      {
+        type: 'content',
+        title: 'The PRAXIS Mindset',
+        content: [
+          {
+            type: 'paragraph',
+            text: 'We seek individuals who naturally challenge paradigms, possess hyper-awareness of systemic patterns, and refuse to accept conventional limitations. Our researchers push boundaries - both intellectual and physical - through revolutionary approaches to consciousness, culture, and human potential.'
+          },
+          {
+            type: 'paragraph',
+            text: 'If you see patterns others miss, question fundamental assumptions, and possess the cultural intelligence to bridge ancient wisdom with cutting-edge science, you belong at PRAXIS Labs.'
+          }
+        ]
+      },
+      {
+        type: 'cta',
+        title: 'Ready to Push Boundaries?',
+        subtitle: 'Send your revolutionary research proposal to jack@praxislabs.technology',
+        description: 'Tell us how you challenge paradigms, what boundaries you push, and how you see the future of human potential. We want to know about your cultural intelligence, multidisciplinary insights, and your vision for revolutionary research.',
+        buttonText: 'Send Research Proposal',
+        buttonLink: 'mailto:jack@praxislabs.technology?subject=Revolutionary Research Proposal - PRAXIS Labs&body=Dear PRAXIS Team,%0D%0A%0D%0AI am writing to propose revolutionary research that challenges conventional paradigms and pushes the boundaries of human potential.%0D%0A%0D%0AMy Background:%0D%0A- [Describe your multidisciplinary expertise]%0D%0A- [Explain your paradigm-challenging approach]%0D%0A- [Detail your cultural intelligence and awareness]%0D%0A%0D%0AMy Vision:%0D%0A- [How you see the future of your field]%0D%0A- [What boundaries you want to push]%0D%0A- [Your revolutionary research ideas]%0D%0A%0D%0AWhy PRAXIS:%0D%0A- [Why you want to join our revolutionary mission]%0D%0A- [How you align with our boundary-pushing culture]%0D%0A%0D%0ABest regards,%0D%0A[Your Name]'
+      }
+    ]
   }
 };
 
