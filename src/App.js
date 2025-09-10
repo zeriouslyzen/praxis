@@ -1,12 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AnimatedAbout from './components/AnimatedAbout';
-import FeaturesPage from './components/FeaturesPage';
+import { AppProvider, ThemeContext, useApp, LegacyThemeProvider } from './contexts/AppContext';
+import ErrorBoundary from './components/ErrorBoundary';
+import { SEO, usePageSEO } from './components/SEO';
 import LandingPage from './pages/LandingPage';
 import ResearchPage from './pages/ResearchPage';
-
-// Theme context
-export const ThemeContext = React.createContext();
+import EngineeringPage from './pages/EngineeringPage';
+import AboutPage from './pages/AboutPage';
+import ServicesPage from './pages/ServicesPage';
+import AlgorithmResearchPage from './pages/AlgorithmResearchPage';
+import DevelopmentPlatformPage from './pages/DevelopmentPlatformPage';
+import InnovationLabPage from './pages/InnovationLabPage';
+import DynamicPage, { ResearchPublicationsPage } from './components/DynamicPage';
 
 // --- Helper Components ---
 
@@ -765,23 +770,9 @@ const Footer = () => {
 
 // --- Main App Component ---
 
-export default function App() {
-    // Theme state management
-    const [isDarkMode, setIsDarkMode] = useState(() => {
-        // Check localStorage for saved theme preference
-        const saved = localStorage.getItem('praxis-theme');
-        return saved ? JSON.parse(saved) : true; // Default to dark mode
-    });
-
-    // Toggle theme function
-    const toggleTheme = () => {
-        setIsDarkMode(!isDarkMode);
-    };
-
-    // Save theme preference to localStorage
-    useEffect(() => {
-        localStorage.setItem('praxis-theme', JSON.stringify(isDarkMode));
-    }, [isDarkMode]);
+const AppContent = () => {
+    const { state } = useApp();
+    const { isDarkMode } = state.theme;
 
     // Effect for scroll-based animations
     useEffect(() => {
@@ -800,25 +791,87 @@ export default function App() {
         return () => observer.disconnect();
     }, []);
 
-    const themeValue = {
-        isDarkMode,
-        toggleTheme
-    };
-
     return (
-        <ThemeContext.Provider value={themeValue}>
-            <Router>
-                <div className={`font-mono overflow-x-hidden transition-colors duration-500 ${
-                    isDarkMode
-                        ? 'bg-black text-white'
-                        : 'bg-white text-black'
-                }`}>
-                    <Routes>
-                        <Route path="/" element={<LandingPage />} />
-                        <Route path="/research" element={<ResearchPage />} />
-                    </Routes>
-                </div>
-            </Router>
-        </ThemeContext.Provider>
+        <div className={`font-mono overflow-x-hidden transition-colors duration-500 ${
+            isDarkMode
+                ? 'bg-black text-white'
+                : 'bg-white text-black'
+        }`}>
+            <Routes>
+                {/* Main Pages */}
+                <Route path="/" element={<LandingPage />} />
+                <Route path="/research" element={<ResearchPage />} />
+                <Route path="/engineering" element={<EngineeringPage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/services" element={<ServicesPage />} />
+                <Route path="/algorithm-research" element={<AlgorithmResearchPage />} />
+                <Route path="/development-platform" element={<DevelopmentPlatformPage />} />
+                <Route path="/innovation-lab" element={<InnovationLabPage />} />
+                
+                {/* Product Pages */}
+                <Route path="/iceberg-overview" element={<DynamicPage pageKey="iceberg-overview" />} />
+                <Route path="/iceberg-protocol" element={<DynamicPage pageKey="iceberg-protocol" />} />
+                <Route path="/platform" element={<DynamicPage pageKey="platform" />} />
+                <Route path="/enterprise" element={<DynamicPage pageKey="enterprise" />} />
+                
+                {/* Research Pages */}
+                <Route path="/research-index" element={<DynamicPage pageKey="research-index" />} />
+                <Route path="/research/publications" element={<ResearchPublicationsPage />} />
+                <Route path="/research/methodology" element={<DynamicPage pageKey="research/methodology" />} />
+                
+                {/* Models Pages */}
+                <Route path="/models/thesidia" element={<DynamicPage pageKey="models/thesidia" />} />
+                <Route path="/models/iceberg" element={<DynamicPage pageKey="models/iceberg" />} />
+                <Route path="/models/katana" element={<DynamicPage pageKey="models/katana" />} />
+                <Route path="/models/ice-nano" element={<DynamicPage pageKey="models/ice-nano" />} />
+                
+                {/* Transparency Pages */}
+                <Route path="/transparency/data" element={<DynamicPage pageKey="transparency/data" />} />
+                <Route path="/transparency/scaling" element={<DynamicPage pageKey="transparency/scaling" />} />
+                <Route path="/transparency/safety" element={<DynamicPage pageKey="transparency/safety" />} />
+                <Route path="/transparency/ethics" element={<DynamicPage pageKey="transparency/ethics" />} />
+                
+                {/* Solutions Pages */}
+                <Route path="/solutions/education" element={<DynamicPage pageKey="solutions/education" />} />
+                <Route path="/solutions/financial" element={<DynamicPage pageKey="solutions/financial" />} />
+                <Route path="/solutions/government" element={<DynamicPage pageKey="solutions/government" />} />
+                <Route path="/solutions/community" element={<DynamicPage pageKey="solutions/community" />} />
+                
+                {/* Learn Pages */}
+                <Route path="/learn/labs" element={<DynamicPage pageKey="learn/labs" />} />
+                <Route path="/learn/alliance" element={<DynamicPage pageKey="learn/alliance" />} />
+                <Route path="/learn/partners" element={<DynamicPage pageKey="learn/partners" />} />
+                <Route path="/learn/stories" element={<DynamicPage pageKey="learn/stories" />} />
+                
+                {/* Explore Pages */}
+                <Route path="/careers" element={<DynamicPage pageKey="careers" />} />
+                <Route path="/events" element={<DynamicPage pageKey="events" />} />
+                <Route path="/news" element={<DynamicPage pageKey="news" />} />
+                
+                {/* Terms & Policy Pages */}
+                <Route path="/terms/integrity" element={<DynamicPage pageKey="terms/integrity" />} />
+                <Route path="/terms/honesty" element={<DynamicPage pageKey="terms/honesty" />} />
+                <Route path="/terms/transparency" element={<DynamicPage pageKey="terms/transparency" />} />
+                <Route path="/terms/privacy" element={<DynamicPage pageKey="terms/privacy" />} />
+                
+                {/* 404 Fallback */}
+                <Route path="*" element={<DynamicPage pageKey="404" />} />
+            </Routes>
+        </div>
+    );
+};
+
+export default function App() {
+    return (
+        <AppProvider>
+            <LegacyThemeProvider>
+                <ErrorBoundary>
+                    <Router>
+                        <SEO {...usePageSEO('home')} />
+                        <AppContent />
+                    </Router>
+                </ErrorBoundary>
+            </LegacyThemeProvider>
+        </AppProvider>
     );
 }

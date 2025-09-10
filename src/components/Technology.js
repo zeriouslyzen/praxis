@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeContext } from '../App';
+import { ThemeContext } from '../contexts/AppContext';
 
 // Icon component for consistent styling
 const Icon = ({ path, className = "w-6 h-6" }) => (

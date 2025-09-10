@@ -1,106 +1,230 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { ThemeContext } from '../App';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import { ThemeContext } from '../contexts/AppContext';
 
-// Feature Category Component
-const FeatureCategory = ({ title, description, features, icon, gradient }) => {
+// Feature Category Component with Advanced Animations
+const FeatureCategory = ({ title, description, features, icon, gradient, index }) => {
   const { isDarkMode } = React.useContext(ThemeContext);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
   
   const bgColorClass = isDarkMode ? 'bg-black' : 'bg-white';
   const textColorClass = isDarkMode ? 'text-white' : 'text-black';
   const mutedTextColorClass = isDarkMode ? 'text-gray-400' : 'text-gray-600';
-  const cardBgColorClass = isDarkMode ? 'bg-white/5' : 'bg-black/5';
-  const borderColorClass = isDarkMode ? 'border-white/10' : 'border-black/10';
-  const hoverBorderColorClass = isDarkMode ? 'hover:border-white/30' : 'hover:border-black/30';
-  const hoverBgColorClass = isDarkMode ? 'hover:bg-white/10' : 'hover:bg-black/10';
-  const shadowColorClass = isDarkMode ? 'hover:shadow-white/10' : 'hover:shadow-black/10';
+  const cardBgColorClass = isDarkMode ? 'bg-white/3' : 'bg-black/3';
+  const borderColorClass = isDarkMode ? 'border-white/5' : 'border-black/5';
+  const hoverBorderColorClass = isDarkMode ? 'hover:border-white/20' : 'hover:border-black/20';
+  const hoverBgColorClass = isDarkMode ? 'hover:bg-white/5' : 'hover:bg-black/5';
+  const shadowColorClass = isDarkMode ? 'hover:shadow-white/5' : 'hover:shadow-black/5';
 
   return (
-    <div className={`${cardBgColorClass} backdrop-blur-sm border ${borderColorClass} rounded-xl p-8 transition-all duration-500 hover:-translate-y-2 ${hoverBorderColorClass} ${hoverBgColorClass} hover:shadow-2xl ${shadowColorClass} overflow-hidden`}>
-      {/* Animated background */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 60, scale: 0.95 }}
+      animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 60, scale: 0.95 }}
+      transition={{ 
+        duration: 0.6, 
+        delay: index * 0.1,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }}
+      whileHover={{ 
+        y: -8, 
+        scale: 1.02,
+        transition: { duration: 0.3, ease: "easeOut" }
+      }}
+      className={`group relative ${cardBgColorClass} backdrop-blur-xl border ${borderColorClass} rounded-2xl p-6 transition-all duration-500 ${hoverBorderColorClass} ${hoverBgColorClass} hover:shadow-2xl ${shadowColorClass} overflow-hidden`}
+    >
+      {/* Animated background with glassmorphism */}
+      <motion.div 
+        className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0`}
+        whileHover={{ opacity: 0.1 }}
+        transition={{ duration: 0.4 }}
+      />
+      
+      {/* Floating particles effect */}
+      <motion.div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100"
+        initial={{ opacity: 0 }}
+        whileHover={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+      >
+        {[...Array(3)].map((_, i) => (
+          <motion.div
+            key={i}
+            className={`absolute w-1 h-1 ${isDarkMode ? 'bg-white/30' : 'bg-black/30'} rounded-full`}
+            style={{
+              left: `${20 + i * 30}%`,
+              top: `${30 + i * 20}%`,
+            }}
+            animate={{
+              y: [0, -10, 0],
+              opacity: [0.3, 0.8, 0.3],
+            }}
+            transition={{
+              duration: 2 + i * 0.5,
+              repeat: Infinity,
+              delay: i * 0.3,
+            }}
+          />
+        ))}
+      </motion.div>
       
       <div className="relative z-10">
-        <div className="flex items-center mb-6">
-          <div className={`p-3 rounded-lg ${cardBgColorClass} mr-4`}>
+        <motion.div 
+          className="flex items-center mb-4"
+          initial={{ x: -20, opacity: 0 }}
+          animate={isInView ? { x: 0, opacity: 1 } : { x: -20, opacity: 0 }}
+          transition={{ delay: index * 0.1 + 0.2, duration: 0.5 }}
+        >
+          <motion.div 
+            className={`p-2 rounded-xl ${cardBgColorClass} mr-3`}
+            whileHover={{ rotate: 5, scale: 1.1 }}
+            transition={{ duration: 0.2 }}
+          >
             {icon}
-          </div>
-          <h3 className={`text-2xl font-bold ${textColorClass} font-mono`}>
+          </motion.div>
+          <h3 className={`text-xl font-bold ${textColorClass} font-mono`}>
             {title}
           </h3>
-        </div>
+        </motion.div>
         
-        <p className={`${mutedTextColorClass} mb-6 leading-relaxed font-mono`}>
+        <motion.p 
+          className={`${mutedTextColorClass} mb-5 leading-relaxed font-mono text-sm`}
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ delay: index * 0.1 + 0.3, duration: 0.5 }}
+        >
           {description}
-        </p>
+        </motion.p>
         
-        <div className="space-y-4">
-          {features.map((feature, index) => (
-            <div key={index} className="flex items-start group/item">
-              <div className={`flex-shrink-0 h-5 w-5 rounded-full ${isDarkMode ? 'bg-white/20' : 'bg-black/20'} flex items-center justify-center mr-3 mt-0.5 ${isDarkMode ? 'group-hover/item:bg-white/30' : 'group-hover/item:bg-black/30'} transition-colors duration-300`}>
-                <svg className={`h-3 w-3 ${textColorClass}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div className="space-y-3">
+          {features.map((feature, featureIndex) => (
+            <motion.div 
+              key={featureIndex} 
+              className="flex items-start group/item"
+              initial={{ x: -20, opacity: 0 }}
+              animate={isInView ? { x: 0, opacity: 1 } : { x: -20, opacity: 0 }}
+              transition={{ 
+                delay: index * 0.1 + 0.4 + featureIndex * 0.1, 
+                duration: 0.4 
+              }}
+            >
+              <motion.div 
+                className={`flex-shrink-0 h-4 w-4 rounded-full ${isDarkMode ? 'bg-white/15' : 'bg-black/15'} flex items-center justify-center mr-3 mt-0.5 ${isDarkMode ? 'group-hover/item:bg-white/25' : 'group-hover/item:bg-black/25'} transition-colors duration-300`}
+                whileHover={{ scale: 1.2, rotate: 180 }}
+                transition={{ duration: 0.2 }}
+              >
+                <svg className={`h-2.5 w-2.5 ${textColorClass}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                 </svg>
-              </div>
-              <span className={`${mutedTextColorClass} group-hover/item:${textColorClass} transition-colors duration-300 font-mono text-sm`}>
+              </motion.div>
+              <span className={`${mutedTextColorClass} group-hover/item:${textColorClass} transition-colors duration-300 font-mono text-xs`}>
                 {feature}
               </span>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
-// Research Capability Component
-const ResearchCapability = ({ title, description, metrics, icon }) => {
+// Research Capability Component with Subtle Animations
+const ResearchCapability = ({ title, description, metrics, icon, index }) => {
   const { isDarkMode } = React.useContext(ThemeContext);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
   
   const textColorClass = isDarkMode ? 'text-white' : 'text-black';
   const mutedTextColorClass = isDarkMode ? 'text-gray-400' : 'text-gray-600';
-  const cardBgColorClass = isDarkMode ? 'bg-white/5' : 'bg-black/5';
-  const borderColorClass = isDarkMode ? 'border-white/10' : 'border-black/10';
+  const cardBgColorClass = isDarkMode ? 'bg-white/2' : 'bg-black/2';
+  const borderColorClass = isDarkMode ? 'border-white/5' : 'border-black/5';
 
   return (
-    <div className={`${cardBgColorClass} backdrop-blur-sm border ${borderColorClass} rounded-xl p-6 transition-all duration-300 hover:scale-105`}>
-      <div className="flex items-center mb-4">
-        <div className={`p-2 rounded-lg ${cardBgColorClass} mr-3`}>
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{ 
+        duration: 0.5, 
+        delay: index * 0.1,
+        ease: "easeOut"
+      }}
+      whileHover={{ 
+        scale: 1.03,
+        transition: { duration: 0.2 }
+      }}
+      className={`${cardBgColorClass} backdrop-blur-xl border ${borderColorClass} rounded-xl p-5 transition-all duration-300`}
+    >
+      <motion.div 
+        className="flex items-center mb-3"
+        initial={{ x: -10, opacity: 0 }}
+        animate={isInView ? { x: 0, opacity: 1 } : { x: -10, opacity: 0 }}
+        transition={{ delay: index * 0.1 + 0.1, duration: 0.4 }}
+      >
+        <motion.div 
+          className={`p-1.5 rounded-lg ${cardBgColorClass} mr-3`}
+          whileHover={{ rotate: 5 }}
+          transition={{ duration: 0.2 }}
+        >
           {icon}
-        </div>
-        <h4 className={`text-lg font-bold ${textColorClass} font-mono`}>
+        </motion.div>
+        <h4 className={`text-base font-bold ${textColorClass} font-mono`}>
           {title}
         </h4>
-      </div>
+      </motion.div>
       
-      <p className={`${mutedTextColorClass} mb-4 text-sm leading-relaxed font-mono`}>
+      <motion.p 
+        className={`${mutedTextColorClass} mb-3 text-xs leading-relaxed font-mono`}
+        initial={{ opacity: 0 }}
+        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ delay: index * 0.1 + 0.2, duration: 0.4 }}
+      >
         {description}
-      </p>
+      </motion.p>
       
       {metrics && (
-        <div className="flex justify-between items-center">
-          {metrics.map((metric, index) => (
-            <div key={index} className="text-center">
-              <div className={`text-2xl font-bold ${textColorClass} font-mono`}>
+        <motion.div 
+          className="flex justify-between items-center"
+          initial={{ y: 10, opacity: 0 }}
+          animate={isInView ? { y: 0, opacity: 1 } : { y: 10, opacity: 0 }}
+          transition={{ delay: index * 0.1 + 0.3, duration: 0.4 }}
+        >
+          {metrics.map((metric, metricIndex) => (
+            <motion.div 
+              key={metricIndex} 
+              className="text-center"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className={`text-xl font-bold ${textColorClass} font-mono`}>
                 {metric.value}
               </div>
               <div className={`text-xs ${mutedTextColorClass} font-mono`}>
                 {metric.label}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       )}
-    </div>
+    </motion.div>
   );
 };
 
-// Main Features Page Component
+// Main Features Page Component with Advanced Effects
 const FeaturesPage = () => {
   const { isDarkMode } = React.useContext(ThemeContext);
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
   
-  const bgColorClass = isDarkMode ? 'bg-black' : 'bg-white';
   const textColorClass = isDarkMode ? 'text-white' : 'text-black';
   const mutedTextColorClass = isDarkMode ? 'text-gray-400' : 'text-gray-600';
+  
+  // Parallax effects
+  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   // Feature categories with compelling but non-revealing descriptions
   const featureCategories = [
@@ -221,30 +345,80 @@ const FeaturesPage = () => {
   ];
 
   return (
-    <div className={`min-h-screen ${bgColorClass} pt-20`}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* Header Section */}
-        <div className="text-center mb-16">
-          <h1 className={`text-4xl md:text-5xl lg:text-6xl font-mono font-bold ${textColorClass} tracking-tight leading-tight mb-6`}>
+    <div ref={containerRef} className={`min-h-screen ${isDarkMode ? 'bg-black' : 'bg-white'} pt-20 pb-48 relative`}>
+      {/* Animated background elements */}
+      <motion.div 
+        className="absolute inset-0 opacity-5 -z-10"
+        style={{ y }}
+      >
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 20% 20%, ${isDarkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)'} 0%, transparent 50%),
+                          radial-gradient(circle at 80% 80%, ${isDarkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)'} 0%, transparent 50%)`,
+          backgroundSize: '400px 400px'
+        }}></div>
+      </motion.div>
+      
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
+        {/* Header Section with Advanced Animations */}
+        <motion.div 
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <motion.h1 
+            className={`text-3xl md:text-4xl lg:text-5xl font-mono font-bold ${textColorClass} tracking-tight leading-tight mb-4`}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             Research
             <br />
-            <span className={`${textColorClass} animate-pulse`}>
+            <motion.span 
+              className={`${textColorClass}`}
+              animate={{ 
+                opacity: [0.7, 1, 0.7],
+                scale: [1, 1.02, 1]
+              }}
+              transition={{ 
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
               Capabilities
-            </span>
-          </h1>
-          <p className={`max-w-3xl mx-auto text-lg md:text-xl ${mutedTextColorClass} leading-relaxed font-mono`}>
+            </motion.span>
+          </motion.h1>
+          <motion.p 
+            className={`max-w-2xl mx-auto text-base md:text-lg ${mutedTextColorClass} leading-relaxed font-mono`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
             Advanced autonomous research systems that operate continuously, generating breakthrough insights 
             and discoveries across multiple scientific domains through sophisticated cognitive architectures 
             and knowledge synthesis platforms.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Core Feature Categories */}
-        <div className="mb-20">
-          <h2 className={`text-3xl font-bold ${textColorClass} text-center mb-12 font-mono`}>
+        <motion.div 
+          className="mb-32"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <motion.h2 
+            className={`text-2xl font-bold ${textColorClass} text-center mb-8 font-mono`}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
             Core Research Architecture
-          </h2>
-          <div className="grid gap-8 md:grid-cols-2">
+          </motion.h2>
+          <div className="grid gap-6 md:grid-cols-2 py-8">
             {featureCategories.map((category, index) => (
               <FeatureCategory
                 key={index}
@@ -253,17 +427,18 @@ const FeaturesPage = () => {
                 features={category.features}
                 icon={category.icon}
                 gradient={category.gradient}
+                index={index}
               />
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        {/* Research Capabilities */}
-        <div className="mb-20">
-          <h2 className={`text-3xl font-bold ${textColorClass} text-center mb-12 font-mono`}>
+        {/* Research Capabilities - UNCHANGED as requested */}
+        <div className="mb-24">
+          <h2 className={`text-2xl font-bold ${textColorClass} text-center mb-8 font-mono`}>
             Operational Capabilities
           </h2>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-3">
             {researchCapabilities.map((capability, index) => (
               <ResearchCapability
                 key={index}
@@ -271,63 +446,132 @@ const FeaturesPage = () => {
                 description={capability.description}
                 metrics={capability.metrics}
                 icon={capability.icon}
+                index={index}
               />
             ))}
           </div>
         </div>
 
-        {/* Innovation Highlights */}
-        <div className={`${isDarkMode ? 'bg-white/5' : 'bg-black/5'} backdrop-blur-sm border ${isDarkMode ? 'border-white/10' : 'border-black/10'} rounded-xl p-8`}>
-          <h2 className={`text-3xl font-bold ${textColorClass} text-center mb-8 font-mono`}>
+        {/* Innovation Highlights with Advanced Effects */}
+        <motion.div 
+          className={`${isDarkMode ? 'bg-white/3' : 'bg-black/3'} backdrop-blur-xl border ${isDarkMode ? 'border-white/5' : 'border-black/5'} rounded-2xl p-6`}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-100px" }}
+          whileHover={{ 
+            scale: 1.01,
+            transition: { duration: 0.3 }
+          }}
+        >
+          <motion.h2 
+            className={`text-2xl font-bold ${textColorClass} text-center mb-6 font-mono`}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
             Innovation Highlights
-          </h2>
-          <div className="grid gap-8 md:grid-cols-2">
-            <div>
-              <h3 className={`text-xl font-bold ${textColorClass} mb-4 font-mono`}>
+          </motion.h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <h3 className={`text-lg font-bold ${textColorClass} mb-3 font-mono`}>
                 Autonomous Operation
               </h3>
-              <p className={`${mutedTextColorClass} leading-relaxed font-mono`}>
+              <p className={`${mutedTextColorClass} leading-relaxed font-mono text-sm`}>
                 Self-directed research capabilities that operate independently, setting research agendas, 
                 conducting investigations, and generating insights without human intervention. The system 
                 continuously monitors its own performance and adapts its methodologies for optimal results.
               </p>
-            </div>
-            <div>
-              <h3 className={`text-xl font-bold ${textColorClass} mb-4 font-mono`}>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <h3 className={`text-lg font-bold ${textColorClass} mb-3 font-mono`}>
                 Knowledge Integration
               </h3>
-              <p className={`${mutedTextColorClass} leading-relaxed font-mono`}>
+              <p className={`${mutedTextColorClass} leading-relaxed font-mono text-sm`}>
                 Advanced systems for synthesizing information from disparate sources, identifying hidden 
                 connections, and generating novel theoretical frameworks that transcend traditional 
                 disciplinary boundaries. This enables breakthrough discoveries that would be impossible 
                 through conventional research methods.
               </p>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <p className={`${mutedTextColorClass} mb-8 font-mono`}>
+        {/* Call to Action with Advanced Effects */}
+        <motion.div 
+          className="text-center mt-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <motion.p 
+            className={`${mutedTextColorClass} mb-6 font-mono text-sm`}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
             Experience the future of research intelligence
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a 
+          </motion.p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <motion.a 
               href="#contact" 
-              className={`group relative ${isDarkMode ? 'bg-white/10' : 'bg-black/10'} backdrop-blur-sm ${textColorClass} px-8 py-4 rounded-lg text-lg font-mono font-semibold transition-all duration-300 transform hover:scale-105 ${isDarkMode ? 'hover:bg-white/20' : 'hover:bg-black/20'} hover:shadow-2xl ${isDarkMode ? 'hover:shadow-white/20' : 'hover:shadow-black/20'} overflow-hidden border ${isDarkMode ? 'border-white/20' : 'border-black/20'}`}
+              className={`group relative ${isDarkMode ? 'bg-white/5' : 'bg-black/5'} backdrop-blur-xl ${textColorClass} px-6 py-3 rounded-xl text-sm font-mono font-semibold transition-all duration-300 ${isDarkMode ? 'hover:bg-white/10' : 'hover:bg-black/10'} hover:shadow-2xl ${isDarkMode ? 'hover:shadow-white/10' : 'hover:shadow-black/10'} overflow-hidden border ${isDarkMode ? 'border-white/10' : 'border-black/10'}`}
+              whileHover={{ 
+                scale: 1.05,
+                y: -2,
+                transition: { duration: 0.2 }
+              }}
+              whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
             >
               <span className="relative z-10">Request Demo</span>
-              <div className={`absolute inset-0 ${isDarkMode ? 'bg-white/10' : 'bg-black/10'} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
-            </a>
-            <a 
+              <motion.div 
+                className={`absolute inset-0 ${isDarkMode ? 'bg-white/5' : 'bg-black/5'}`}
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.a>
+            <motion.a 
               href="#about" 
-              className={`group relative bg-transparent border ${isDarkMode ? 'border-white/20' : 'border-black/20'} ${textColorClass} px-8 py-4 rounded-lg text-lg font-mono font-semibold transition-all duration-300 transform hover:scale-105 hover:border-opacity-60 hover:bg-opacity-5 overflow-hidden`}
+              className={`group relative bg-transparent border ${isDarkMode ? 'border-white/10' : 'border-black/10'} ${textColorClass} px-6 py-3 rounded-xl text-sm font-mono font-semibold transition-all duration-300 overflow-hidden`}
+              whileHover={{ 
+                scale: 1.05,
+                y: -2,
+                transition: { duration: 0.2 }
+              }}
+              whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
             >
               <span className="relative z-10">Learn More</span>
-              <div className={`absolute inset-0 ${isDarkMode ? 'bg-white/5' : 'bg-black/5'} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
-            </a>
+              <motion.div 
+                className={`absolute inset-0 ${isDarkMode ? 'bg-white/3' : 'bg-black/3'}`}
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

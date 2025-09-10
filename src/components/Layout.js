@@ -1,13 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ThemeContext } from '../App';
+import { ThemeContext } from '../contexts/AppContext';
+import { OptimizedMatrixRain, OptimizedNeuralNetwork, OptimizedFloatingCode } from './OptimizedAnimations';
 
-// Icon component for consistent styling
-const Icon = ({ path, className = "w-6 h-6" }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
-    <path d={path} />
-  </svg>
-);
 
 // --- Theme Toggle Component ---
 const ThemeToggle = () => {
@@ -43,6 +38,7 @@ const ThemeToggle = () => {
 // Matrix Code Rain Effect
 const MatrixRain = ({ className = "" }) => {
   const canvasRef = useRef(null);
+  const { isDarkMode } = React.useContext(ThemeContext);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -66,10 +62,10 @@ const MatrixRain = ({ className = "" }) => {
     }
 
     const draw = () => {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillStyle = isDarkMode ? 'rgba(0, 0, 0, 0.05)' : 'rgba(255, 255, 255, 0.05)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = '#fff';
+      ctx.fillStyle = isDarkMode ? '#fff' : '#000';
       ctx.font = `${fontSize}px 'Courier New', monospace`;
 
       for (let i = 0; i < drops.length; i++) {
@@ -93,7 +89,7 @@ const MatrixRain = ({ className = "" }) => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', resizeCanvas);
     };
-  }, []);
+  }, [isDarkMode]);
 
   return (
     <canvas 
@@ -325,24 +321,20 @@ export const Header = () => {
           </div>
           <nav className="hidden md:block">
             <div className="ml-8 flex items-baseline space-x-6">
-              <Link to="/#about" className={`${mutedTextColorClass} ${hoverTextColorClass} px-2 py-1 rounded text-sm font-mono transition-all duration-300 relative group`}>
+              <Link to="/about" className={`${mutedTextColorClass} ${hoverTextColorClass} px-2 py-1 rounded text-sm font-mono transition-all duration-300 relative group`}>
                 About
-                <div className={`absolute -bottom-1 left-0 w-0 h-0.5 ${isDarkMode ? 'bg-white' : 'bg-black'} transition-all duration-300 group-hover:w-full`}></div>
-              </Link>
-              <Link to="/#features" className={`${mutedTextColorClass} ${hoverTextColorClass} px-2 py-1 rounded text-sm font-mono transition-all duration-300 relative group`}>
-                Features
                 <div className={`absolute -bottom-1 left-0 w-0 h-0.5 ${isDarkMode ? 'bg-white' : 'bg-black'} transition-all duration-300 group-hover:w-full`}></div>
               </Link>
               <Link to="/research" className={`${mutedTextColorClass} ${hoverTextColorClass} px-2 py-1 rounded text-sm font-mono transition-all duration-300 relative group`}>
                 Research
                 <div className={`absolute -bottom-1 left-0 w-0 h-0.5 ${isDarkMode ? 'bg-white' : 'bg-black'} transition-all duration-300 group-hover:w-full`}></div>
               </Link>
-              <Link to="/#services" className={`${mutedTextColorClass} ${hoverTextColorClass} px-2 py-1 rounded text-sm font-mono transition-all duration-300 relative group`}>
-                Services
+              <Link to="/engineering" className={`${mutedTextColorClass} ${hoverTextColorClass} px-2 py-1 rounded text-sm font-mono transition-all duration-300 relative group`}>
+                Engineering
                 <div className={`absolute -bottom-1 left-0 w-0 h-0.5 ${isDarkMode ? 'bg-white' : 'bg-black'} transition-all duration-300 group-hover:w-full`}></div>
               </Link>
-              <Link to="/#technology" className={`${mutedTextColorClass} ${hoverTextColorClass} px-2 py-1 rounded text-sm font-mono transition-all duration-300 relative group`}>
-                Technology
+              <Link to="/services" className={`${mutedTextColorClass} ${hoverTextColorClass} px-2 py-1 rounded text-sm font-mono transition-all duration-300 relative group`}>
+                Services
                 <div className={`absolute -bottom-1 left-0 w-0 h-0.5 ${isDarkMode ? 'bg-white' : 'bg-black'} transition-all duration-300 group-hover:w-full`}></div>
               </Link>
             </div>
@@ -372,11 +364,10 @@ export const Header = () => {
       {isMenuOpen && (
         <div className={`md:hidden ${isDarkMode ? 'bg-black/95' : 'bg-white/95'} backdrop-blur-xl border-t ${isDarkMode ? 'border-white/10' : 'border-black/10'}`}>
           <div className="px-2 pt-2 pb-3 space-y-1">
-            <Link to="/#about" className={`block px-3 py-2 ${mutedTextColorClass} ${hoverTextColorClass} transition-colors font-mono text-sm`}>About</Link>
-            <Link to="/#features" className={`block px-3 py-2 ${mutedTextColorClass} ${hoverTextColorClass} transition-colors font-mono text-sm`}>Features</Link>
+            <Link to="/about" className={`block px-3 py-2 ${mutedTextColorClass} ${hoverTextColorClass} transition-colors font-mono text-sm`}>About</Link>
             <Link to="/research" className={`block px-3 py-2 ${mutedTextColorClass} ${hoverTextColorClass} transition-colors font-mono text-sm`}>Research</Link>
-            <Link to="/#services" className={`block px-3 py-2 ${mutedTextColorClass} ${hoverTextColorClass} transition-colors font-mono text-sm`}>Services</Link>
-            <Link to="/#technology" className={`block px-3 py-2 ${mutedTextColorClass} ${hoverTextColorClass} transition-colors font-mono text-sm`}>Technology</Link>
+            <Link to="/engineering" className={`block px-3 py-2 ${mutedTextColorClass} ${hoverTextColorClass} transition-colors font-mono text-sm`}>Engineering</Link>
+            <Link to="/services" className={`block px-3 py-2 ${mutedTextColorClass} ${hoverTextColorClass} transition-colors font-mono text-sm`}>Services</Link>
             <Link to="/#contact" className={`block px-3 py-2 ${textColorClass} font-semibold font-mono text-sm`}>Demo</Link>
           </div>
         </div>
@@ -425,9 +416,9 @@ export const Hero = () => {
 
   return (
     <section id="home" className={`relative min-h-screen flex items-center justify-center text-center overflow-hidden ${bgColorClass} pt-16`}>
-      <MatrixRain />
-      <NeuralNetwork className="opacity-20" />
-      <FloatingCode />
+      <OptimizedMatrixRain />
+      <OptimizedNeuralNetwork className="opacity-20" />
+      <OptimizedFloatingCode />
 
       {/* Grid background */}
       <div className="absolute inset-0 opacity-10">
@@ -493,39 +484,164 @@ export const Hero = () => {
 
 export const Footer = () => {
   const { isDarkMode } = React.useContext(ThemeContext);
+  const [openDropdown, setOpenDropdown] = React.useState(null);
 
-  const bgColorClass = isDarkMode ? 'bg-black' : 'bg-white';
+  const bgColorClass = isDarkMode ? 'bg-black/50' : 'bg-white/50';
   const borderColorClass = isDarkMode ? 'border-white/10' : 'border-black/10';
   const textColorClass = isDarkMode ? 'text-white' : 'text-black';
-  const linkColorClass = isDarkMode ? 'text-gray-400' : 'text-gray-600';
+  const linkColorClass = isDarkMode ? 'text-gray-300' : 'text-gray-600';
   const hoverLinkColorClass = isDarkMode ? 'hover:text-white' : 'hover:text-black';
-  const copyrightColorClass = isDarkMode ? 'text-gray-500' : 'text-gray-700';
-  const radialBgColor = isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
+  const copyrightColorClass = isDarkMode ? 'text-gray-400' : 'text-gray-500';
+  const radialBgColor = isDarkMode ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)';
+  const dropdownBgClass = isDarkMode ? 'bg-black/80' : 'bg-white/80';
+  const dropdownBorderClass = isDarkMode ? 'border-white/20' : 'border-black/20';
+
+  const footerSections = [
+    {
+      title: "Product",
+      links: [
+        { name: "Iceberg Overview", href: "/iceberg-overview" },
+        { name: "Iceberg AGI Protocol", href: "/iceberg-protocol" },
+        { name: "Platform", href: "/platform" },
+        { name: "Enterprise", href: "/enterprise" }
+      ]
+    },
+    {
+      title: "Research",
+      links: [
+        { name: "Research Overview", href: "/research" },
+        { name: "Index", href: "/research-index" },
+        { name: "Publications", href: "/research/publications" },
+        { name: "Methodology", href: "/research/methodology" }
+      ]
+    },
+    {
+      title: "Models",
+      links: [
+        { name: "Thesidia", href: "/models/thesidia" },
+        { name: "ICEBERG", href: "/models/iceberg" },
+        { name: "Katana", href: "/models/katana" },
+        { name: "Ice-nano", href: "/models/ice-nano" }
+      ]
+    },
+    {
+      title: "Transparency",
+      links: [
+        { name: "Data Non-Collection", href: "/transparency/data" },
+        { name: "Scaling Responsibly", href: "/transparency/scaling" },
+        { name: "Safety and Security", href: "/transparency/safety" },
+        { name: "Ethics Framework", href: "/transparency/ethics" }
+      ]
+    },
+    {
+      title: "Solutions",
+      links: [
+        { name: "Education", href: "/solutions/education" },
+        { name: "Financial Services", href: "/solutions/financial" },
+        { name: "Government", href: "/solutions/government" },
+        { name: "Community", href: "/solutions/community" }
+      ]
+    },
+    {
+      title: "Learn",
+      links: [
+        { name: "Praxis Labs", href: "/learn/labs" },
+        { name: "Global Engineers Alliance", href: "/learn/alliance" },
+        { name: "Partner Directory", href: "/learn/partners" },
+        { name: "People's Stories", href: "/learn/stories" }
+      ]
+    },
+    {
+      title: "Explore",
+      links: [
+        { name: "About Us", href: "/about" },
+        { name: "Careers", href: "/careers" },
+        { name: "Events", href: "/events" },
+        { name: "News", href: "/news" }
+      ]
+    },
+    {
+      title: "Terms & Policy",
+      links: [
+        { name: "Integrity", href: "/terms/integrity" },
+        { name: "Honesty", href: "/terms/honesty" },
+        { name: "Transparency", href: "/terms/transparency" },
+        { name: "Privacy Policy", href: "/terms/privacy" }
+      ]
+    }
+  ];
 
   return (
-    <footer className={`${bgColorClass} border-t ${borderColorClass} relative overflow-hidden`}>
+    <footer className={`${bgColorClass} backdrop-blur-xl border-t ${borderColorClass} relative overflow-hidden`}>
       {/* Animated background */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-30">
         <div className="absolute inset-0" style={{
           backgroundImage: `radial-gradient(circle at 25% 25%, ${radialBgColor} 0%, transparent 50%)`,
           backgroundSize: '50px 50px'
         }}></div>
       </div>
 
-      <div className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <p className={`text-xl font-bold ${textColorClass} mb-6 font-mono`}>
-          <span className={textColorClass}>PRAXIS</span>
-        </p>
-        <div className="mt-6 flex justify-center space-x-6">
-          <Link to="/#about" className={`${linkColorClass} ${hoverLinkColorClass} transition-colors duration-300 font-mono text-sm`}>About</Link>
-          <Link to="/#features" className={`${linkColorClass} ${hoverLinkColorClass} transition-colors duration-300 font-mono text-sm`}>Features</Link>
-          <Link to="/research" className={`${linkColorClass} ${hoverLinkColorClass} transition-colors duration-300 font-mono text-sm`}>Research</Link>
-          <Link to="/#services" className={`${linkColorClass} ${hoverLinkColorClass} transition-colors duration-300 font-mono text-sm`}>Services</Link>
-          <Link to="/#technology" className={`${linkColorClass} ${hoverLinkColorClass} transition-colors duration-300 font-mono text-sm`}>Technology</Link>
+      <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 mb-12">
+          {footerSections.map((section, index) => (
+            <div key={index} className="relative">
+              <button
+                onClick={() => setOpenDropdown(openDropdown === index ? null : index)}
+                className={`w-full text-left ${textColorClass} hover:opacity-80 transition-all duration-300 group`}
+              >
+                <h3 className={`text-sm font-mono font-semibold tracking-wider uppercase flex items-center justify-between`}>
+                  {section.title}
+                  <span className={`transform transition-transform duration-300 ${openDropdown === index ? 'rotate-180' : 'rotate-0'} text-xs`}>
+                    ▼
+                  </span>
+                </h3>
+              </button>
+              
+              {/* Dropdown Content */}
+              <div className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                openDropdown === index ? 'max-h-48 opacity-100 mt-4' : 'max-h-0 opacity-0 mt-0'
+              }`}>
+                <ul className="space-y-2">
+                  {section.links.map((link, linkIndex) => (
+                    <li key={linkIndex} className={`transform transition-all duration-300 ${
+                      openDropdown === index 
+                        ? 'translate-y-0 opacity-100' 
+                        : 'translate-y-2 opacity-0'
+                    }`} style={{ transitionDelay: `${linkIndex * 50}ms` }}>
+                      <Link 
+                        to={link.href} 
+                        className={`${linkColorClass} ${hoverLinkColorClass} transition-colors duration-300 font-mono text-xs hover:underline block py-1`}
+                      >
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
         </div>
-        <p className={`mt-8 text-sm ${copyrightColorClass} font-mono`}>
-          &copy; {new Date().getFullYear()} Praxis Research & Development. All rights reserved.
-        </p>
+
+        {/* Bottom Section */}
+        <div className={`border-t ${borderColorClass} pt-8`}>
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="flex items-center space-x-6">
+              <Link to="/" className={`text-xl font-mono font-bold ${textColorClass} tracking-wider`}>
+                PRAXIS
+              </Link>
+              <div className="hidden md:flex space-x-6">
+                <Link to="/about" className={`${linkColorClass} ${hoverLinkColorClass} transition-colors duration-300 font-mono text-sm`}>About</Link>
+                <Link to="/research" className={`${linkColorClass} ${hoverLinkColorClass} transition-colors duration-300 font-mono text-sm`}>Research</Link>
+                <Link to="/engineering" className={`${linkColorClass} ${hoverLinkColorClass} transition-colors duration-300 font-mono text-sm`}>Engineering</Link>
+                <Link to="/services" className={`${linkColorClass} ${hoverLinkColorClass} transition-colors duration-300 font-mono text-sm`}>Services</Link>
+              </div>
+            </div>
+            <p className={`text-xs ${copyrightColorClass} font-mono`}>
+              &copy; {new Date().getFullYear()} Praxis Research & Development. All rights reserved.
+            </p>
+          </div>
+        </div>
       </div>
     </footer>
   );

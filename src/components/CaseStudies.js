@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeContext } from '../App';
+import { ThemeContext } from '../contexts/AppContext';
 
 const Section = ({ id, children, className = "" }) => (
   <section id={id} className={`py-16 sm:py-20 px-4 sm:px-6 lg:px-8 relative ${className}`}>

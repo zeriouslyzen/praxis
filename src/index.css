@@ -189,15 +189,11 @@
   animation: code-typing 3s steps(40, end);
 }
 
-/* Enhanced fade-in animations with delays */
-section > div { 
-  opacity: 0; 
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out; 
-}
-
+/* Optimized fade-in animations */
 .fade-in-up { 
   opacity: 1; 
   transform: translateY(0); 
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .animate-fade-in-1 { 

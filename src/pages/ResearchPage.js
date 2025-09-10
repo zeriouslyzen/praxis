@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { ThemeContext } from '../App';
+import React, { useEffect, useRef } from 'react';
+import { ThemeContext } from '../contexts/AppContext';
+import { Header, Footer } from '../components/Layout';
 
 // Research Data Visualization Component
 const ResearchVisualization = ({ isActive }) => {
@@ -274,8 +275,9 @@ const ResearchPage = () => {
   ];
 
   return (
-    <div className={`min-h-screen ${bgColorClass} pt-20`}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div className={`min-h-screen ${bgColorClass} relative`}>
+      <Header />
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 pt-24">
         {/* Header Section */}
         <div className="text-center mb-16">
           <h1 className={`text-4xl md:text-5xl lg:text-6xl font-mono font-bold ${textColorClass} tracking-tight leading-tight mb-6`}>
@@ -489,6 +491,7 @@ const ResearchPage = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
