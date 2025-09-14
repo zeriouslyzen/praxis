@@ -341,7 +341,7 @@ export const Header = () => {
           </nav>
           <div className="hidden md:flex items-center space-x-4">
             <ThemeToggle />
-            <Link to="/#contact" className={`relative ${bgColorClass} backdrop-blur-sm ${textColorClass} px-4 py-2 rounded-lg text-sm font-mono font-semibold transition-all duration-300 transform hover:scale-105 ${hoverBgColorClass} hover:shadow-2xl ${shadowColorClass} group overflow-hidden ${borderColorClass}`}>
+            <Link to="/demo" className={`relative ${bgColorClass} backdrop-blur-sm ${textColorClass} px-4 py-2 rounded-lg text-sm font-mono font-semibold transition-all duration-300 transform hover:scale-105 ${hoverBgColorClass} hover:shadow-2xl ${shadowColorClass} group overflow-hidden ${borderColorClass}`}>
               <span className="relative z-10">Demo</span>
               <div className={`absolute inset-0 ${bgColorClass} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
             </Link>
@@ -368,7 +368,7 @@ export const Header = () => {
             <Link to="/research" className={`block px-3 py-2 ${mutedTextColorClass} ${hoverTextColorClass} transition-colors font-mono text-sm`}>Research</Link>
             <Link to="/engineering" className={`block px-3 py-2 ${mutedTextColorClass} ${hoverTextColorClass} transition-colors font-mono text-sm`}>Engineering</Link>
             <Link to="/services" className={`block px-3 py-2 ${mutedTextColorClass} ${hoverTextColorClass} transition-colors font-mono text-sm`}>Services</Link>
-            <Link to="/#contact" className={`block px-3 py-2 ${textColorClass} font-semibold font-mono text-sm`}>Demo</Link>
+            <Link to="/demo" className={`block px-3 py-2 ${textColorClass} font-semibold font-mono text-sm`}>Demo</Link>
           </div>
         </div>
       )}
@@ -381,9 +381,9 @@ export const Hero = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const { isDarkMode } = React.useContext(ThemeContext);
   const heroTexts = [
-    "Research",
-    "Development",
-    "Innovation"
+    "Super",
+    "Intelligence",
+    "Research"
   ];
 
   useEffect(() => {

@@ -12,6 +12,7 @@ import AlgorithmResearchPage from './pages/AlgorithmResearchPage';
 import DevelopmentPlatformPage from './pages/DevelopmentPlatformPage';
 import InnovationLabPage from './pages/InnovationLabPage';
 import DynamicPage, { ResearchPublicationsPage } from './components/DynamicPage';
+import DemoPage from './pages/DemoPage';
 
 // --- Helper Components ---
 
@@ -405,9 +406,9 @@ const Hero = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const { isDarkMode } = React.useContext(ThemeContext);
     const heroTexts = [
-        "Research",
-        "Development",
-        "Innovation"
+        "Super",
+        "Intelligence",
+        "Research"
     ];
 
     useEffect(() => {
@@ -837,6 +838,9 @@ const AppContent = () => {
                 <Route path="/solutions/government" element={<DynamicPage pageKey="solutions/government" />} />
                 <Route path="/solutions/community" element={<DynamicPage pageKey="solutions/community" />} />
                 
+                {/* Demo Route */}
+                <Route path="/demo" element={<DemoPage />} />
+                
                 {/* Learn Pages */}
                 <Route path="/learn/labs" element={<DynamicPage pageKey="learn/labs" />} />
                 <Route path="/learn/alliance" element={<DynamicPage pageKey="learn/alliance" />} />
@@ -850,12 +854,6 @@ const AppContent = () => {
                 
                 {/* Terms & Policy Pages */}
                 <Route path="/terms/integrity" element={<DynamicPage pageKey="terms/integrity" />} />
-        
-        {/* Solutions Routes */}
-        <Route path="/solutions/education" element={<DynamicPage pageKey="solutions/education" />} />
-        <Route path="/solutions/financial" element={<DynamicPage pageKey="solutions/financial" />} />
-        <Route path="/solutions/government" element={<DynamicPage pageKey="solutions/government" />} />
-        <Route path="/solutions/community" element={<DynamicPage pageKey="solutions/community" />} />
                 <Route path="/terms/honesty" element={<DynamicPage pageKey="terms/honesty" />} />
                 <Route path="/terms/transparency" element={<DynamicPage pageKey="terms/transparency" />} />
                 <Route path="/terms/privacy" element={<DynamicPage pageKey="terms/privacy" />} />
