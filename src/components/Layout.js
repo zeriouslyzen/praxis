@@ -431,7 +431,7 @@ export const Hero = () => {
 
       <div className="relative z-10 px-4 max-w-2xl mx-auto">
         <div className="mb-12">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-mono font-bold text-white tracking-tight leading-tight mb-6">
+          <h1 className={`text-3xl md:text-4xl lg:text-5xl font-mono font-bold ${textColorClass} tracking-tight leading-tight mb-6`}>
             Advanced
             <br />
             <span className={`${textColorClass} animate-pulse`}>
