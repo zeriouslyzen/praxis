@@ -284,7 +284,7 @@ const FloatingCode = () => {
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLeftMenuOpen, setIsLeftMenuOpen] = useState(false);
   const { isDarkMode } = React.useContext(ThemeContext);
 
   useEffect(() => {
@@ -339,18 +339,17 @@ export const Header = () => {
               </Link>
             </div>
           </nav>
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="flex items-center space-x-4">
             <ThemeToggle />
-            <Link to="/demo" className={`relative ${bgColorClass} backdrop-blur-sm ${textColorClass} px-4 py-2 rounded-lg text-sm font-mono font-semibold transition-all duration-300 transform hover:scale-105 ${hoverBgColorClass} hover:shadow-2xl ${shadowColorClass} group overflow-hidden ${borderColorClass}`}>
-              <span className="relative z-10">Demo</span>
-              <div className={`absolute inset-0 ${bgColorClass} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
-            </Link>
-          </div>
-          <div className="md:hidden flex items-center space-x-2">
-            <ThemeToggle />
+            <div className="hidden md:block">
+              <Link to="/demo" className={`relative ${bgColorClass} backdrop-blur-sm ${textColorClass} px-4 py-2 rounded-lg text-sm font-mono font-semibold transition-all duration-300 transform hover:scale-105 ${hoverBgColorClass} hover:shadow-2xl ${shadowColorClass} group overflow-hidden ${borderColorClass}`}>
+                <span className="relative z-10">Demo</span>
+                <div className={`absolute inset-0 ${bgColorClass} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+              </Link>
+            </div>
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`${mutedTextColorClass} ${hoverTextColorClass} p-2`}
+              onClick={() => setIsLeftMenuOpen(!isLeftMenuOpen)}
+              className={`md:hidden ${mutedTextColorClass} ${hoverTextColorClass} p-2`}
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -360,18 +359,42 @@ export const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className={`md:hidden ${isDarkMode ? 'bg-black/95' : 'bg-white/95'} backdrop-blur-xl border-t ${isDarkMode ? 'border-white/10' : 'border-black/10'}`}>
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            <Link to="/about" className={`block px-3 py-2 ${mutedTextColorClass} ${hoverTextColorClass} transition-colors font-mono text-sm`}>About</Link>
-            <Link to="/research" className={`block px-3 py-2 ${mutedTextColorClass} ${hoverTextColorClass} transition-colors font-mono text-sm`}>Research</Link>
-            <Link to="/engineering" className={`block px-3 py-2 ${mutedTextColorClass} ${hoverTextColorClass} transition-colors font-mono text-sm`}>Engineering</Link>
-            <Link to="/services" className={`block px-3 py-2 ${mutedTextColorClass} ${hoverTextColorClass} transition-colors font-mono text-sm`}>Services</Link>
-            <Link to="/demo" className={`block px-3 py-2 ${textColorClass} font-semibold font-mono text-sm`}>Demo</Link>
+      {/* Left Slide Menu */}
+      <>
+        {/* Overlay */}
+        <div 
+          className={`fixed top-16 left-0 right-0 bottom-0 z-40 transition-opacity duration-300 ${
+            isLeftMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          } ${isDarkMode ? 'bg-black/50' : 'bg-white/50'} backdrop-blur-sm`}
+          onClick={() => setIsLeftMenuOpen(false)}
+        />
+        
+        {/* Menu Panel */}
+        <div className={`fixed top-16 left-0 h-[calc(100vh-4rem)] w-80 z-50 transform transition-transform duration-300 ease-in-out ${
+          isLeftMenuOpen ? 'translate-x-0' : '-translate-x-full'
+        } ${isDarkMode ? 'bg-black/95' : 'bg-white/95'} backdrop-blur-xl border-r ${isDarkMode ? 'border-white/10' : 'border-black/10'}`}>
+          <div className="p-6">
+            <div className="flex items-center justify-end mb-8">
+              <button
+                onClick={() => setIsLeftMenuOpen(false)}
+                className={`${mutedTextColorClass} ${hoverTextColorClass} p-2`}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            
+            <nav className="space-y-4">
+              <Link to="/about" className={`block ${mutedTextColorClass} ${hoverTextColorClass} transition-colors font-mono text-sm`}>About</Link>
+              <Link to="/research" className={`block ${mutedTextColorClass} ${hoverTextColorClass} transition-colors font-mono text-sm`}>Research</Link>
+              <Link to="/engineering" className={`block ${mutedTextColorClass} ${hoverTextColorClass} transition-colors font-mono text-sm`}>Engineering</Link>
+              <Link to="/services" className={`block ${mutedTextColorClass} ${hoverTextColorClass} transition-colors font-mono text-sm`}>Services</Link>
+              <Link to="/demo" className={`block ${textColorClass} font-semibold font-mono text-sm`}>Demo</Link>
+            </nav>
           </div>
         </div>
-      )}
+      </>
     </header>
   );
 };
