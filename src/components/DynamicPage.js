@@ -2,6 +2,7 @@ import React from 'react';
 import { PageTemplate, SectionTemplate, ContentBlock, CardGrid, FeatureCard, StatsGrid } from '../templates/PageTemplate';
 import { getPageContent } from '../data/pageContent';
 import { ThemeContext } from '../contexts/AppContext';
+import { BenchmarkDashboard } from './BenchmarkDashboard';
 
 // Dynamic Page Component that renders based on content data
 export const DynamicPage = ({ pageKey, customContent = null }) => {
@@ -472,6 +473,13 @@ export const DynamicPage = ({ pageKey, customContent = null }) => {
                 ))}
               </div>
             </div>
+          </SectionTemplate>
+        );
+
+      case 'benchmarks':
+        return (
+          <SectionTemplate key={index} delay={index * 0.2}>
+            <BenchmarkDashboard benchmarkData={section} />
           </SectionTemplate>
         );
 

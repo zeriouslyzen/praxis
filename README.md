@@ -32,7 +32,7 @@ A cutting-edge React application showcasing PRAXIS, a sophisticated research and
 
 1. **Clone or navigate to the project directory**
    ```bash
-   cd /Users/deshonjackson/Desktop/PRAXIS
+   cd ./PRAXIS
    ```
 
 2. **Install dependencies**

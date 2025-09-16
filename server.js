@@ -24,7 +24,7 @@ async function callMiniIce(prompt, conversationHistory = []) {
     
     return new Promise((resolve, reject) => {
       // Call the Python Mini-ICEBURG implementation
-      const python = spawn('python3', ['/Users/deshonjackson/Desktop/miniice/mini_ice.py', prompt]);
+      const python = spawn('python3', ['./mini_ice.py', prompt]);
       
       let output = '';
       let error = '';

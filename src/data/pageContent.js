@@ -63,6 +63,156 @@ export const pageContent = {
             ]
           }
         ]
+      },
+      {
+        type: 'benchmarks',
+        title: 'Performance Benchmarks',
+        subtitle: 'Comprehensive performance analysis and comparative metrics across different configurations and time periods.',
+        sections: [
+          {
+            title: 'Core Performance Metrics',
+            metrics: [
+              {
+                name: 'Response Time',
+                current: '<1ms',
+                previous: '2.3ms',
+                improvement: '57%',
+                trend: 'up',
+                description: 'Sub-millisecond response times achieved through optimized HNSW implementation'
+              },
+              {
+                name: 'Throughput',
+                current: '18,000+ QPS',
+                previous: '8,500 QPS',
+                improvement: '112%',
+                trend: 'up',
+                description: 'Horizontal scaling capabilities with consistent hashing'
+              },
+              {
+                name: 'Memory Efficiency',
+                current: '850MB/1M vectors',
+                previous: '2.7GB/1M vectors',
+                improvement: '68%',
+                trend: 'up',
+                description: '32x memory reduction using binary quantization'
+              },
+              {
+                name: 'Accuracy',
+                current: '97.1%',
+                previous: '94.2%',
+                improvement: '3.1%',
+                trend: 'up',
+                description: 'Recall@10 accuracy maintained across optimizations'
+              }
+            ]
+          },
+          {
+            title: 'System Reliability',
+            metrics: [
+              {
+                name: 'Operational Status',
+                current: '95%',
+                previous: '87%',
+                improvement: '9.2%',
+                trend: 'up',
+                description: 'High system reliability with automated monitoring'
+              },
+              {
+                name: 'Success Rate',
+                current: '100%',
+                previous: '98.3%',
+                improvement: '1.7%',
+                trend: 'up',
+                description: 'Perfect test success across all scenarios'
+              },
+              {
+                name: 'Uptime',
+                current: '99.9%',
+                previous: '99.2%',
+                improvement: '0.7%',
+                trend: 'up',
+                description: 'Enterprise-grade availability with redundancy'
+              },
+              {
+                name: 'Cache Hit Rate',
+                current: '85%+',
+                previous: '72%',
+                improvement: '18%',
+                trend: 'up',
+                description: 'Intelligent caching with production workloads'
+              }
+            ]
+          },
+          {
+            title: 'Scalability Metrics',
+            metrics: [
+              {
+                name: 'Concurrent Queries',
+                current: '50+',
+                previous: '25',
+                improvement: '100%',
+                trend: 'up',
+                description: 'Multi-tenant isolation with per-tenant indexing'
+              },
+              {
+                name: 'Research Agents',
+                current: '43+',
+                previous: '28',
+                improvement: '54%',
+                trend: 'up',
+                description: 'Specialized agents for cross-domain research'
+              },
+              {
+                name: 'API Integrations',
+                current: '21+',
+                previous: '12',
+                improvement: '75%',
+                trend: 'up',
+                description: 'Extensive API ecosystem for research capabilities'
+              },
+              {
+                name: 'Contamination Detection',
+                current: '95%',
+                previous: '89%',
+                improvement: '6.7%',
+                trend: 'up',
+                description: 'Advanced validation and quality assurance'
+              }
+            ]
+          }
+        ],
+        configurations: [
+          {
+            name: 'Internal Configuration',
+            description: 'Optimized internal hardware with native performance',
+            specs: {
+              processor: 'Internal CPU',
+              memory: 'Internal Memory',
+              storage: 'Internal Storage',
+              os: 'Internal OS'
+            }
+          },
+          {
+            name: 'Previous Generation',
+            description: 'Legacy x86 architecture with standard optimizations',
+            specs: {
+              processor: 'Intel x86-64',
+              memory: '32GB DDR4',
+              storage: 'NVMe SSD',
+              os: 'Linux with standard libraries'
+            }
+          },
+          {
+            name: 'Cloud Deployment',
+            description: 'Distributed cloud infrastructure with horizontal scaling',
+            specs: {
+              processor: 'Multi-core cloud instances',
+              memory: 'Distributed memory pool',
+              storage: 'Cloud storage with CDN',
+              os: 'Containerized deployment'
+            }
+          }
+        ]
       }
     ]
   },
@@ -463,12 +613,162 @@ export const pageContent = {
       {
         type: 'hero',
         title: 'ICEBERG Research Model',
-        subtitle: 'Our flagship AI model designed for comprehensive research and development across multiple scientific domains.',
+        subtitle: 'Autonomous research ecosystem that operates 24/7 without human intervention, generating breakthrough discoveries through self-directed scientific investigation and cross-domain knowledge synthesis.',
         stats: [
-          { value: '99.9%', label: 'Reliability' },
-          { value: '16+', label: 'Domains' },
-          { value: '24/7', label: 'Operation' },
-          { value: 'Autonomous', label: 'Research' }
+          { value: '42+', label: 'Research Papers Generated' },
+          { value: '95%', label: 'Contamination Detection' },
+          { value: '43+', label: 'Specialized Agents' },
+          { value: 'Breakthrough', label: 'Discovery Engine' }
+        ]
+      },
+      {
+        type: 'benchmarks',
+        title: 'ICEBERG Performance Benchmarks',
+        subtitle: 'Comprehensive performance analysis and comparative metrics for the ICEBERG model across different configurations and time periods.',
+        sections: [
+          {
+            title: 'Core Performance Metrics',
+            metrics: [
+              {
+                name: 'Response Time',
+                current: '<1ms',
+                previous: '2.3ms',
+                improvement: '57%',
+                trend: 'up',
+                description: 'Sub-millisecond response times achieved through optimized HNSW implementation'
+              },
+              {
+                name: 'Throughput',
+                current: '18,000+ QPS',
+                previous: '8,500 QPS',
+                improvement: '112%',
+                trend: 'up',
+                description: 'Horizontal scaling capabilities with consistent hashing'
+              },
+              {
+                name: 'Memory Efficiency',
+                current: '850MB/1M vectors',
+                previous: '2.7GB/1M vectors',
+                improvement: '68%',
+                trend: 'up',
+                description: '32x memory reduction using binary quantization'
+              },
+              {
+                name: 'Accuracy',
+                current: '97.1%',
+                previous: '94.2%',
+                improvement: '3.1%',
+                trend: 'up',
+                description: 'Recall@10 accuracy maintained across optimizations'
+              }
+            ]
+          },
+          {
+            title: 'System Reliability',
+            metrics: [
+              {
+                name: 'Operational Status',
+                current: '95%',
+                previous: '87%',
+                improvement: '9.2%',
+                trend: 'up',
+                description: 'High system reliability with automated monitoring'
+              },
+              {
+                name: 'Success Rate',
+                current: '100%',
+                previous: '98.3%',
+                improvement: '1.7%',
+                trend: 'up',
+                description: 'Perfect test success across all scenarios'
+              },
+              {
+                name: 'Uptime',
+                current: '99.9%',
+                previous: '99.2%',
+                improvement: '0.7%',
+                trend: 'up',
+                description: 'Enterprise-grade availability with redundancy'
+              },
+              {
+                name: 'Cache Hit Rate',
+                current: '85%+',
+                previous: '72%',
+                improvement: '18%',
+                trend: 'up',
+                description: 'Intelligent caching with production workloads'
+              }
+            ]
+          },
+          {
+            title: 'Scalability Metrics',
+            metrics: [
+              {
+                name: 'Concurrent Queries',
+                current: '50+',
+                previous: '25',
+                improvement: '100%',
+                trend: 'up',
+                description: 'Multi-tenant isolation with per-tenant indexing'
+              },
+              {
+                name: 'Research Agents',
+                current: '43+',
+                previous: '28',
+                improvement: '54%',
+                trend: 'up',
+                description: 'Specialized agents for cross-domain research'
+              },
+              {
+                name: 'API Integrations',
+                current: '21+',
+                previous: '12',
+                improvement: '75%',
+                trend: 'up',
+                description: 'Extensive API ecosystem for research capabilities'
+              },
+              {
+                name: 'Contamination Detection',
+                current: '95%',
+                previous: '89%',
+                improvement: '6.7%',
+                trend: 'up',
+                description: 'Advanced validation and quality assurance'
+              }
+            ]
+          }
+        ],
+        configurations: [
+          {
+            name: 'Internal Configuration',
+            description: 'Optimized internal hardware with native performance',
+            specs: {
+              processor: 'Internal CPU',
+              memory: 'Internal Memory',
+              storage: 'Internal Storage',
+              os: 'Internal OS'
+            }
+          },
+          {
+            name: 'Previous Generation',
+            description: 'Legacy x86 architecture with standard optimizations',
+            specs: {
+              processor: 'Intel x86-64',
+              memory: '32GB DDR4',
+              storage: 'NVMe SSD',
+              os: 'Linux with standard libraries'
+            }
+          },
+          {
+            name: 'Cloud Deployment',
+            description: 'Distributed cloud infrastructure with horizontal scaling',
+            specs: {
+              processor: 'Multi-core cloud instances',
+              memory: 'Distributed memory pool',
+              storage: 'Cloud storage with CDN',
+              os: 'Containerized deployment'
+            }
+          }
         ]
       }
     ]
@@ -785,7 +1085,7 @@ export const pageContent = {
         subtitle: 'Join our paradigm-challenging research mission',
         description: 'Tell us how you challenge paradigms, what boundaries you push, and how you see the future of human potential. We want to know about your cultural intelligence, multidisciplinary insights, and your vision for revolutionary research.',
         contact: {
-          email: 'jack@praxislabs.technology',
+          email: 'contact@praxislabs.technology',
           subject: 'Revolutionary Research Proposal - PRAXIS Labs',
           template: 'Dear PRAXIS Team,\n\nI am writing to propose revolutionary research that challenges conventional paradigms and pushes the boundaries of human potential.\n\nMy Background:\n- [Describe your multidisciplinary expertise]\n- [Explain your paradigm-challenging approach]\n- [Detail your cultural intelligence and awareness]\n\nMy Vision:\n- [How you see the future of your field]\n- [What boundaries you want to push]\n- [Your revolutionary research ideas]\n\nWhy PRAXIS:\n- [Why you want to join our revolutionary mission]\n- [How you align with our boundary-pushing culture]\n\nBest regards,\n[Your Name]'
         }
@@ -965,7 +1265,7 @@ export const pageContent = {
         subtitle: 'Partner with PRAXIS to revolutionize learning through ethical AI',
         description: 'Join us in creating educational experiences that respect cultural diversity, individual learning styles, and ancient wisdom while leveraging cutting-edge AI technology.',
         buttonText: 'Explore Education Partnership',
-        buttonLink: 'mailto:jack@praxislabs.technology?subject=Education Partnership Inquiry - PRAXIS Labs&body=Dear PRAXIS Team,%0D%0A%0D%0AI am interested in exploring how PRAXIS can enhance our educational institution through revolutionary AI that respects cultural diversity and individual learning styles.%0D%0A%0D%0AOur Institution:%0D%0A- [Describe your educational institution]%0D%0A- [Explain your current educational challenges]%0D%0A- [Detail your cultural diversity and learning needs]%0D%0A%0D%0AOur Vision:%0D%0A- [How you see AI enhancing education]%0D%0A- [What learning outcomes you want to achieve]%0D%0A- [Your commitment to cultural respect and transparency]%0D%0A%0D%0AWhy PRAXIS:%0D%0A- [Why you want to partner with our revolutionary approach]%0D%0A- [How you align with our ethical AI principles]%0D%0A%0D%0ABest regards,%0D%0A[Your Name]'
+        buttonLink: 'mailto:contact@praxislabs.technology?subject=Education Partnership Inquiry - PRAXIS Labs&body=Dear PRAXIS Team,%0D%0A%0D%0AI am interested in exploring how PRAXIS can enhance our educational institution through revolutionary AI that respects cultural diversity and individual learning styles.%0D%0A%0D%0AOur Institution:%0D%0A- [Describe your educational institution]%0D%0A- [Explain your current educational challenges]%0D%0A- [Detail your cultural diversity and learning needs]%0D%0A%0D%0AOur Vision:%0D%0A- [How you see AI enhancing education]%0D%0A- [What learning outcomes you want to achieve]%0D%0A- [Your commitment to cultural respect and transparency]%0D%0A%0D%0AWhy PRAXIS:%0D%0A- [Why you want to partner with our revolutionary approach]%0D%0A- [How you align with our ethical AI principles]%0D%0A%0D%0ABest regards,%0D%0A[Your Name]'
       }
     ]
   },
@@ -1044,7 +1344,7 @@ export const pageContent = {
         subtitle: 'Partner with PRAXIS to revolutionize finance through ethical AI',
         description: 'Join us in creating financial services that prioritize user sovereignty, cultural sensitivity, and complete transparency while leveraging cutting-edge AI technology.',
         buttonText: 'Explore Financial Partnership',
-        buttonLink: 'mailto:jack@praxislabs.technology?subject=Financial Services Partnership Inquiry - PRAXIS Labs&body=Dear PRAXIS Team,%0D%0A%0D%0AI am interested in exploring how PRAXIS can enhance our financial services through revolutionary AI that prioritizes user sovereignty and cultural sensitivity.%0D%0A%0D%0AOur Organization:%0D%0A- [Describe your financial institution]%0D%0A- [Explain your current financial service challenges]%0D%0A- [Detail your commitment to user privacy and transparency]%0D%0A%0D%0AOur Vision:%0D%0A- [How you see AI enhancing financial services]%0D%0A- [What financial outcomes you want to achieve]%0D%0A- [Your commitment to ethical AI and user sovereignty]%0D%0A%0D%0AWhy PRAXIS:%0D%0A- [Why you want to partner with our revolutionary approach]%0D%0A- [How you align with our ethical AI principles]%0D%0A%0D%0ABest regards,%0D%0A[Your Name]'
+        buttonLink: 'mailto:contact@praxislabs.technology?subject=Financial Services Partnership Inquiry - PRAXIS Labs&body=Dear PRAXIS Team,%0D%0A%0D%0AI am interested in exploring how PRAXIS can enhance our financial services through revolutionary AI that prioritizes user sovereignty and cultural sensitivity.%0D%0A%0D%0AOur Organization:%0D%0A- [Describe your financial institution]%0D%0A- [Explain your current financial service challenges]%0D%0A- [Detail your commitment to user privacy and transparency]%0D%0A%0D%0AOur Vision:%0D%0A- [How you see AI enhancing financial services]%0D%0A- [What financial outcomes you want to achieve]%0D%0A- [Your commitment to ethical AI and user sovereignty]%0D%0A%0D%0AWhy PRAXIS:%0D%0A- [Why you want to partner with our revolutionary approach]%0D%0A- [How you align with our ethical AI principles]%0D%0A%0D%0ABest regards,%0D%0A[Your Name]'
       }
     ]
   },
@@ -1123,7 +1423,7 @@ export const pageContent = {
         subtitle: 'Partner with PRAXIS to revolutionize public sector through transparent AI',
         description: 'Join us in creating government services that maintain complete transparency, respect cultural diversity, and enhance public service through ethical AI technology.',
         buttonText: 'Explore Government Partnership',
-        buttonLink: 'mailto:jack@praxislabs.technology?subject=Government Partnership Inquiry - PRAXIS Labs&body=Dear PRAXIS Team,%0D%0A%0D%0AI am interested in exploring how PRAXIS can enhance our government services through revolutionary AI that maintains complete transparency and cultural respect.%0D%0A%0D%0AOur Organization:%0D%0A- [Describe your government agency]%0D%0A- [Explain your current public service challenges]%0D%0A- [Detail your commitment to transparency and cultural diversity]%0D%0A%0D%0AOur Vision:%0D%0A- [How you see AI enhancing government services]%0D%0A- [What public service outcomes you want to achieve]%0D%0A- [Your commitment to transparent AI and cultural respect]%0D%0A%0D%0AWhy PRAXIS:%0D%0A- [Why you want to partner with our revolutionary approach]%0D%0A- [How you align with our ethical AI principles]%0D%0A%0D%0ABest regards,%0D%0A[Your Name]'
+        buttonLink: 'mailto:contact@praxislabs.technology?subject=Government Partnership Inquiry - PRAXIS Labs&body=Dear PRAXIS Team,%0D%0A%0D%0AI am interested in exploring how PRAXIS can enhance our government services through revolutionary AI that maintains complete transparency and cultural respect.%0D%0A%0D%0AOur Organization:%0D%0A- [Describe your government agency]%0D%0A- [Explain your current public service challenges]%0D%0A- [Detail your commitment to transparency and cultural diversity]%0D%0A%0D%0AOur Vision:%0D%0A- [How you see AI enhancing government services]%0D%0A- [What public service outcomes you want to achieve]%0D%0A- [Your commitment to transparent AI and cultural respect]%0D%0A%0D%0AWhy PRAXIS:%0D%0A- [Why you want to partner with our revolutionary approach]%0D%0A- [How you align with our ethical AI principles]%0D%0A%0D%0ABest regards,%0D%0A[Your Name]'
       }
     ]
   },
@@ -1202,7 +1502,7 @@ export const pageContent = {
         subtitle: 'Partner with PRAXIS to strengthen communities through ethical AI',
         description: 'Join us in creating community solutions that respect local culture, enhance human connection, and build knowledge networks without surveillance or data exploitation.',
         buttonText: 'Explore Community Partnership',
-        buttonLink: 'mailto:jack@praxislabs.technology?subject=Community Partnership Inquiry - PRAXIS Labs&body=Dear PRAXIS Team,%0D%0A%0D%0AI am interested in exploring how PRAXIS can enhance our community through revolutionary AI that respects local culture and enhances human connection.%0D%0A%0D%0AOur Community:%0D%0A- [Describe your community organization]%0D%0A- [Explain your current community challenges]%0D%0A- [Detail your cultural diversity and local knowledge]%0D%0A%0D%0AOur Vision:%0D%0A- [How you see AI enhancing community bonds]%0D%0A- [What community outcomes you want to achieve]%0D%0A- [Your commitment to cultural respect and privacy]%0D%0A%0D%0AWhy PRAXIS:%0D%0A- [Why you want to partner with our revolutionary approach]%0D%0A- [How you align with our ethical AI principles]%0D%0A%0D%0ABest regards,%0D%0A[Your Name]'
+        buttonLink: 'mailto:contact@praxislabs.technology?subject=Community Partnership Inquiry - PRAXIS Labs&body=Dear PRAXIS Team,%0D%0A%0D%0AI am interested in exploring how PRAXIS can enhance our community through revolutionary AI that respects local culture and enhances human connection.%0D%0A%0D%0AOur Community:%0D%0A- [Describe your community organization]%0D%0A- [Explain your current community challenges]%0D%0A- [Detail your cultural diversity and local knowledge]%0D%0A%0D%0AOur Vision:%0D%0A- [How you see AI enhancing community bonds]%0D%0A- [What community outcomes you want to achieve]%0D%0A- [Your commitment to cultural respect and privacy]%0D%0A%0D%0AWhy PRAXIS:%0D%0A- [Why you want to partner with our revolutionary approach]%0D%0A- [How you align with our ethical AI principles]%0D%0A%0D%0ABest regards,%0D%0A[Your Name]'
       }
     ]
   }

@@ -285,6 +285,7 @@ const FloatingCode = () => {
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLeftMenuOpen, setIsLeftMenuOpen] = useState(false);
+  const [activeSubMenu, setActiveSubMenu] = useState(null);
   const { isDarkMode } = React.useContext(ThemeContext);
 
   useEffect(() => {
@@ -342,11 +343,11 @@ export const Header = () => {
           <div className="flex items-center space-x-4">
             <ThemeToggle />
             <div className="hidden md:block">
-              <Link to="/demo" className={`relative ${bgColorClass} backdrop-blur-sm ${textColorClass} px-4 py-2 rounded-lg text-sm font-mono font-semibold transition-all duration-300 transform hover:scale-105 ${hoverBgColorClass} hover:shadow-2xl ${shadowColorClass} group overflow-hidden ${borderColorClass}`}>
-                <span className="relative z-10">Demo</span>
-                <div className={`absolute inset-0 ${bgColorClass} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
-              </Link>
-            </div>
+            <Link to="/demo" className={`relative ${bgColorClass} backdrop-blur-sm ${textColorClass} px-4 py-2 rounded-lg text-sm font-mono font-semibold transition-all duration-300 transform hover:scale-105 ${hoverBgColorClass} hover:shadow-2xl ${shadowColorClass} group overflow-hidden ${borderColorClass}`}>
+              <span className="relative z-10">Demo</span>
+              <div className={`absolute inset-0 ${bgColorClass} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+            </Link>
+          </div>
             <button
               onClick={() => setIsLeftMenuOpen(!isLeftMenuOpen)}
               className={`md:hidden ${mutedTextColorClass} ${hoverTextColorClass} p-2`}
@@ -385,12 +386,76 @@ export const Header = () => {
               </button>
             </div>
             
-            <nav className="space-y-4">
-              <Link to="/about" className={`block ${mutedTextColorClass} ${hoverTextColorClass} transition-colors font-mono text-sm`}>About</Link>
-              <Link to="/research" className={`block ${mutedTextColorClass} ${hoverTextColorClass} transition-colors font-mono text-sm`}>Research</Link>
-              <Link to="/engineering" className={`block ${mutedTextColorClass} ${hoverTextColorClass} transition-colors font-mono text-sm`}>Engineering</Link>
-              <Link to="/services" className={`block ${mutedTextColorClass} ${hoverTextColorClass} transition-colors font-mono text-sm`}>Services</Link>
-              <Link to="/demo" className={`block ${textColorClass} font-semibold font-mono text-sm`}>Demo</Link>
+            <nav className="space-y-1">
+              {/* Models (6 letters) */}
+              <div>
+                <button
+                  onClick={() => setActiveSubMenu(activeSubMenu === 'models' ? null : 'models')}
+                  className={`w-full text-left ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-sm py-2 px-3`}
+                >
+                  Models
+                </button>
+                <div className={`ml-4 space-y-1 overflow-hidden transition-all duration-500 ease-out ${activeSubMenu === 'models' ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
+                  <Link to="/models/katana" onClick={() => setIsLeftMenuOpen(false)} className={`block ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-xs py-1 px-3 transition-all duration-300 ease-out ${activeSubMenu === 'models' ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`} style={{transitionDelay: activeSubMenu === 'models' ? '100ms' : '0ms'}}>Katana</Link>
+                  <Link to="/models/iceberg" onClick={() => setIsLeftMenuOpen(false)} className={`block ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-xs py-1 px-3 transition-all duration-300 ease-out ${activeSubMenu === 'models' ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`} style={{transitionDelay: activeSubMenu === 'models' ? '200ms' : '0ms'}}>ICEBERG</Link>
+                  <Link to="/models/thesidia" onClick={() => setIsLeftMenuOpen(false)} className={`block ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-xs py-1 px-3 transition-all duration-300 ease-out ${activeSubMenu === 'models' ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`} style={{transitionDelay: activeSubMenu === 'models' ? '300ms' : '0ms'}}>Thesidia</Link>
+                  <Link to="/models/ice-nano" onClick={() => setIsLeftMenuOpen(false)} className={`block ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-xs py-1 px-3 transition-all duration-300 ease-out ${activeSubMenu === 'models' ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`} style={{transitionDelay: activeSubMenu === 'models' ? '400ms' : '0ms'}}>Ice-nano</Link>
+                </div>
+              </div>
+
+              {/* Product (7 letters) */}
+              <div>
+                <button
+                  onClick={() => setActiveSubMenu(activeSubMenu === 'product' ? null : 'product')}
+                  className={`w-full text-left ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-sm py-2 px-3`}
+                >
+                  Product
+                </button>
+                <div className={`ml-4 space-y-1 overflow-hidden transition-all duration-500 ease-out ${activeSubMenu === 'product' ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
+                  <Link to="/platform" onClick={() => setIsLeftMenuOpen(false)} className={`block ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-xs py-1 px-3 transition-all duration-300 ease-out ${activeSubMenu === 'product' ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`} style={{transitionDelay: activeSubMenu === 'product' ? '100ms' : '0ms'}}>Platform</Link>
+                  <Link to="/enterprise" onClick={() => setIsLeftMenuOpen(false)} className={`block ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-xs py-1 px-3 transition-all duration-300 ease-out ${activeSubMenu === 'product' ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`} style={{transitionDelay: activeSubMenu === 'product' ? '200ms' : '0ms'}}>Enterprise</Link>
+                  <Link to="/iceberg-overview" onClick={() => setIsLeftMenuOpen(false)} className={`block ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-xs py-1 px-3 transition-all duration-300 ease-out ${activeSubMenu === 'product' ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`} style={{transitionDelay: activeSubMenu === 'product' ? '300ms' : '0ms'}}>Iceberg Overview</Link>
+                  <Link to="/iceberg-protocol" onClick={() => setIsLeftMenuOpen(false)} className={`block ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-xs py-1 px-3 transition-all duration-300 ease-out ${activeSubMenu === 'product' ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`} style={{transitionDelay: activeSubMenu === 'product' ? '400ms' : '0ms'}}>Iceberg Protocol</Link>
+                </div>
+              </div>
+
+              {/* Research (8 letters) */}
+              <div>
+                <button
+                  onClick={() => setActiveSubMenu(activeSubMenu === 'research' ? null : 'research')}
+                  className={`w-full text-left ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-sm py-2 px-3`}
+                >
+                  Research
+                </button>
+                <div className={`ml-4 space-y-1 overflow-hidden transition-all duration-500 ease-out ${activeSubMenu === 'research' ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
+                  <Link to="/research-index" onClick={() => setIsLeftMenuOpen(false)} className={`block ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-xs py-1 px-3 transition-all duration-300 ease-out ${activeSubMenu === 'research' ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`} style={{transitionDelay: activeSubMenu === 'research' ? '100ms' : '0ms'}}>Index</Link>
+                  <Link to="/research" onClick={() => setIsLeftMenuOpen(false)} className={`block ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-xs py-1 px-3 transition-all duration-300 ease-out ${activeSubMenu === 'research' ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`} style={{transitionDelay: activeSubMenu === 'research' ? '200ms' : '0ms'}}>Research Overview</Link>
+                  <Link to="/research/publications" onClick={() => setIsLeftMenuOpen(false)} className={`block ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-xs py-1 px-3 transition-all duration-300 ease-out ${activeSubMenu === 'research' ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`} style={{transitionDelay: activeSubMenu === 'research' ? '300ms' : '0ms'}}>Publications</Link>
+                  <Link to="/research/methodology" onClick={() => setIsLeftMenuOpen(false)} className={`block ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-xs py-1 px-3 transition-all duration-300 ease-out ${activeSubMenu === 'research' ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`} style={{transitionDelay: activeSubMenu === 'research' ? '400ms' : '0ms'}}>Methodology</Link>
+                </div>
+              </div>
+
+              {/* Solutions (9 letters) */}
+              <div>
+                <button
+                  onClick={() => setActiveSubMenu(activeSubMenu === 'solutions' ? null : 'solutions')}
+                  className={`w-full text-left ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-sm py-2 px-3`}
+                >
+                  Solutions
+                </button>
+                <div className={`ml-4 space-y-1 overflow-hidden transition-all duration-500 ease-out ${activeSubMenu === 'solutions' ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
+                  <Link to="/solutions/education" onClick={() => setIsLeftMenuOpen(false)} className={`block ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-xs py-1 px-3 transition-all duration-300 ease-out ${activeSubMenu === 'solutions' ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`} style={{transitionDelay: activeSubMenu === 'solutions' ? '100ms' : '0ms'}}>Education</Link>
+                  <Link to="/solutions/community" onClick={() => setIsLeftMenuOpen(false)} className={`block ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-xs py-1 px-3 transition-all duration-300 ease-out ${activeSubMenu === 'solutions' ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`} style={{transitionDelay: activeSubMenu === 'solutions' ? '200ms' : '0ms'}}>Community</Link>
+                  <Link to="/solutions/government" onClick={() => setIsLeftMenuOpen(false)} className={`block ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-xs py-1 px-3 transition-all duration-300 ease-out ${activeSubMenu === 'solutions' ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`} style={{transitionDelay: activeSubMenu === 'solutions' ? '300ms' : '0ms'}}>Government</Link>
+                  <Link to="/solutions/financial" onClick={() => setIsLeftMenuOpen(false)} className={`block ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-xs py-1 px-3 transition-all duration-300 ease-out ${activeSubMenu === 'solutions' ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`} style={{transitionDelay: activeSubMenu === 'solutions' ? '400ms' : '0ms'}}>Financial Services</Link>
+                </div>
+              </div>
+
+              {/* Direct Links - ordered by length */}
+              <Link to="/demo" onClick={() => setIsLeftMenuOpen(false)} className={`block ${textColorClass} font-semibold font-mono text-sm py-2 px-3`}>Demo</Link>
+              <Link to="/about" onClick={() => setIsLeftMenuOpen(false)} className={`block ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-sm py-2 px-3`}>About</Link>
+              <Link to="/services" onClick={() => setIsLeftMenuOpen(false)} className={`block ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-sm py-2 px-3`}>Services</Link>
+              <Link to="/engineering" onClick={() => setIsLeftMenuOpen(false)} className={`block ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-sm py-2 px-3`}>Engineering</Link>
             </nav>
           </div>
         </div>
