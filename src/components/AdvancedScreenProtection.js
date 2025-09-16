@@ -78,14 +78,6 @@ export const AdvancedScreenProtection = () => {
           * {
             display: none !important;
           }
-          body::before {
-            content: "This content is protected and cannot be printed.";
-            display: block !important;
-            font-family: monospace;
-            font-size: 24px;
-            text-align: center;
-            padding: 50px;
-          }
         }
         
         /* Disable screen capture on some browsers */

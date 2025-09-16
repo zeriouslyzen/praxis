@@ -70,6 +70,38 @@ export const ScreenProtection = () => {
       }
     };
 
+    // Mobile screenshot detection
+    const handleMobileScreenshot = () => {
+      // Detect rapid touch events that might indicate screenshot
+      let touchCount = 0;
+      let lastTouch = 0;
+      
+      const handleTouch = () => {
+        const now = Date.now();
+        if (now - lastTouch < 100) {
+          touchCount++;
+          if (touchCount > 3) {
+            // Rapid touches might indicate screenshot attempt
+            setIsBlurred(true);
+            setTimeout(() => setIsBlurred(false), 3000);
+            touchCount = 0;
+          }
+        } else {
+          touchCount = 0;
+        }
+        lastTouch = now;
+      };
+
+      // Listen for mobile touch events
+      document.addEventListener('touchstart', handleTouch);
+      document.addEventListener('touchend', handleTouch);
+      
+      return () => {
+        document.removeEventListener('touchstart', handleTouch);
+        document.removeEventListener('touchend', handleTouch);
+      };
+    };
+
     // Block if user tries to open DevTools
     let devtools = { open: false, orientation: null };
     const threshold = 160;
@@ -93,6 +125,9 @@ export const ScreenProtection = () => {
     document.addEventListener('selectstart', handleSelectStart);
     document.addEventListener('dragstart', handleDragStart);
     document.addEventListener('visibilitychange', handleVisibilityChange);
+    
+    // Mobile protection
+    const mobileCleanup = handleMobileScreenshot();
     
     // DevTools detection
     const devToolsInterval = setInterval(detectDevTools, 500);
@@ -133,10 +168,6 @@ export const ScreenProtection = () => {
         * {
           display: none !important;
         }
-        body::after {
-          content: "Access Denied - This content is protected";
-          display: block !important;
-        }
       }
       
       /* Disable copy/paste */
@@ -145,6 +176,30 @@ export const ScreenProtection = () => {
         -moz-user-select: text !important;
         -ms-user-select: text !important;
         user-select: text !important;
+      }
+      
+      /* Mobile screenshot protection */
+      @media screen and (max-width: 768px) {
+        body {
+          -webkit-touch-callout: none !important;
+          -webkit-user-select: none !important;
+          -khtml-user-select: none !important;
+          -moz-user-select: none !important;
+          -ms-user-select: none !important;
+          user-select: none !important;
+        }
+        
+        /* Make screenshots less useful on mobile */
+        img {
+          filter: blur(0.5px) !important;
+          opacity: 0.95 !important;
+        }
+        
+        /* Disable long press on mobile */
+        * {
+          -webkit-touch-callout: none !important;
+          -webkit-user-select: none !important;
+        }
       }
     `;
     document.head.appendChild(style);
@@ -156,6 +211,7 @@ export const ScreenProtection = () => {
       document.removeEventListener('selectstart', handleSelectStart);
       document.removeEventListener('dragstart', handleDragStart);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
+      if (mobileCleanup) mobileCleanup();
       clearInterval(devToolsInterval);
       document.head.removeChild(style);
     };

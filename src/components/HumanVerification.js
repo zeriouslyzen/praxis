@@ -4,6 +4,7 @@ import { ThemeContext } from '../contexts/AppContext';
 export const HumanVerification = () => {
   const { isDarkMode } = React.useContext(ThemeContext);
   const [isVisible, setIsVisible] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
   const [challenge, setChallenge] = useState(null);
   const [userAnswer, setUserAnswer] = useState('');
   const [isVerified, setIsVerified] = useState(false);
@@ -38,10 +39,14 @@ export const HumanVerification = () => {
   ];
 
   useEffect(() => {
-    // Show verification after a short delay
+    // Show verification after a short delay with smooth animation
     const timer = setTimeout(() => {
-      setIsVisible(true);
-      setChallenge(challenges[Math.floor(Math.random() * challenges.length)]);
+      setIsAnimating(true);
+      setTimeout(() => {
+        setIsVisible(true);
+        setChallenge(challenges[Math.floor(Math.random() * challenges.length)]);
+        setIsAnimating(false);
+      }, 300);
     }, 2000);
 
     return () => clearTimeout(timer);
@@ -51,9 +56,12 @@ export const HumanVerification = () => {
     setUserAnswer(answerIndex);
     if (answerIndex === challenge.correct) {
       setIsVerified(true);
+      // Smooth fade out animation
+      setIsAnimating(true);
       setTimeout(() => {
         setIsVisible(false);
-      }, 1000);
+        setIsAnimating(false);
+      }, 800);
     }
   };
 
@@ -64,15 +72,45 @@ export const HumanVerification = () => {
   const cardBgClass = isDarkMode ? 'bg-black/80' : 'bg-white/80';
   const hoverBgClass = isDarkMode ? 'hover:bg-white/10' : 'hover:bg-black/10';
 
+  // Add CSS keyframes for animations
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    `;
+    document.head.appendChild(style);
+    
+    return () => {
+      if (document.head.contains(style)) {
+        document.head.removeChild(style);
+      }
+    };
+  }, []);
+
   if (!isVisible || isVerified) return null;
 
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center">
+    <div className={`fixed inset-0 z-[9999] flex items-center justify-center transition-all duration-500 ease-in-out ${
+      isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+    } ${isAnimating ? 'scale-105' : 'scale-100'}`}>
       {/* Backdrop */}
-      <div className={`absolute inset-0 ${isDarkMode ? 'bg-black/80' : 'bg-white/80'} backdrop-blur-sm`} />
+      <div className={`absolute inset-0 transition-all duration-500 ease-in-out ${
+        isDarkMode ? 'bg-black/80' : 'bg-white/80'
+      } backdrop-blur-sm ${isVisible ? 'opacity-100' : 'opacity-0'}`} />
       
       {/* Verification Modal */}
-      <div className={`relative ${bgColorClass} backdrop-blur-xl border ${borderColorClass} rounded-2xl p-8 max-w-md mx-4 shadow-2xl`}>
+      <div className={`relative transition-all duration-500 ease-in-out transform ${
+        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+      } ${bgColorClass} backdrop-blur-xl border ${borderColorClass} rounded-2xl p-8 max-w-md mx-4 shadow-2xl`}>
         {/* Header */}
         <div className="text-center mb-6">
           <div className={`w-12 h-12 mx-auto mb-4 rounded-full ${isDarkMode ? 'bg-white/10' : 'bg-black/10'} flex items-center justify-center`}>
@@ -100,11 +138,15 @@ export const HumanVerification = () => {
                   <button
                     key={index}
                     onClick={() => handleAnswer(index)}
-                    className={`w-full text-left p-3 rounded-lg font-mono text-sm transition-all duration-200 ${hoverBgClass} ${
+                    className={`w-full text-left p-3 rounded-lg font-mono text-sm transition-all duration-300 ease-in-out transform hover:scale-[1.02] ${hoverBgClass} ${
                       userAnswer === index 
-                        ? (index === challenge.correct ? 'bg-green-500/20 text-green-600' : 'bg-red-500/20 text-red-600')
-                        : `${mutedTextColorClass} hover:${textColorClass}`
+                        ? (index === challenge.correct ? 'bg-green-500/20 text-green-600 scale-[1.02]' : 'bg-red-500/20 text-red-600 scale-[1.02]')
+                        : `${mutedTextColorClass} hover:${textColorClass} hover:shadow-lg`
                     }`}
+                    style={{
+                      animationDelay: `${index * 100}ms`,
+                      animation: isVisible ? 'fadeInUp 0.5s ease-out forwards' : 'none'
+                    }}
                   >
                     {String.fromCharCode(65 + index)}. {option}
                   </button>
