@@ -11,6 +11,20 @@ A cutting-edge React application showcasing PRAXIS, a sophisticated research and
   - **Pattern Recognition**: Data chaos-to-order transformation visualization
   - **Hypothesis Generation**: 3D mind map with grid-aligned concept nodes
   - **Literature Synthesis**: 3D library of flowing research documents
+- **Interactive Benchmark Dashboard**: Comprehensive performance metrics with comparative views
+  - **Configuration Comparison**: Before/after and different deployment comparisons
+  - **Iceberg Performance Visualization**: Visible vs hidden performance metrics
+  - **AI-Powered Insights**: Predictive analytics and optimization recommendations
+  - **Real-time Monitoring**: Live performance tracking with animated charts
+- **Advanced Security & Protection**: Multi-layered website protection system
+  - **Human Verification**: Research-focused academic questions with smooth animations
+  - **Screen Protection**: Silent screenshot and screen recording detection with blur effects
+  - **Mobile Protection**: Enhanced mobile screenshot prevention and touch event detection
+  - **Bot Protection**: Search engine indexing prevention and automated agent blocking
+- **Left Slide Navigation**: Fluid left-side menu with animated sub-navigation
+  - **Staggered Animations**: Sub-links appear with smooth sequential animations
+  - **Word Length Ordering**: Links organized from shortest to longest words
+  - **PRAXIS Aesthetic**: Consistent styling with existing design language
 - **Tech Aesthetic**: Deep black backgrounds with white text and monospace fonts
 - **Advanced Animations**: GSAP-powered smooth transitions and complex sequences
 - **Responsive Design**: Mobile-first modular design with proper spacing
@@ -104,13 +118,22 @@ PRAXIS/
 
 ## 🌟 Key Components
 
-- **Header**: Fixed navigation with tech styling and mobile menu
+- **Header**: Fixed navigation with tech styling and left slide-out menu
 - **Hero**: Full-screen landing with matrix rain, neural network, and search functionality
 - **AnimatedAbout**: Four-module research intelligence experience
   - **ResearchEngine**: Three.js 3D visualization with WebGL fallback
   - **PatternRecognition**: Canvas-based data transformation
   - **HypothesisGeneration**: GSAP-powered 3D mind map
   - **LiteratureSynthesis**: 3D document library animation
+- **BenchmarkDashboard**: Interactive performance metrics visualization
+  - **ConfigurationCard**: Hardware and deployment comparison cards
+  - **MetricCard**: Individual performance metric displays with trends
+  - **IcebergChart**: Visible vs hidden performance visualization
+  - **PerformanceChart**: Real-time performance monitoring
+  - **AIInsights**: Predictive analytics and optimization recommendations
+- **HumanVerification**: Research-focused academic question overlay
+- **ScreenProtection**: Multi-layered screenshot and recording protection
+- **AdvancedScreenProtection**: Advanced detection methods and WebRTC blocking
 - **Section Components**: Reusable section layouts with tech containers
 - **Icon System**: Custom SVG icons for technology concepts
 - **Responsive Grid**: Mobile-first responsive design
@@ -122,7 +145,9 @@ PRAXIS/
 - **Component Lifecycle**: Proper cleanup and memory management
 - **Intersection Observer**: Efficient scroll-triggered animations
 - **Minimal Dependencies**: Lightweight bundle size
-- **SEO Optimized**: Proper meta tags and semantic HTML
+- **Security Optimized**: Multi-layered protection without performance impact
+- **Silent Protection**: Screenshot detection with subtle blur effects
+- **Mobile Optimized**: Enhanced mobile protection and touch event handling
 
 ## 🔧 Customization
 
@@ -159,6 +184,33 @@ The application is built with customization in mind:
 - **GSAP Animation**: Smooth document movement and rotation
 - **Layered Effects**: Multiple animation layers for depth
 - **Research Focus**: Academic and technical document themes
+
+## 🔒 Security Features
+
+### Human Verification System
+- **Research-Focused Questions**: Academic questions to verify human interaction
+- **Smooth Animations**: Fluid fade in/out effects with staggered button appearances
+- **Session Management**: One-time verification per session
+- **Non-Intrusive**: Appears after 2 seconds with subtle animations
+
+### Screen Protection
+- **Silent Detection**: No notifications, only subtle blur effects
+- **Multi-Platform**: Windows, Mac, and Linux screenshot prevention
+- **Mobile Enhanced**: Touch event detection and image blurring
+- **DevTools Blocking**: Prevents developer tools access
+- **Print Protection**: Disables printing functionality
+
+### Advanced Protection
+- **Canvas Fingerprinting**: Detects screen recording attempts
+- **Performance Monitoring**: Identifies unusual rendering patterns
+- **WebRTC Blocking**: Prevents screen sharing
+- **Focus Detection**: Monitors window visibility changes
+- **Mouse Movement Analysis**: Detects recording software patterns
+
+### Bot Protection
+- **Search Engine Blocking**: Prevents indexing with robots.txt and meta tags
+- **Automated Agent Detection**: Blocks common bot user agents
+- **Content Protection**: Prevents automated content scraping
 
 ## 📱 Browser Support
 
