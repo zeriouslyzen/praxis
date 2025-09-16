@@ -317,9 +317,28 @@
   animation: float 4s ease-in-out infinite;
 }
 
-/* Smooth scrolling */
+/* Smooth scrolling and iOS safe area handling */
 html {
   scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  /* iOS safe area support */
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-top: env(safe-area-inset-top);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+#root {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  background-color: #000000;
 }
 
 /* Custom scrollbar */
@@ -548,6 +567,17 @@ html {
   
   .terminal {
     font-size: 0.75rem;
+  }
+  
+  /* Ensure full screen coverage on mobile */
+  body {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+  
+  #root {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
   }
 }
 
