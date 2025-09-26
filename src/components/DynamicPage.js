@@ -66,22 +66,38 @@ export const DynamicPage = ({ pageKey, customContent = null }) => {
       case 'content':
         return (
           <SectionTemplate key={index} delay={index * 0.2}>
-            <ContentBlock
-              title={section.title}
-              subtitle={section.subtitle}
-            />
-            {section.content && (
-              <div className={`mt-8 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} font-mono text-sm leading-relaxed`}>
-                {section.content.map((contentItem, contentIndex) => {
-                  if (typeof contentItem === 'string') {
-                    return <p key={contentIndex} className="mb-4">{contentItem}</p>;
-                  } else if (contentItem && contentItem.type === 'paragraph') {
-                    return <p key={contentIndex} className="mb-4">{contentItem.text}</p>;
-                  }
-                  return null;
-                })}
-              </div>
-            )}
+            <div className="max-w-4xl mx-auto">
+              <h2 className={`text-3xl md:text-4xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-12 text-center font-mono`}>
+                {section.title}
+              </h2>
+              {section.content && (
+                <div className="space-y-8">
+                  {section.content.map((contentItem, contentIndex) => (
+                    <div key={contentIndex} className={`p-8 rounded-2xl border-2 ${
+                      isDarkMode 
+                        ? 'border-white/20 bg-white/5' 
+                        : 'border-black/20 bg-black/5'
+                    }`}>
+                      <h3 className={`text-xl md:text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-4 font-mono`}>
+                        {contentItem.title}
+                      </h3>
+                      <div className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} font-mono leading-relaxed`}>
+                        {contentItem.text.split('\n').map((line, lineIndex) => (
+                          line.trim().startsWith('•') ? (
+                            <div key={lineIndex} className="flex items-start mb-2">
+                              <span className="text-blue-400 mr-3 mt-1">•</span>
+                              <span>{line.replace('•', '').trim()}</span>
+                            </div>
+                          ) : (
+                            <p key={lineIndex} className="mb-4">{line}</p>
+                          )
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
           </SectionTemplate>
         );
 

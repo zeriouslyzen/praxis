@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ThemeContext } from '../contexts/AppContext';
 import { OptimizedMatrixRain, OptimizedNeuralNetwork, OptimizedFloatingCode } from './OptimizedAnimations';
+import { ModularCog } from '../assets/logos/ModularCog';
 
 
 // --- Theme Toggle Component ---
@@ -316,7 +317,7 @@ export const Header = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <Link to="/" className={`text-lg font-mono font-bold tracking-wider relative group ${textColorClass}`}>
-              <span className={`${textColorClass} animate-pulse`}>PRAXIS</span>
+              <ModularCog isScrolled={isScrolled} className="transition-all duration-500" />
               <div className={`absolute -bottom-1 left-0 w-0 h-0.5 ${isDarkMode ? 'bg-white' : 'bg-black'} transition-all duration-300 group-hover:w-full shadow-lg ${isDarkMode ? 'shadow-white/50' : 'shadow-black/50'}`}></div>
             </Link>
           </div>
@@ -371,9 +372,9 @@ export const Header = () => {
         />
         
         {/* Menu Panel */}
-        <div className={`fixed top-16 left-0 h-[calc(100vh-4rem)] w-80 z-50 transform transition-transform duration-300 ease-in-out ${
+        <div className={`fixed top-16 left-0 h-[calc(100vh-4rem)] w-72 z-50 transform transition-transform duration-300 ease-in-out ${
           isLeftMenuOpen ? 'translate-x-0' : '-translate-x-full'
-        } ${isDarkMode ? 'bg-black/95' : 'bg-white/95'} backdrop-blur-xl border-r ${isDarkMode ? 'border-white/10' : 'border-black/10'}`}>
+        } ${isDarkMode ? 'bg-black/95' : 'bg-white/95'} backdrop-blur-xl border-r ${isDarkMode ? 'border-white/10' : 'border-black/10'} rounded-r-2xl`}>
           <div className="p-6">
             <div className="flex items-center justify-end mb-8">
               <button
@@ -651,9 +652,7 @@ export const Footer = () => {
     {
       title: "Terms & Policy",
       links: [
-        { name: "Integrity", href: "/terms/integrity" },
-        { name: "Honesty", href: "/terms/honesty" },
-        { name: "Transparency", href: "/terms/transparency" },
+        { name: "Terms of Service", href: "/terms/integrity" },
         { name: "Privacy Policy", href: "/terms/privacy" }
       ]
     }

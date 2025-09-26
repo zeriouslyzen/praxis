@@ -1,0 +1,85 @@
+# PRAXIS Browser Testing Configuration
+# This file contains configurations for testing across different browsers and devices
+
+# Browser Support Matrix
+BROWSERS=(
+    "chrome:Chromium-based browsers (Chrome, Edge, Opera)"
+    "firefox:Gecko-based browsers (Firefox)"
+    "safari:WebKit-based browsers (Safari)"
+)
+
+# Mobile Device Viewports
+MOBILE_VIEWPORTS=(
+    "iPhone SE:375:667"
+    "iPhone 12:390:844"
+    "iPhone 13 Pro:428:926"
+    "iPhone 14 Pro Max:430:932"
+    "Samsung Galaxy S21:360:800"
+    "Samsung Galaxy S22:360:800"
+    "Google Pixel 6:412:915"
+    "iPad:768:1024"
+    "iPad Pro 12.9:1024:1366"
+    "Surface Pro:912:1368"
+)
+
+# Desktop Viewports
+DESKTOP_VIEWPORTS=(
+    "HD Ready:1280:720"
+    "Full HD:1920:1080"
+    "Quad HD:2560:1440"
+    "4K UHD:3840:2160"
+    "Ultra-wide:3440:1440"
+    "Ultra-wide 5K:5120:1440"
+)
+
+# Tablet Viewports
+TABLET_VIEWPORTS=(
+    "iPad Mini:768:1024"
+    "iPad Air:820:1180"
+    "iPad Pro 11:834:1194"
+    "iPad Pro 12.9:1024:1366"
+    "Samsung Galaxy Tab:800:1280"
+    "Amazon Fire HD:800:1280"
+)
+
+# Test URLs
+TEST_URLS=(
+    "http://localhost:3000:Main Application"
+    "http://localhost:3000/research:Research Page"
+    "http://localhost:3000/engineering:Engineering Page"
+    "http://localhost:3000/about:About Page"
+    "http://localhost:3000/services:Services Page"
+)
+
+# Performance Testing Thresholds
+PERFORMANCE_THRESHOLDS=(
+    "first-contentful-paint:1.5"
+    "largest-contentful-paint:2.5"
+    "first-input-delay:0.1"
+    "cumulative-layout-shift:0.1"
+    "total-blocking-time:0.3"
+)
+
+# Accessibility Testing
+ACCESSIBILITY_CHECKS=(
+    "color-contrast"
+    "keyboard-navigation"
+    "screen-reader"
+    "focus-management"
+    "alt-text"
+    "semantic-html"
+)
+
+# Cross-browser Compatibility
+COMPATIBILITY_FEATURES=(
+    "css-grid"
+    "flexbox"
+    "custom-properties"
+    "intersection-observer"
+    "webgl-context"
+    "canvas-support"
+    "animation-frame"
+    "local-storage"
+    "geolocation"
+    "media-devices"
+)

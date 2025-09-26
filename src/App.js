@@ -13,7 +13,6 @@ import DevelopmentPlatformPage from './pages/DevelopmentPlatformPage';
 import InnovationLabPage from './pages/InnovationLabPage';
 import DynamicPage, { ResearchPublicationsPage } from './components/DynamicPage';
 import DemoPage from './pages/DemoPage';
-import { HumanVerification } from './components/HumanVerification';
 import { ScreenProtection } from './components/ScreenProtection';
 import { AdvancedScreenProtection } from './components/AdvancedScreenProtection';
 
@@ -876,7 +875,6 @@ export default function App() {
                     <Router>
                         <SEO {...usePageSEO('home')} />
                         <AppContent />
-                        <HumanVerification />
                         <ScreenProtection />
                         <AdvancedScreenProtection />
                     </Router>

@@ -224,11 +224,7 @@ export const ScreenProtection = () => {
 
   return (
     <>
-      {isBlurred && (
-        <div className="fixed inset-0 z-[9999] pointer-events-none">
-          <div className={`absolute inset-0 backdrop-blur-md ${isDarkMode ? 'bg-black/20' : 'bg-white/20'}`} />
-        </div>
-      )}
+      {/* Blur disabled for now */}
     </>
   );
 };

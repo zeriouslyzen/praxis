@@ -1095,95 +1095,469 @@ export const pageContent = {
 
   // Terms & Policy Pages
   'terms/integrity': {
-    title: 'Terms of Integrity',
-    description: 'PRAXIS Labs Terms of Integrity - Revolutionary commitment to data sovereignty, AI transparency, and human-centric technology that stands in direct opposition to big tech exploitation.',
-    keywords: 'integrity, data sovereignty, AI transparency, human-centric, anti-big tech, revolutionary ethics',
+    title: 'Terms of Service',
+    description: 'PRAXIS Labs Terms of Service - Comprehensive legal framework covering user rights, responsibilities, and our commitment to ethical technology.',
+    keywords: 'terms of service, user agreement, legal terms, AI ethics, data sovereignty, user rights',
     sections: [
       {
         type: 'hero',
-        title: 'Terms of Integrity',
-        subtitle: 'Revolutionary commitment to data sovereignty, AI transparency, and human-centric technology. We are the antithesis of big tech exploitation.',
+        title: 'Terms of Service',
+        subtitle: 'Last Updated: December 2024',
         stats: [
-          { value: '100%', label: 'Data Sovereignty' },
-          { value: 'Zero', label: 'Surveillance' },
-          { value: 'Revolutionary', label: 'Transparency' },
-          { value: 'Human-Centric', label: 'AI Ethics' }
+          { value: '100%', label: 'Transparent' },
+          { value: 'Zero', label: 'Data Collection' },
+          { value: 'Complete', label: 'User Rights' },
+          { value: 'Ethical', label: 'AI Development' }
         ]
       },
       {
-        type: 'manifesto',
-        title: 'The PRAXIS Manifesto',
+        type: 'content',
+        title: '1. Acceptance of Terms',
         content: [
           {
-            type: 'declaration',
-            text: 'We declare our fundamental opposition to the surveillance capitalism model that has corrupted modern technology.'
+            type: 'section',
+            title: 'Agreement to Terms',
+            text: 'By accessing or using PRAXIS Labs services, you agree to be bound by these Terms of Service and all applicable laws and regulations.'
           },
           {
-            type: 'principle',
+            type: 'section',
+            title: 'Modification of Terms',
+            text: 'We reserve the right to modify these terms at any time. Continued use of our services constitutes acceptance of any changes.'
+          },
+          {
+            type: 'section',
+            title: 'Eligibility',
+            text: 'You must be at least 18 years old to use our services. By using our services, you represent that you meet this requirement.'
+          }
+        ]
+      },
+      {
+        type: 'content',
+        title: '2. Service Description',
+        content: [
+          {
+            type: 'section',
+            title: 'What We Provide',
+            text: 'PRAXIS Labs provides AI research and development services, including but not limited to:\n• AI algorithm development\n• Research platform access\n• Educational resources\n• Technology consulting services'
+          },
+          {
+            type: 'section',
+            title: 'Service Availability',
+            text: 'We strive to maintain service availability but do not guarantee uninterrupted access. Services may be temporarily unavailable for maintenance or updates.'
+          },
+          {
+            type: 'section',
+            title: 'Service Modifications',
+            text: 'We reserve the right to modify, suspend, or discontinue any part of our services at any time with reasonable notice.'
+          }
+        ]
+      },
+      {
+        type: 'content',
+        title: '3. User Responsibilities',
+        content: [
+          {
+            type: 'section',
+            title: 'Acceptable Use',
+            text: 'You agree to use our services only for lawful purposes and in accordance with these terms. Prohibited activities include:\n• Violating any applicable laws or regulations\n• Infringing on intellectual property rights\n• Attempting to gain unauthorized access to our systems\n• Using our services for harmful or malicious purposes\n• Interfering with other users\' access to our services'
+          },
+          {
+            type: 'section',
+            title: 'Account Security',
+            text: 'If you create an account, you are responsible for:\n• Maintaining the confidentiality of your account credentials\n• All activities that occur under your account\n• Notifying us immediately of any unauthorized use\n• Ensuring your account information is accurate and up-to-date'
+          },
+          {
+            type: 'section',
+            title: 'Content Responsibility',
+            text: 'You are solely responsible for any content you submit, upload, or share through our services. You warrant that you have all necessary rights to such content.'
+          }
+        ]
+      },
+      {
+        type: 'content',
+        title: '4. Intellectual Property',
+        content: [
+          {
+            type: 'section',
+            title: 'Our Intellectual Property',
+            text: 'All content, trademarks, and intellectual property on our platform are owned by PRAXIS Labs or our licensors. This includes:\n• Software and algorithms\n• Research methodologies\n• Documentation and materials\n• Brand names and logos'
+          },
+          {
+            type: 'section',
+            title: 'User Content Rights',
+            text: 'You retain ownership of content you create. By using our services, you grant us a limited license to use your content solely for providing our services.'
+          },
+          {
+            type: 'section',
+            title: 'Open Source Components',
+            text: 'Some of our services may include open source software. Such components are subject to their respective open source licenses.'
+          }
+        ]
+      },
+      {
+        type: 'content',
+        title: '5. Privacy and Data Protection',
+        content: [
+          {
+            type: 'section',
+            title: 'Zero Data Collection Policy',
+            text: 'PRAXIS Labs practices zero data collection. We do not collect, store, or process personal information unless explicitly required for service functionality.'
+          },
+          {
+            type: 'section',
             title: 'Data Sovereignty',
-            text: 'Your data belongs to you. We collect nothing, store nothing, and exploit nothing. Complete user sovereignty over personal information.'
+            text: 'You maintain complete control over any data you choose to provide. We do not claim ownership of your data or use it for purposes beyond service delivery.'
           },
           {
-            type: 'principle',
-            title: 'AI Transparency',
-            text: 'Every AI decision must be explainable, every algorithm must be transparent, every training source must be disclosed. No black boxes.'
-          },
-          {
-            type: 'principle',
-            title: 'Human Agency',
-            text: 'Technology must enhance human potential, not diminish it. No behavioral manipulation, no attention harvesting, no dependency creation.'
-          },
-          {
-            type: 'principle',
-            title: 'Consciousness Respect',
-            text: 'We integrate ancient wisdom with cutting-edge science, respecting cultural intelligence and pushing boundaries of human potential.'
+            type: 'section',
+            title: 'Privacy Rights',
+            text: 'You have the right to:\n• Access any data we may have about you\n• Request correction of inaccurate data\n• Request deletion of your data\n• Withdraw consent for data processing\n• Data portability where applicable'
           }
         ]
       },
       {
-        type: 'comparison',
-        title: 'PRAXIS vs Big Tech',
-        sections: [
-          {
-            title: 'Data Practices',
-            praxis: 'Zero data collection. Complete user sovereignty. Radical privacy protection.',
-            bigtech: 'Massive data harvesting. User as product. Surveillance capitalism.'
-          },
-          {
-            title: 'AI Transparency',
-            praxis: 'Open source algorithms. Explainable decisions. Transparent training data.',
-            bigtech: 'Black box systems. Hidden manipulation. Proprietary algorithms.'
-          },
-          {
-            title: 'User Relationship',
-            praxis: 'Human enhancement. Agency preservation. Consciousness respect.',
-            bigtech: 'Attention exploitation. Behavioral manipulation. Dependency creation.'
-          },
-          {
-            title: 'Ethical Framework',
-            praxis: 'Paradigm-challenging. Cultural intelligence. Ancient wisdom integration.',
-            bigtech: 'Profit maximization. Growth at all costs. Corporate control.'
-          }
-        ]
-      },
-      {
-        type: 'legal',
-        title: 'Legal Framework & Enforcement',
+        type: 'content',
+        title: '6. Disclaimers and Limitations',
         content: [
           {
             type: 'section',
-            title: 'Binding Commitments',
-            text: 'These Terms of Integrity are legally binding and enforceable under international law. We maintain comprehensive legal frameworks that protect user rights, ensure AI transparency, and enforce our revolutionary ethical standards.'
+            title: 'Service Disclaimers',
+            text: 'Our services are provided "as is" without warranties of any kind. We disclaim all warranties, express or implied, including but not limited to:\n• Merchantability and fitness for a particular purpose\n• Non-infringement of third-party rights\n• Accuracy, reliability, or completeness of content\n• Uninterrupted or error-free operation'
           },
           {
             type: 'section',
-            title: 'Legal Specialization',
-            text: 'Our legal team specializes in technology law, AI ethics, human rights protection, and international data sovereignty regulations. We provide complete legal transparency and user rights protection.'
+            title: 'Limitation of Liability',
+            text: 'To the maximum extent permitted by law, PRAXIS Labs shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of our services.'
           },
           {
             type: 'section',
-            title: 'Enforcement Mechanisms',
-            text: 'Our framework ensures that our revolutionary principles are not just aspirational, but legally enforceable commitments. We stand in direct opposition to big tech legal manipulation and corporate control.'
+            title: 'Maximum Liability',
+            text: 'Our total liability to you for any claims arising from these terms or your use of our services shall not exceed the amount you paid us in the 12 months preceding the claim.'
+          }
+        ]
+      },
+      {
+        type: 'content',
+        title: '7. Indemnification',
+        content: [
+          {
+            type: 'section',
+            title: 'User Indemnification',
+            text: 'You agree to indemnify and hold harmless PRAXIS Labs from any claims, damages, or expenses arising from:\n• Your use of our services\n• Your violation of these terms\n• Your violation of any third-party rights\n• Content you submit or share'
+          }
+        ]
+      },
+      {
+        type: 'content',
+        title: '8. Dispute Resolution',
+        content: [
+          {
+            type: 'section',
+            title: 'Governing Law',
+            text: 'These terms are governed by the laws of [Jurisdiction], without regard to conflict of law principles.'
+          },
+          {
+            type: 'section',
+            title: 'Dispute Resolution Process',
+            text: 'Any disputes arising from these terms or your use of our services shall be resolved through:\n• Good faith negotiation (30 days)\n• Mediation if negotiation fails\n• Binding arbitration as a last resort'
+          },
+          {
+            type: 'section',
+            title: 'Class Action Waiver',
+            text: 'You agree to resolve disputes individually and waive the right to participate in class action lawsuits or class-wide arbitration.'
+          }
+        ]
+      },
+      {
+        type: 'content',
+        title: '9. Termination',
+        content: [
+          {
+            type: 'section',
+            title: 'Termination by You',
+            text: 'You may terminate your use of our services at any time by discontinuing use and, if applicable, deleting your account.'
+          },
+          {
+            type: 'section',
+            title: 'Termination by Us',
+            text: 'We may terminate or suspend your access to our services immediately, without prior notice, for any reason, including violation of these terms.'
+          },
+          {
+            type: 'section',
+            title: 'Effect of Termination',
+            text: 'Upon termination:\n• Your right to use our services ceases immediately\n• We may delete your account and data\n• Provisions that by their nature should survive termination will remain in effect'
+          }
+        ]
+      },
+      {
+        type: 'content',
+        title: '10. General Provisions',
+        content: [
+          {
+            type: 'section',
+            title: 'Entire Agreement',
+            text: 'These terms constitute the entire agreement between you and PRAXIS Labs regarding your use of our services.'
+          },
+          {
+            type: 'section',
+            title: 'Severability',
+            text: 'If any provision of these terms is found to be unenforceable, the remaining provisions will remain in full force and effect.'
+          },
+          {
+            type: 'section',
+            title: 'Contact Information',
+            text: 'For questions about these terms, please contact us at:\n• Email: legal@praxislabs.technology\n• Address: [Company Address]\n• Phone: [Contact Number]'
+          }
+        ]
+      }
+    ]
+  },
+
+  'terms/privacy': {
+    title: 'Privacy Policy',
+    description: 'PRAXIS Labs Privacy Policy - Comprehensive data protection framework compliant with international privacy laws including GDPR, CCPA, and other global regulations.',
+    keywords: 'privacy policy, GDPR, CCPA, data protection, user privacy, international compliance, data sovereignty',
+    sections: [
+      {
+        type: 'hero',
+        title: 'Privacy Policy',
+        subtitle: 'Last Updated: December 2024 | Compliant with GDPR, CCPA, and International Privacy Laws',
+        stats: [
+          { value: 'Zero', label: 'Data Collection' },
+          { value: '100%', label: 'User Control' },
+          { value: 'GDPR', label: 'Compliant' },
+          { value: 'CCPA', label: 'Compliant' }
+        ]
+      },
+      {
+        type: 'content',
+        title: '1. Introduction and Scope',
+        content: [
+          {
+            type: 'section',
+            title: 'About This Policy',
+            text: 'This Privacy Policy explains how PRAXIS Labs ("we," "our," or "us") handles information when you use our services. We are committed to protecting your privacy and maintaining the highest standards of data protection.'
+          },
+          {
+            type: 'section',
+            title: 'Legal Basis',
+            text: 'This policy complies with:\n• General Data Protection Regulation (GDPR) - EU\n• California Consumer Privacy Act (CCPA) - California, USA\n• Personal Information Protection and Electronic Documents Act (PIPEDA) - Canada\n• Privacy Act 1988 - Australia\n• Data Protection Act 2018 - UK\n• Other applicable international privacy laws'
+          },
+          {
+            type: 'section',
+            title: 'Data Controller',
+            text: 'PRAXIS Labs is the data controller for any personal information processed through our services. Contact: privacy@praxislabs.technology'
+          }
+        ]
+      },
+      {
+        type: 'content',
+        title: '2. Information We Do NOT Collect',
+        content: [
+          {
+            type: 'section',
+            title: 'Zero Data Collection Policy',
+            text: 'PRAXIS Labs practices zero data collection. We do not collect, store, or process:\n• Personal identification information (name, email, address)\n• Browsing history or website interactions\n• Device information or IP addresses\n• Location data or geolocation information\n• Biometric data or behavioral patterns\n• Communication content or metadata\n• Financial information or payment data\n• Any other personal information'
+          },
+          {
+            type: 'section',
+            title: 'No Tracking Technologies',
+            text: 'We do not use:\n• Cookies or tracking pixels\n• Analytics tools or user behavior monitoring\n• Third-party advertising networks\n• Social media tracking\n• Cross-site tracking technologies\n• Fingerprinting or device identification'
+          },
+          {
+            type: 'section',
+            title: 'Local Processing Only',
+            text: 'All AI processing and computations occur:\n• Locally on your device\n• In secure, isolated environments\n• Without data transmission to external servers\n• With complete user control over data flow'
+          }
+        ]
+      },
+      {
+        type: 'content',
+        title: '3. Information We May Process (Minimal)',
+        content: [
+          {
+            type: 'section',
+            title: 'Essential Service Data',
+            text: 'In limited circumstances, we may process minimal data necessary for service functionality:\n• Anonymous usage statistics (no personal identifiers)\n• Technical error logs (no user data)\n• Service performance metrics (aggregated only)\n• Security monitoring data (no personal information)'
+          },
+          {
+            type: 'section',
+            title: 'Voluntary Information',
+            text: 'If you choose to provide information voluntarily:\n• Contact form submissions (if you initiate contact)\n• Feedback or support requests\n• Newsletter subscriptions (if requested)\n• Account information (if you create an account)'
+          },
+          {
+            type: 'section',
+            title: 'Legal Basis for Processing',
+            text: 'Any processing is based on:\n• Your explicit consent (GDPR Article 6(1)(a))\n• Legitimate interests (GDPR Article 6(1)(f))\n• Legal obligations (GDPR Article 6(1)(c))\n• Contract performance (GDPR Article 6(1)(b))'
+          }
+        ]
+      },
+      {
+        type: 'content',
+        title: '4. How We Use Information',
+        content: [
+          {
+            type: 'section',
+            title: 'Service Provision',
+            text: 'Any information we process is used solely for:\n• Providing and improving our services\n• Responding to your inquiries\n• Ensuring service security and functionality\n• Complying with legal obligations'
+          },
+          {
+            type: 'section',
+            title: 'No Commercial Use',
+            text: 'We do not use your information for:\n• Marketing or advertising purposes\n• Selling to third parties\n• Building user profiles\n• Behavioral analysis or targeting\n• Any commercial exploitation'
+          },
+          {
+            type: 'section',
+            title: 'Data Minimization',
+            text: 'We follow the principle of data minimization:\n• Collect only what is absolutely necessary\n• Process only for stated purposes\n• Retain only as long as required\n• Delete when no longer needed'
+          }
+        ]
+      },
+      {
+        type: 'content',
+        title: '5. Information Sharing and Disclosure',
+        content: [
+          {
+            type: 'section',
+            title: 'No Third-Party Sharing',
+            text: 'We do not share, sell, or disclose your information to third parties except:\n• With your explicit consent\n• To comply with legal obligations\n• To protect our rights and safety\n• In case of business transfers (with notice)'
+          },
+          {
+            type: 'section',
+            title: 'Service Providers',
+            text: 'If we use service providers, they:\n• Are bound by strict confidentiality agreements\n• Process data only for specified purposes\n• Implement appropriate security measures\n• Are prohibited from using data for other purposes'
+          },
+          {
+            type: 'section',
+            title: 'Legal Requirements',
+            text: 'We may disclose information if required by:\n• Court orders or legal processes\n• Government investigations\n• Law enforcement requests\n• Regulatory compliance requirements'
+          }
+        ]
+      },
+      {
+        type: 'content',
+        title: '6. Your Privacy Rights',
+        content: [
+          {
+            type: 'section',
+            title: 'GDPR Rights (EU Residents)',
+            text: 'Under GDPR, you have the right to:\n• Access your personal data (Article 15)\n• Rectify inaccurate data (Article 16)\n• Erase your data (Article 17)\n• Restrict processing (Article 18)\n• Data portability (Article 20)\n• Object to processing (Article 21)\n• Withdraw consent at any time (Article 7(3))'
+          },
+          {
+            type: 'section',
+            title: 'CCPA Rights (California Residents)',
+            text: 'Under CCPA, you have the right to:\n• Know what personal information is collected\n• Know whether personal information is sold or disclosed\n• Say no to the sale of personal information\n• Access your personal information\n• Request deletion of personal information\n• Equal service and price (non-discrimination)'
+          },
+          {
+            type: 'section',
+            title: 'How to Exercise Your Rights',
+            text: 'To exercise your rights:\n• Email: privacy@praxislabs.technology\n• Include your request details\n• Provide identity verification if required\n• We will respond within 30 days (GDPR) or 45 days (CCPA)'
+          }
+        ]
+      },
+      {
+        type: 'content',
+        title: '7. Data Security',
+        content: [
+          {
+            type: 'section',
+            title: 'Security Measures',
+            text: 'We implement comprehensive security measures:\n• End-to-end encryption for data transmission\n• Secure data storage with encryption at rest\n• Regular security audits and assessments\n• Access controls and authentication systems\n• Incident response and breach notification procedures'
+          },
+          {
+            type: 'section',
+            title: 'Technical Safeguards',
+            text: 'Our technical safeguards include:\n• Industry-standard encryption protocols\n• Secure coding practices\n• Regular software updates and patches\n• Network security monitoring\n• Data backup and recovery systems'
+          },
+          {
+            type: 'section',
+            title: 'Organizational Safeguards',
+            text: 'Our organizational safeguards include:\n• Employee privacy training\n• Confidentiality agreements\n• Access controls and authorization\n• Regular privacy impact assessments\n• Incident response procedures'
+          }
+        ]
+      },
+      {
+        type: 'content',
+        title: '8. Data Retention',
+        content: [
+          {
+            type: 'section',
+            title: 'Retention Principles',
+            text: 'We retain data only:\n• As long as necessary for stated purposes\n• As required by applicable laws\n• For legitimate business interests\n• With your ongoing consent'
+          },
+          {
+            type: 'section',
+            title: 'Retention Periods',
+            text: 'Typical retention periods:\n• Service data: Duration of service use\n• Contact information: Until you request deletion\n• Legal compliance data: As required by law\n• Security logs: Maximum 12 months'
+          },
+          {
+            type: 'section',
+            title: 'Data Deletion',
+            text: 'When data is no longer needed:\n• We securely delete or anonymize it\n• We remove it from all systems\n• We ensure it cannot be recovered\n• We provide confirmation of deletion'
+          }
+        ]
+      },
+      {
+        type: 'content',
+        title: '9. International Data Transfers',
+        content: [
+          {
+            type: 'section',
+            title: 'Transfer Safeguards',
+            text: 'If we transfer data internationally, we ensure:\n• Adequacy decisions by relevant authorities\n• Standard contractual clauses (SCCs)\n• Binding corporate rules (BCRs)\n• Appropriate safeguards and protections'
+          },
+          {
+            type: 'section',
+            title: 'Data Localization',
+            text: 'We respect data localization requirements:\n• Process data within required jurisdictions\n• Comply with local data protection laws\n• Implement appropriate safeguards\n• Provide transparency about transfers'
+          }
+        ]
+      },
+      {
+        type: 'content',
+        title: '10. Children\'s Privacy',
+        content: [
+          {
+            type: 'section',
+            title: 'Age Restrictions',
+            text: 'Our services are not directed to children under 13 (US) or 16 (EU). We do not knowingly collect personal information from children.'
+          },
+          {
+            type: 'section',
+            title: 'Parental Rights',
+            text: 'If we discover we have collected information from a child:\n• We will delete it immediately\n• We will notify parents if possible\n• We will take appropriate corrective action'
+          }
+        ]
+      },
+      {
+        type: 'content',
+        title: '11. Changes to This Policy',
+        content: [
+          {
+            type: 'section',
+            title: 'Policy Updates',
+            text: 'We may update this policy to reflect:\n• Changes in our practices\n• Legal or regulatory requirements\n• Technology improvements\n• User feedback and needs'
+          },
+          {
+            type: 'section',
+            title: 'Notification of Changes',
+            text: 'We will notify you of material changes by:\n• Posting the updated policy on our website\n• Sending email notifications (if applicable)\n• Providing prominent notice of changes\n• Obtaining consent where required'
+          }
+        ]
+      },
+      {
+        type: 'content',
+        title: '12. Contact Information',
+        content: [
+          {
+            type: 'section',
+            title: 'Privacy Inquiries',
+            text: 'For privacy-related questions or concerns:\n• Email: privacy@praxislabs.technology\n• Data Protection Officer: dpo@praxislabs.technology\n• Address: [Company Address]\n• Phone: [Contact Number]'
+          },
+          {
+            type: 'section',
+            title: 'Regulatory Authorities',
+            text: 'You have the right to lodge complaints with:\n• EU: Your local data protection authority\n• UK: Information Commissioner\'s Office (ICO)\n• US: Federal Trade Commission (FTC)\n• Canada: Privacy Commissioner of Canada'
           }
         ]
       }
@@ -1534,3 +1908,4 @@ export const getPagesByCategory = (category) => {
   
   return categoryMap[category] || [];
 };
+

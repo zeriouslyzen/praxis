@@ -172,11 +172,7 @@ export const AdvancedScreenProtection = () => {
 
   return (
     <>
-      {isBlurred && (
-        <div className="fixed inset-0 z-[9999] pointer-events-none">
-          <div className="absolute inset-0 backdrop-blur-lg bg-black/10" />
-        </div>
-      )}
+      {/* Blur disabled for now */}
     </>
   );
 };

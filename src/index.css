@@ -607,3 +607,95 @@ body {
     filter: blur(0px);
   }
 }
+
+/* Iceberg Logo Animations */
+@keyframes icebergPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 4px rgba(255,255,255,0.4)) drop-shadow(0 0 8px rgba(255,255,255,0.2));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(255,255,255,0.6)) drop-shadow(0 0 16px rgba(255,255,255,0.3));
+    transform: scale(1.03);
+  }
+}
+
+@keyframes icebergPulseDark {
+  0%, 100% {
+    filter: drop-shadow(0 0 4px rgba(0,0,0,0.4)) drop-shadow(0 0 8px rgba(0,0,0,0.2));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(0,0,0,0.6)) drop-shadow(0 0 16px rgba(0,0,0,0.3));
+    transform: scale(1.03);
+  }
+}
+
+@keyframes icebergGlow {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.05);
+  }
+}
+
+.iceberg-pulse {
+  animation: icebergPulse 2.5s ease-in-out infinite;
+}
+
+.iceberg-pulse-dark {
+  animation: icebergPulseDark 2.5s ease-in-out infinite;
+}
+
+.iceberg-glow {
+  animation: icebergGlow 3s ease-in-out infinite;
+}
+
+/* Cog Logo Animations */
+@keyframes cogPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 4px rgba(255,255,255,0.4)) drop-shadow(0 0 8px rgba(255,255,255,0.2));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(255,255,255,0.6)) drop-shadow(0 0 16px rgba(255,255,255,0.3));
+    transform: scale(1.02);
+  }
+}
+
+@keyframes cogPulseDark {
+  0%, 100% {
+    filter: drop-shadow(0 0 4px rgba(0,0,0,0.4)) drop-shadow(0 0 8px rgba(0,0,0,0.2));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(0,0,0,0.6)) drop-shadow(0 0 16px rgba(0,0,0,0.3));
+    transform: scale(1.02);
+  }
+}
+
+@keyframes cogGlow {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.03);
+  }
+}
+
+.cog-pulse {
+  animation: cogPulse 2.5s ease-in-out infinite;
+}
+
+.cog-pulse-dark {
+  animation: cogPulseDark 2.5s ease-in-out infinite;
+}
+
+.cog-glow {
+  animation: cogGlow 3s ease-in-out infinite;
+}
