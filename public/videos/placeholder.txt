@@ -1,0 +1,31 @@
+# Drone Video Placeholder
+
+This file serves as a placeholder for drone video assets.
+
+## To Add Your Drone Video:
+
+1. Replace this file with your actual drone video file
+2. Name it: `drone-hero-bg.mp4`
+3. Recommended specifications:
+   - Format: MP4 (H.264)
+   - Resolution: 1920x1080 or higher
+   - Duration: 10-30 seconds (will loop)
+   - File size: Under 10MB for optimal web performance
+
+## Alternative Video Sources:
+
+If you don't have drone footage, you can use:
+- Stock video from Unsplash, Pexels, or Pixabay
+- Abstract technology videos
+- Aerial cityscape footage
+- Futuristic/tech-themed backgrounds
+
+## Current Implementation:
+
+The video background is already integrated into the hero section with:
+- Proper z-index layering (behind Matrix rain and graphics)
+- Responsive overlay for text readability
+- Auto-play, loop, and muted settings for web compatibility
+- Theme-aware overlay colors (dark/light mode support)
+
+The video will automatically display once you add the `drone-hero-bg.mp4` file to this directory.

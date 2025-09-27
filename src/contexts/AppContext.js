@@ -3,7 +3,7 @@ import React, { createContext, useContext, useReducer, useEffect } from 'react';
 // Initial state
 const initialState = {
   theme: {
-    isDarkMode: true,
+    isDarkMode: false,
     systemPreference: null,
     userPreference: null
   },
@@ -250,12 +250,14 @@ export const AppProvider = ({ children }) => {
   // Initialize theme from localStorage
   useEffect(() => {
     const savedTheme = localStorage.getItem('praxis-theme');
-    if (savedTheme) {
+    if (savedTheme !== null) {
+      // Only apply saved theme if it exists, otherwise use default (daylight mode)
       dispatch({
         type: ACTION_TYPES.SET_THEME,
         payload: JSON.parse(savedTheme)
       });
     }
+    // If no saved theme, the default (daylight mode) from initialState will be used
   }, []);
 
   // Save theme to localStorage

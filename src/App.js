@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AppProvider, ThemeContext, useApp, LegacyThemeProvider } from './contexts/AppContext';
 import ErrorBoundary from './components/ErrorBoundary';
 import { SEO, usePageSEO } from './components/SEO';
+import VideoBackground from './components/VideoBackground';
+import { EnhancedVideoBackground } from './components/VideoErrorHandler';
+import ScrollToTop from './components/ScrollToTop';
 import LandingPage from './pages/LandingPage';
 import ResearchPage from './pages/ResearchPage';
 import EngineeringPage from './pages/EngineeringPage';
@@ -15,6 +18,7 @@ import DynamicPage, { ResearchPublicationsPage } from './components/DynamicPage'
 import DemoPage from './pages/DemoPage';
 import { ScreenProtection } from './components/ScreenProtection';
 import { AdvancedScreenProtection } from './components/AdvancedScreenProtection';
+import { PerformanceMonitor } from './components/PerformanceMonitor';
 
 // --- Helper Components ---
 
@@ -443,8 +447,23 @@ const Hero = () => {
 
     return (
         <section id="home" className={`relative min-h-screen flex items-center justify-center text-center overflow-hidden ${bgColorClass} pt-16`}>
+            {/* Video Background - Lowest z-index */}
+            <EnhancedVideoBackground 
+                videoSrc="/videos/drone-hero-bg.mp4" 
+                opacity={0.4}
+                overlay={true}
+                overlayColor={isDarkMode ? "rgba(0, 0, 0, 0.6)" : "rgba(255, 255, 255, 0.3)"}
+                fallbackImage="/images/drone-fallback.jpg"
+                onError={(error) => console.warn('Video background error:', error)}
+            />
+            
+            {/* Matrix Rain Effect */}
             <MatrixRain />
+            
+            {/* Neural Network Visualization */}
             <NeuralNetwork className="opacity-20" />
+            
+            {/* Floating Code Elements */}
             <FloatingCode />
 
             {/* Grid background */}
@@ -873,10 +892,12 @@ export default function App() {
             <LegacyThemeProvider>
                 <ErrorBoundary>
                     <Router>
+                        <ScrollToTop />
                         <SEO {...usePageSEO('home')} />
                         <AppContent />
                         <ScreenProtection />
                         <AdvancedScreenProtection />
+                        <PerformanceMonitor enabled={process.env.NODE_ENV === 'development'} />
                     </Router>
                 </ErrorBoundary>
             </LegacyThemeProvider>
