@@ -360,7 +360,7 @@ const FeaturesPage = () => {
   ];
 
   return (
-    <div ref={containerRef} className={`min-h-screen ${isDarkMode ? 'bg-black' : 'bg-white'} pt-20 pb-48 relative`}>
+    <div id="features" ref={containerRef} className={`min-h-screen ${isDarkMode ? 'bg-black' : 'bg-white'} pt-20 pb-48 relative`}>
       {/* Animated background elements */}
       <motion.div 
         className="absolute inset-0 opacity-5 -z-10"
@@ -543,7 +543,7 @@ const FeaturesPage = () => {
           </motion.p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <motion.a 
-              href="#contact" 
+              href="/demo" 
               className={`group relative ${isDarkMode ? 'bg-white/5' : 'bg-black/5'} backdrop-blur-xl ${textColorClass} px-6 py-3 rounded-xl text-sm font-mono font-semibold transition-all duration-300 ${isDarkMode ? 'hover:bg-white/10' : 'hover:bg-black/10'} hover:shadow-2xl ${isDarkMode ? 'hover:shadow-white/10' : 'hover:shadow-black/10'} overflow-hidden border ${isDarkMode ? 'border-white/10' : 'border-black/10'}`}
               whileHover={{ 
                 scale: 1.05,
@@ -565,7 +565,7 @@ const FeaturesPage = () => {
               />
             </motion.a>
             <motion.a 
-              href="#about" 
+              href="/about" 
               className={`group relative bg-transparent border ${isDarkMode ? 'border-white/10' : 'border-black/10'} ${textColorClass} px-6 py-3 rounded-xl text-sm font-mono font-semibold transition-all duration-300 overflow-hidden`}
               whileHover={{ 
                 scale: 1.05,

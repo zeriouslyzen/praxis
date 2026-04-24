@@ -28,6 +28,7 @@
     "build": "CI=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "seo:sitemap": "python3 scripts/generate_sitemap.py",
     "agents:build": "python3 scripts/agent_intelligence/build_agent_intelligence.py",
     "agents:build:docker": "docker compose -f docker-compose.agent-intelligence.yml run --rm agent-intelligence-builder"
   },

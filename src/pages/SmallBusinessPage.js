@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ThemeContext } from '../contexts/AppContext';
 import { Header, Footer } from '../components/Layout';
-import { SEO, usePageSEO } from '../components/SEO';
+import { SEO, usePageSEO, faqStructuredData } from '../components/SEO';
 
 const DRAFT_STYLES = `
   @keyframes sb-trace {
@@ -414,6 +414,29 @@ const SmallBusinessPage = () => {
     'Teams who want a long-term technical ally plus privacy-respecting custom AI—not a revolving door of contractors',
   ];
 
+  const faqSchema = faqStructuredData([
+    {
+      question: 'What does PRAXIS build for small businesses?',
+      answer:
+        'PRAXIS builds engineering-grade business systems including POS and retail workflows, marketing automation, web platforms, and hardware-adjacent software where operations touch physical environments.'
+    },
+    {
+      question: 'Can PRAXIS deliver privacy-first AI?',
+      answer:
+        'Yes. PRAXIS supports privacy-first AI deployments with scoped data boundaries, domain-specific model behavior, retrieval over your internal corpus, and evaluation gates before rollout.'
+    },
+    {
+      question: 'Do you support health, environment, and field operations?',
+      answer:
+        'Yes. PRAXIS supports deployments for health-related engineering, environmental systems, agriculture, energy, and other field-heavy operations that require strong reliability and traceable delivery.'
+    },
+    {
+      question: 'How does engagement work?',
+      answer:
+        'Engagement is milestone-based with explicit deliverables, technical checkpoints, and long-term roadmap support so teams can scale systems without losing architectural control.'
+    }
+  ]);
+
   return (
     <div className={pageShell}>
       <style>{DRAFT_STYLES}</style>
@@ -422,6 +445,7 @@ const SmallBusinessPage = () => {
         description={seo.description}
         keywords={seo.keywords}
         url="https://praxis-research.com/small-business"
+        structuredData={[...(Array.isArray(seo.structuredData) ? seo.structuredData : [seo.structuredData]), faqSchema]}
       />
       <Header />
 

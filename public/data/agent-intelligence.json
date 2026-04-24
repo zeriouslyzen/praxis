@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-23T22:49:16.881037+00:00",
+  "generated_at": "2026-04-24T07:25:44.481018+00:00",
   "source": "local-development-scan",
   "summary": {
     "project_count": 7,
@@ -4332,10 +4332,10 @@
           "display_name": "Adversary",
           "item_kind": "agent",
           "description_samples": [
-            "Adversary: The Skeptical Master (Inspired by Claude Code Verification Agent) Purpose: To attack the proposed Master response and identify 'Persona Drift' or 'Clinical Weakness' before reaching the user"
+            "Adversary: The Skeptical Master (Originated from icenerg adversarial verification design) Purpose: To attack the proposed Master response and identify 'Persona Drift' or 'Clinical Weakness' before reaching the user"
           ],
           "what_they_do": [
-            "Adversary: The Skeptical Master (Inspired by Claude Code Verification Agent) Purpose: To attack the proposed Master response and identify 'Persona Drift' or 'Clinical Weakness' before reaching the user"
+            "Adversary: The Skeptical Master (Originated from icenerg adversarial verification design) Purpose: To attack the proposed Master response and identify 'Persona Drift' or 'Clinical Weakness' before reaching the user"
           ],
           "source_file_count": 1,
           "evidence_paths": [],
@@ -4392,10 +4392,10 @@
           "display_name": "Coordinator",
           "item_kind": "agent",
           "description_samples": [
-            "Coordinator: High-Level Orchestrator (Inspired by Claude Code) Purpose: To manage 'Fan-out' research tasks in parallel and synthesize them for the Persona"
+            "Coordinator: High-Level Orchestrator (Originated from icenerg system design) Purpose: To manage 'Fan-out' research tasks in parallel and synthesize them for the Persona"
           ],
           "what_they_do": [
-            "Coordinator: High-Level Orchestrator (Inspired by Claude Code) Purpose: To manage 'Fan-out' research tasks in parallel and synthesize them for the Persona"
+            "Coordinator: High-Level Orchestrator (Originated from icenerg system design) Purpose: To manage 'Fan-out' research tasks in parallel and synthesize them for the Persona"
           ],
           "source_file_count": 1,
           "evidence_paths": [],
@@ -4412,10 +4412,10 @@
           "display_name": "DojoKernel",
           "item_kind": "agent",
           "description_samples": [
-            "DojoKernel: The Central Switchboard (Inspired by Claude Code QueryEngine) Purpose: To orchestrate the entire multi-agent lifecycle with high fidelity and token efficiency"
+            "DojoKernel: The Central Switchboard (Originated from icenerg orchestration design) Purpose: To orchestrate the entire multi-agent lifecycle with high fidelity and token efficiency"
           ],
           "what_they_do": [
-            "DojoKernel: The Central Switchboard (Inspired by Claude Code QueryEngine) Purpose: To orchestrate the entire multi-agent lifecycle with high fidelity and token efficiency"
+            "DojoKernel: The Central Switchboard (Originated from icenerg orchestration design) Purpose: To orchestrate the entire multi-agent lifecycle with high fidelity and token efficiency"
           ],
           "source_file_count": 1,
           "evidence_paths": [],
@@ -4433,7 +4433,7 @@
           "item_kind": "registry",
           "description_samples": [
             "MoE audit: no mixture-of-experts / MoE-router tokens under `bruce/src` TypeScript; architecture is multi-agent orchestration (DojoKernel coordinates PersonaAgent, Coordinator, Adversary).",
-            "DojoKernel: The Central Switchboard (Inspired by Claude Code QueryEngine) Purpose: To orchestrate the entire multi-agent lifecycle with high fidelity and token efficiency"
+            "DojoKernel: The Central Switchboard (Originated from icenerg orchestration design) Purpose: To orchestrate the entire multi-agent lifecycle with high fidelity and token efficiency"
           ],
           "what_they_do": [
             "MoE audit: no mixture-of-experts / MoE-router tokens under `bruce/src` TypeScript; architecture is multi-agent orchestration (DojoKernel coordinates PersonaAgent, Coordinator, Adversary)."
@@ -4495,10 +4495,10 @@
           "display_name": "Adversary",
           "item_kind": "agent",
           "description_samples": [
-            "Adversary: The Skeptical Master (Inspired by Claude Code Verification Agent) Purpose: To attack the proposed Master response and identify 'Persona Drift' or 'Clinical Weakness' before reaching the user"
+            "Adversary: The Skeptical Master (Originated from icenerg adversarial verification design) Purpose: To attack the proposed Master response and identify 'Persona Drift' or 'Clinical Weakness' before reaching the user"
           ],
           "what_they_do": [
-            "Adversary: The Skeptical Master (Inspired by Claude Code Verification Agent) Purpose: To attack the proposed Master response and identify 'Persona Drift' or 'Clinical Weakness' before reaching the user"
+            "Adversary: The Skeptical Master (Originated from icenerg adversarial verification design) Purpose: To attack the proposed Master response and identify 'Persona Drift' or 'Clinical Weakness' before reaching the user"
           ],
           "source_file_count": 1,
           "evidence_paths": [],
@@ -4555,10 +4555,10 @@
           "display_name": "Coordinator",
           "item_kind": "agent",
           "description_samples": [
-            "Coordinator: High-Level Orchestrator (Inspired by Claude Code) Purpose: To manage 'Fan-out' research tasks in parallel and synthesize them for the Persona"
+            "Coordinator: High-Level Orchestrator (Originated from icenerg system design) Purpose: To manage 'Fan-out' research tasks in parallel and synthesize them for the Persona"
           ],
           "what_they_do": [
-            "Coordinator: High-Level Orchestrator (Inspired by Claude Code) Purpose: To manage 'Fan-out' research tasks in parallel and synthesize them for the Persona"
+            "Coordinator: High-Level Orchestrator (Originated from icenerg system design) Purpose: To manage 'Fan-out' research tasks in parallel and synthesize them for the Persona"
           ],
           "source_file_count": 1,
           "evidence_paths": [],
@@ -4575,10 +4575,10 @@
           "display_name": "DojoKernel",
           "item_kind": "agent",
           "description_samples": [
-            "DojoKernel: The Central Switchboard (Inspired by Claude Code QueryEngine) Purpose: To orchestrate the entire multi-agent lifecycle with high fidelity and token efficiency"
+            "DojoKernel: The Central Switchboard (Originated from icenerg orchestration design) Purpose: To orchestrate the entire multi-agent lifecycle with high fidelity and token efficiency"
           ],
           "what_they_do": [
-            "DojoKernel: The Central Switchboard (Inspired by Claude Code QueryEngine) Purpose: To orchestrate the entire multi-agent lifecycle with high fidelity and token efficiency"
+            "DojoKernel: The Central Switchboard (Originated from icenerg orchestration design) Purpose: To orchestrate the entire multi-agent lifecycle with high fidelity and token efficiency"
           ],
           "source_file_count": 1,
           "evidence_paths": [],
@@ -4596,7 +4596,7 @@
           "item_kind": "registry",
           "description_samples": [
             "MoE audit: no mixture-of-experts / MoE-router tokens under `bruce/src` TypeScript; architecture is multi-agent orchestration (DojoKernel coordinates PersonaAgent, Coordinator, Adversary).",
-            "DojoKernel: The Central Switchboard (Inspired by Claude Code QueryEngine) Purpose: To orchestrate the entire multi-agent lifecycle with high fidelity and token efficiency"
+            "DojoKernel: The Central Switchboard (Originated from icenerg orchestration design) Purpose: To orchestrate the entire multi-agent lifecycle with high fidelity and token efficiency"
           ],
           "what_they_do": [
             "MoE audit: no mixture-of-experts / MoE-router tokens under `bruce/src` TypeScript; architecture is multi-agent orchestration (DojoKernel coordinates PersonaAgent, Coordinator, Adversary)."
@@ -7223,10 +7223,10 @@
       "display_name": "Adversary",
       "item_kind": "agent",
       "description_samples": [
-        "Adversary: The Skeptical Master (Inspired by Claude Code Verification Agent) Purpose: To attack the proposed Master response and identify 'Persona Drift' or 'Clinical Weakness' before reaching the user"
+        "Adversary: The Skeptical Master (Originated from icenerg adversarial verification design) Purpose: To attack the proposed Master response and identify 'Persona Drift' or 'Clinical Weakness' before reaching the user"
       ],
       "what_they_do": [
-        "Adversary: The Skeptical Master (Inspired by Claude Code Verification Agent) Purpose: To attack the proposed Master response and identify 'Persona Drift' or 'Clinical Weakness' before reaching the user"
+        "Adversary: The Skeptical Master (Originated from icenerg adversarial verification design) Purpose: To attack the proposed Master response and identify 'Persona Drift' or 'Clinical Weakness' before reaching the user"
       ],
       "source_file_count": 1,
       "evidence_paths": [],
@@ -7283,10 +7283,10 @@
       "display_name": "Coordinator",
       "item_kind": "agent",
       "description_samples": [
-        "Coordinator: High-Level Orchestrator (Inspired by Claude Code) Purpose: To manage 'Fan-out' research tasks in parallel and synthesize them for the Persona"
+        "Coordinator: High-Level Orchestrator (Originated from icenerg system design) Purpose: To manage 'Fan-out' research tasks in parallel and synthesize them for the Persona"
       ],
       "what_they_do": [
-        "Coordinator: High-Level Orchestrator (Inspired by Claude Code) Purpose: To manage 'Fan-out' research tasks in parallel and synthesize them for the Persona"
+        "Coordinator: High-Level Orchestrator (Originated from icenerg system design) Purpose: To manage 'Fan-out' research tasks in parallel and synthesize them for the Persona"
       ],
       "source_file_count": 1,
       "evidence_paths": [],
@@ -7303,10 +7303,10 @@
       "display_name": "DojoKernel",
       "item_kind": "agent",
       "description_samples": [
-        "DojoKernel: The Central Switchboard (Inspired by Claude Code QueryEngine) Purpose: To orchestrate the entire multi-agent lifecycle with high fidelity and token efficiency"
+        "DojoKernel: The Central Switchboard (Originated from icenerg orchestration design) Purpose: To orchestrate the entire multi-agent lifecycle with high fidelity and token efficiency"
       ],
       "what_they_do": [
-        "DojoKernel: The Central Switchboard (Inspired by Claude Code QueryEngine) Purpose: To orchestrate the entire multi-agent lifecycle with high fidelity and token efficiency"
+        "DojoKernel: The Central Switchboard (Originated from icenerg orchestration design) Purpose: To orchestrate the entire multi-agent lifecycle with high fidelity and token efficiency"
       ],
       "source_file_count": 1,
       "evidence_paths": [],
@@ -7324,7 +7324,7 @@
       "item_kind": "registry",
       "description_samples": [
         "MoE audit: no mixture-of-experts / MoE-router tokens under `bruce/src` TypeScript; architecture is multi-agent orchestration (DojoKernel coordinates PersonaAgent, Coordinator, Adversary).",
-        "DojoKernel: The Central Switchboard (Inspired by Claude Code QueryEngine) Purpose: To orchestrate the entire multi-agent lifecycle with high fidelity and token efficiency"
+        "DojoKernel: The Central Switchboard (Originated from icenerg orchestration design) Purpose: To orchestrate the entire multi-agent lifecycle with high fidelity and token efficiency"
       ],
       "what_they_do": [
         "MoE audit: no mixture-of-experts / MoE-router tokens under `bruce/src` TypeScript; architecture is multi-agent orchestration (DojoKernel coordinates PersonaAgent, Coordinator, Adversary)."

@@ -117,6 +117,7 @@ PRAXIS/
 - `npm run build` - Builds the app for production
 - `npm test` - Launches the test runner
 - `npm run eject` - Ejects from Create React App (one-way operation)
+- `npm run seo:sitemap` - Regenerates `public/sitemap.xml` with fresh `lastmod` dates
 - `npm run agents:build` - Builds the local agent intelligence SQLite and JSON datasets
 - `npm run agents:build:docker` - Runs the same build in a containerized pipeline
 

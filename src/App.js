@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AppProvider, ThemeContext, useApp, LegacyThemeProvider } from './contexts/AppContext';
 import ErrorBoundary from './components/ErrorBoundary';
-import { SEO, usePageSEO } from './components/SEO';
+import { SEO, usePageSEO, getPageKeyFromPath } from './components/SEO';
 import VideoBackground from './components/VideoBackground';
 import { EnhancedVideoBackground } from './components/VideoErrorHandler';
 import ScrollToTop from './components/ScrollToTop';
@@ -888,6 +888,13 @@ const AppContent = () => {
     );
 };
 
+const RouteAwareSEO = () => {
+    const location = useLocation();
+    const pageKey = getPageKeyFromPath(location.pathname);
+    const seo = usePageSEO(pageKey);
+    return <SEO {...seo} url={location.pathname} />;
+};
+
 export default function App() {
     return (
         <AppProvider>
@@ -895,7 +902,7 @@ export default function App() {
                 <ErrorBoundary>
                     <Router>
                         <ScrollToTop />
-                        <SEO {...usePageSEO('home')} />
+                        <RouteAwareSEO />
                         <AppContent />
                         <ScreenProtection />
                         <AdvancedScreenProtection />

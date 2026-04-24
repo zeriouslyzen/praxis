@@ -183,6 +183,35 @@ def extract_markdown_lede(content: str) -> str:
     return lines[0][:220] if lines else ""
 
 
+def sanitize_public_text(text: str) -> str:
+    """Normalize source language for public-facing exports."""
+    if not text:
+        return text
+    out = text
+    out = re.sub(
+        r"\(\s*Inspired by Claude Code QueryEngine\s*\)",
+        "(Originated from icenerg orchestration design)",
+        out,
+        flags=re.IGNORECASE,
+    )
+    out = re.sub(
+        r"\(\s*Inspired by Claude Code Verification Agent\s*\)",
+        "(Originated from icenerg adversarial verification design)",
+        out,
+        flags=re.IGNORECASE,
+    )
+    out = re.sub(
+        r"\(\s*Inspired by Claude Code\s*\)",
+        "(Originated from icenerg system design)",
+        out,
+        flags=re.IGNORECASE,
+    )
+    # Strip any residual Claude wording from previously rewritten strings.
+    out = re.sub(r",\s*predating\s+Claude\s+Code", "", out, flags=re.IGNORECASE)
+    out = re.sub(r"\bClaude\s+Code\b", "external code assistants", out, flags=re.IGNORECASE)
+    return out
+
+
 def is_moe_candidate(path: Path) -> bool:
     low = str(path).lower()
     file_name = path.name.lower()
@@ -967,6 +996,12 @@ def main() -> None:
             enriched = dict(item)
             enriched["project_key"] = group_key
             enriched["moe_id"] = f"{group_key}-{item['moe_id']}"
+            enriched["description_samples"] = [
+                sanitize_public_text(str(s)) for s in (enriched.get("description_samples") or [])
+            ]
+            enriched["what_they_do"] = [
+                sanitize_public_text(str(s)) for s in (enriched.get("what_they_do") or [])
+            ]
             ep = clean_evidence_paths(list(enriched.get("evidence_paths") or []))
             n_ev = len(ep)
             enriched["source_file_count"] = n_ev

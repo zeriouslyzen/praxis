@@ -1,0 +1,51 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="80" y1="56" x2="1120" y2="574" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#060B14"/>
+      <stop offset="0.55" stop-color="#0A111D"/>
+      <stop offset="1" stop-color="#0E1726"/>
+    </linearGradient>
+    <radialGradient id="cyanGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(902 182) rotate(140.2) scale(510 267)">
+      <stop stop-color="#22D3EE" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orangeGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(260 560) rotate(-18.4) scale(362 200)">
+      <stop stop-color="#FF6B00" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#FF6B00" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="118" y="90" width="964" height="450" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="20" stdDeviation="18" flood-color="#000000" flood-opacity="0.55"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#cyanGlow)"/>
+  <rect width="1200" height="630" fill="url(#orangeGlow)"/>
+
+  <g opacity="0.16">
+    <path d="M0 84H1200M0 154H1200M0 224H1200M0 294H1200M0 364H1200M0 434H1200M0 504H1200" stroke="#7DD3FC" stroke-width="1"/>
+    <path d="M118 0V630M256 0V630M394 0V630M532 0V630M670 0V630M808 0V630M946 0V630M1084 0V630" stroke="#1E293B" stroke-width="1"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="160" y="124" width="880" height="382" rx="26" fill="#0B1220" fill-opacity="0.86"/>
+    <rect x="160.75" y="124.75" width="878.5" height="380.5" rx="25.25" stroke="#2B3C57" stroke-width="1.5"/>
+    <rect x="160.75" y="124.75" width="878.5" height="380.5" rx="25.25" stroke="#22D3EE" stroke-opacity="0.18" stroke-width="1.5"/>
+  </g>
+
+  <text x="220" y="208" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="700" letter-spacing="2.4">PRAXIS</text>
+  <text x="220" y="246" fill="#67E8F9" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="500" letter-spacing="1.4">ENGINEERING + AI SYSTEMS</text>
+  <text x="220" y="316" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="54" font-weight="800">High-Fidelity Intelligence</text>
+  <text x="220" y="370" fill="#CBD5E1" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="500">for Hardware, Software, and Advanced Research</text>
+
+  <rect x="220" y="410" width="240" height="54" rx="10" fill="#FF6B00"/>
+  <text x="244" y="445" fill="#0A0F17" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800">praxis-research.com</text>
+
+  <g opacity="0.9">
+    <circle cx="926" cy="206" r="8" fill="#22D3EE"/>
+    <circle cx="972" cy="232" r="7" fill="#38BDF8"/>
+    <circle cx="948" cy="280" r="9" fill="#FF6B00"/>
+    <path d="M926 206L972 232L948 280L904 256L926 206Z" stroke="#93C5FD" stroke-width="2"/>
+    <path d="M896 324H1008M896 350H1008M896 376H1008M896 402H1008" stroke="#334155" stroke-width="2"/>
+  </g>
+</svg>

@@ -1,6 +1,4 @@
 User-agent: *
-Disallow: /
+Allow: /
 
-# PRAXIS Research Platform - Access Restricted
-# This content is protected by intellectual property rights
-# Unauthorized access, scraping, or indexing is prohibited
+Sitemap: https://praxis-research.com/sitemap.xml

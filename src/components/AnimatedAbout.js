@@ -496,7 +496,7 @@ const AnimatedAbout = () => {
       { threshold: 0.1 }
     );
 
-    const element = document.getElementById('animated-about');
+    const element = document.getElementById('about');
     if (element) {
       observer.observe(element);
     }
@@ -547,7 +547,7 @@ const AnimatedAbout = () => {
   ];
 
   return (
-    <section id="animated-about" className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
+    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-mono font-bold text-white tracking-tight mb-6">

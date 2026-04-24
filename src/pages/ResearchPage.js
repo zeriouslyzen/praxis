@@ -566,7 +566,7 @@ const ResearchPage = () => {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="#contact"
+              href="/demo"
               className={`group relative ${isDarkMode ? 'bg-white/10' : 'bg-black/10'} backdrop-blur-sm ${textColorClass} px-8 py-4 rounded-lg text-lg font-mono font-semibold transition-all duration-300 transform hover:scale-105 ${isDarkMode ? 'hover:bg-white/20' : 'hover:bg-black/20'} hover:shadow-2xl ${isDarkMode ? 'hover:shadow-white/20' : 'hover:shadow-black/20'} overflow-hidden border ${isDarkMode ? 'border-white/20' : 'border-black/20'}`}
             >
               <span className="relative z-10">Request Access</span>

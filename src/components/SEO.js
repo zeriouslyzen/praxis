@@ -6,7 +6,7 @@ export const SEO = ({
   title = "PRAXIS - Advanced Research Intelligence Platform",
   description = "Research-driven development platform for advanced algorithms and computational systems. Autonomous research systems that operate continuously, generating breakthrough insights across multiple scientific domains.",
   keywords = "AI research, autonomous research, machine learning, quantum computing, scientific discovery, research platform, artificial intelligence, computational systems",
-  image = "/og-image.jpg",
+  image = "/images/praxis-share-card.svg",
   url = "https://praxis-research.com",
   type = "website",
   structuredData = null
@@ -14,6 +14,9 @@ export const SEO = ({
   const fullTitle = title.includes('PRAXIS') ? title : `PRAXIS - ${title}`;
   const fullUrl = url.startsWith('http') ? url : `https://praxis-research.com${url}`;
   const fullImage = image.startsWith('http') ? image : `https://praxis-research.com${image}`;
+  const structuredDataGraph = Array.isArray(structuredData)
+    ? { "@context": "https://schema.org", "@graph": structuredData }
+    : structuredData;
 
   return (
     <Helmet>
@@ -22,7 +25,8 @@ export const SEO = ({
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
       <meta name="author" content="PRAXIS Research & Development" />
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+      <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       
       {/* Open Graph / Facebook */}
@@ -31,6 +35,10 @@ export const SEO = ({
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={fullImage} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:type" content="image/svg+xml" />
+      <meta property="og:image:alt" content="PRAXIS engineering intelligence platform preview" />
       <meta property="og:site_name" content="PRAXIS" />
       <meta property="og:locale" content="en_US" />
       
@@ -40,6 +48,7 @@ export const SEO = ({
       <meta property="twitter:title" content={fullTitle} />
       <meta property="twitter:description" content={description} />
       <meta property="twitter:image" content={fullImage} />
+      <meta property="twitter:image:alt" content="PRAXIS engineering intelligence platform preview" />
       <meta property="twitter:site" content="@PraxisResearch" />
       <meta property="twitter:creator" content="@PraxisResearch" />
       
@@ -61,9 +70,9 @@ export const SEO = ({
       <link rel="manifest" href="/site.webmanifest" />
       
       {/* Structured Data */}
-      {structuredData && (
+      {structuredDataGraph && (
         <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
+          {JSON.stringify(structuredDataGraph)}
         </script>
       )}
     </Helmet>
@@ -86,7 +95,7 @@ export const defaultStructuredData = {
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "Research Inquiries",
-    "email": "research@praxis-research.com"
+    "email": "jack@praxislabs.technology"
   },
   "sameAs": [
     "https://twitter.com/PraxisResearch",
@@ -104,6 +113,43 @@ export const defaultStructuredData = {
     "Climate Science"
   ]
 };
+
+export const websiteStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "PRAXIS",
+  "url": "https://praxis-research.com",
+  "description": "Electrical engineering-grade software, AI systems, and research-to-deployment platform.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "PRAXIS Research & Development",
+    "url": "https://praxis-research.com"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://praxis-research.com/research?query={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+};
+
+export const homePageStructuredData = [
+  defaultStructuredData,
+  websiteStructuredData,
+  {
+    "@type": "WebPage",
+    "name": "PRAXIS - Advanced Research Intelligence Platform",
+    "url": "https://praxis-research.com/",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "PRAXIS",
+      "url": "https://praxis-research.com"
+    },
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+      "url": "https://praxis-research.com/images/praxis-share-card.svg"
+    }
+  }
+];
 
 // Research paper structured data
 export const researchPaperStructuredData = (paper) => ({
@@ -182,13 +228,27 @@ export const pageSEOConfigs = {
     title: "PRAXIS - Advanced Research Intelligence Platform",
     description: "Research-driven development platform for advanced algorithms and computational systems. Autonomous research systems that operate continuously, generating breakthrough insights across multiple scientific domains.",
     keywords: "AI research, autonomous research, machine learning, quantum computing, scientific discovery, research platform, artificial intelligence, computational systems",
-    structuredData: defaultStructuredData
+    structuredData: homePageStructuredData
   },
   research: {
     title: "Research Publications - PRAXIS",
     description: "Discover documented research papers and technical records from our autonomous research systems across multiple scientific domains including AI, quantum computing, and materials science.",
     keywords: "research papers, technical records, AI research, quantum computing research, materials science, autonomous research, scientific discovery",
     structuredData: defaultStructuredData
+  },
+  engineering: {
+    title: "Engineering Systems - PRAXIS",
+    description: "Engineering-grade software architecture, deterministic validation workflows, telemetry integration, and local-first AI systems for mission-critical operations.",
+    keywords: "engineering software systems, deterministic validation, local-first AI, telemetry integration, hardware software integration, praxis engineering",
+    structuredData: [
+      defaultStructuredData,
+      {
+        "@type": "WebPage",
+        "name": "Engineering Systems - PRAXIS",
+        "url": "https://praxis-research.com/engineering",
+        "description": "Technical engineering capabilities and system architecture from PRAXIS."
+      }
+    ]
   },
   about: {
     title: "About PRAXIS - Research Intelligence",
@@ -202,17 +262,93 @@ export const pageSEOConfigs = {
     keywords: "research services, algorithm research, development platform, innovation lab, research tools, scientific consulting",
     structuredData: defaultStructuredData
   },
+  demo: {
+    title: "Demo Environment - PRAXIS",
+    description: "Interactive PRAXIS demonstration environment for AI-assisted engineering workflows, system previews, and platform capabilities.",
+    keywords: "praxis demo, ai demo, engineering assistant demo, platform preview, interactive research tools",
+    structuredData: [
+      defaultStructuredData,
+      {
+        "@type": "WebPage",
+        "name": "Demo Environment - PRAXIS",
+        "url": "https://praxis-research.com/demo",
+        "description": "Interactive preview environment for PRAXIS platform capabilities."
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "PRAXIS Demo Environment",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "url": "https://praxis-research.com/demo"
+      }
+    ]
+  },
+  'algorithm-research': {
+    title: "Algorithm Research - PRAXIS",
+    description: "Applied algorithm engineering for optimization, intelligence systems, and measurable performance outcomes across production environments.",
+    keywords: "algorithm research, optimization systems, applied ai engineering, performance engineering",
+    structuredData: defaultStructuredData
+  },
+  'development-platform': {
+    title: "Development Platform - PRAXIS",
+    description: "High-performance development platform for distributed workloads, analytics, and operational software delivery.",
+    keywords: "development platform, distributed processing, real-time analytics, software delivery systems",
+    structuredData: defaultStructuredData
+  },
+  'innovation-lab': {
+    title: "Innovation Lab - PRAXIS",
+    description: "R&D execution layer for prototype validation, product feasibility, and frontier engineering programs.",
+    keywords: "innovation lab, research and development, prototype engineering, product feasibility",
+    structuredData: defaultStructuredData
+  },
   'small-business': {
     title: "Small Business · Engineering Pathway - PRAXIS",
     description:
       "Engineering partner for startups and SMBs: POS and commercial systems, marketing software, web from landing to product, environmental and health-sector builds, privacy-first custom AI, LLMs, agents, and long-term innovation support.",
     keywords:
       "POS software integration, retail systems SMB, marketing software development, custom AI SMB, LLM fine-tuning, AI agents business, privacy first AI, environmental technology software, agriculture technology, energy software, PRAXIS",
-    structuredData: defaultStructuredData
+    structuredData: [
+      defaultStructuredData,
+      {
+        "@type": "WebPage",
+        "name": "Small Business Engineering Pathway - PRAXIS",
+        "url": "https://praxis-research.com/small-business",
+        "description": "Engineering pathway for small businesses: software systems, hardware integration, and privacy-first AI delivery."
+      },
+      {
+        "@type": "Service",
+        "serviceType": "Small Business Engineering and AI Integration",
+        "provider": {
+          "@type": "Organization",
+          "name": "PRAXIS Research & Development",
+          "url": "https://praxis-research.com"
+        },
+        "areaServed": "Global",
+        "offers": {
+          "@type": "Offer",
+          "url": "https://praxis-research.com/demo"
+        }
+      }
+    ]
   }
 };
 
 // Hook to get page-specific SEO config
 export const usePageSEO = (page) => {
   return pageSEOConfigs[page] || pageSEOConfigs.home;
+};
+
+export const getPageKeyFromPath = (pathname = '/') => {
+  const path = pathname.toLowerCase();
+  if (path === '/') return 'home';
+  if (path === '/research' || path.startsWith('/research/')) return 'research';
+  if (path === '/engineering') return 'engineering';
+  if (path === '/about') return 'about';
+  if (path === '/services') return 'services';
+  if (path === '/demo') return 'demo';
+  if (path === '/algorithm-research') return 'algorithm-research';
+  if (path === '/development-platform') return 'development-platform';
+  if (path === '/innovation-lab') return 'innovation-lab';
+  if (path === '/small-business') return 'small-business';
+  return 'home';
 };

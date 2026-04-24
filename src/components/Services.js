@@ -90,7 +90,7 @@ const Services = () => {
               ))}
             </ul>
 
-            <a href="#services" className={`mt-6 block text-center ${buttonBgColorClass} backdrop-blur-sm ${textColorClass} px-6 py-3 rounded-lg font-semibold ${buttonHoverBgColorClass} transition-all duration-300 transform hover:scale-105 font-mono text-sm ${buttonBorderColorClass}`}>
+            <a href="/services" className={`mt-6 block text-center ${buttonBgColorClass} backdrop-blur-sm ${textColorClass} px-6 py-3 rounded-lg font-semibold ${buttonHoverBgColorClass} transition-all duration-300 transform hover:scale-105 font-mono text-sm ${buttonBorderColorClass}`}>
               Learn More
             </a>
           </div>
