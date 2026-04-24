@@ -190,7 +190,7 @@ const AboutPage = () => {
           </motion.h2>
           <div className="grid gap-6 md:grid-cols-4">
             {[
-              { value: "50+", label: "Research Papers Published" },
+              { value: "50+", label: "Research Papers Documented" },
               { value: "15+", label: "Years Combined Experience" },
               { value: "99.9%", label: "System Uptime" },
               { value: "24/7", label: "Autonomous Operation" }

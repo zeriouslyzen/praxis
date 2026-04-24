@@ -508,7 +508,7 @@ const ResearchPage = () => {
                   </span>
                 </div>
                 <p className={`text-xs ${mutedTextColorClass} font-mono`}>
-                  {item.papers} paper{item.papers !== 1 ? 's' : ''} published
+                  {item.papers} paper{item.papers !== 1 ? 's' : ''} documented
                 </p>
               </div>
             ))}

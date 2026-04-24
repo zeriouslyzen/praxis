@@ -16,7 +16,7 @@ const IcebergResearchCard = ({ study }) => {
     const getStatusBadge = (status) => {
         const colors = {
             'Active': isDarkMode ? 'bg-green-500/20 text-green-400' : 'bg-green-500/10 text-green-600',
-            'Published': isDarkMode ? 'bg-blue-500/20 text-blue-400' : 'bg-blue-500/10 text-blue-600',
+            'Documented': isDarkMode ? 'bg-blue-500/20 text-blue-400' : 'bg-blue-500/10 text-blue-600',
             'Hypothesis': isDarkMode ? 'bg-yellow-500/20 text-yellow-400' : 'bg-yellow-500/10 text-yellow-600'
         };
         return colors[status] || (isDarkMode ? 'bg-gray-500/20 text-gray-400' : 'bg-gray-500/10 text-gray-600');

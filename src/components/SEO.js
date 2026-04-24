@@ -186,8 +186,8 @@ export const pageSEOConfigs = {
   },
   research: {
     title: "Research Publications - PRAXIS",
-    description: "Discover breakthrough research papers and publications generated through our autonomous research systems across multiple scientific domains including AI, quantum computing, and materials science.",
-    keywords: "research papers, scientific publications, AI research, quantum computing research, materials science, autonomous research, scientific discovery",
+    description: "Discover documented research papers and technical records from our autonomous research systems across multiple scientific domains including AI, quantum computing, and materials science.",
+    keywords: "research papers, technical records, AI research, quantum computing research, materials science, autonomous research, scientific discovery",
     structuredData: defaultStructuredData
   },
   about: {

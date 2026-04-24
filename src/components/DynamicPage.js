@@ -555,11 +555,11 @@ export const ResearchPublicationsPage = () => {
       <SectionTemplate id="hero">
         <ContentBlock
           title="Research Publications"
-          subtitle="Discover the latest research publications and scientific papers generated through our autonomous research systems."
+          subtitle="Discover the latest research records and technical papers available through our autonomous research systems."
         />
         <StatsGrid 
           stats={[
-            { value: "18+", label: "Published Papers" },
+            { value: "18+", label: "Documented Papers" },
             { value: "16+", label: "Scientific Domains" },
             { value: "95%", label: "Accuracy Rate" },
             { value: "24/7", label: "Research Operation" }
