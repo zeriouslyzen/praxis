@@ -183,35 +183,35 @@ const Technology = () => {
         <div>
           <SectionTitle className={`text-left ${textColorClass}`}>Research Infrastructure</SectionTitle>
           <p className={`mt-4 text-sm md:text-base ${mutedTextColorClass} leading-relaxed font-mono`}>
-            Built on cutting-edge technology with enterprise-level scalability and performance for research applications.
+            Built on a sovereign ARM64 foundation (M4) with localized agent orchestration and deterministic telemetry pipelines.
           </p>
           <ul className="mt-8 space-y-4">
             <li className={`flex items-center ${listTextColorClass} group`}>
               <div className={`flex-shrink-0 h-10 w-10 rounded-lg ${iconBgColorClass} flex items-center justify-center mr-4 ${iconHoverBgColorClass} transition-colors duration-300`}>
                 <ShieldCheckIcon />
               </div>
-              <span className={`text-sm ${hoverTextColorClass} transition-colors duration-300 font-mono`}>Security & Encryption</span>
+              <span className={`text-sm ${hoverTextColorClass} transition-colors duration-300 font-mono`}>SDR Differential Interferometry (RF Nulling)</span>
             </li>
             <li className={`flex items-center ${listTextColorClass} group`}>
               <div className={`flex-shrink-0 h-10 w-10 rounded-lg ${iconBgColorClass} flex items-center justify-center mr-4 ${iconHoverBgColorClass} transition-colors duration-300`}>
                 <NetworkIcon />
               </div>
-              <span className={`text-sm ${hoverTextColorClass} transition-colors duration-300 font-mono`}>Distributed Architecture</span>
+              <span className={`text-sm ${hoverTextColorClass} transition-colors duration-300 font-mono`}>Ollama Multi-Agent Orchestration (Local MAS)</span>
             </li>
             <li className={`flex items-center ${listTextColorClass} group`}>
               <div className={`flex-shrink-0 h-10 w-10 rounded-lg ${iconBgColorClass} flex items-center justify-center mr-4 ${iconHoverBgColorClass} transition-colors duration-300`}>
                 <ChartBarIcon />
               </div>
-              <span className={`text-sm ${hoverTextColorClass} transition-colors duration-300 font-mono`}>High-Performance Analytics</span>
+              <span className={`text-sm ${hoverTextColorClass} transition-colors duration-300 font-mono`}>InfluxDB & Grafana Telemetry (Docker Stack)</span>
             </li>
           </ul>
         </div>
         <div className="relative h-64">
           <NeuralNetwork />
-          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${textColorClass} font-mono text-xs space-y-1`}>
-            <p className="animate-fade-in-1 opacity-0 text-white">[RESEARCH]</p>
-            <p className="animate-fade-in-2 opacity-0 text-white">[DEVELOPMENT]</p>
-            <p className="animate-fade-in-3 opacity-0 text-white">[INNOVATION]</p>
+          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${textColorClass} font-mono text-xs space-y-1 text-center`}>
+            <p className="animate-fade-in-1 opacity-0 text-white">[SCALARVORTEX]</p>
+            <p className="animate-fade-in-2 opacity-0 text-white">[THESIDIA]</p>
+            <p className="animate-fade-in-3 opacity-0 text-white">[ICEBERG]</p>
           </div>
         </div>
       </div>

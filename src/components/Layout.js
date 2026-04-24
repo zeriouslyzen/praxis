@@ -446,9 +446,10 @@ export const Header = () => {
                 </button>
                 <div className={`ml-4 space-y-1 overflow-hidden transition-all duration-500 ease-out ${activeSubMenu === 'solutions' ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
                   <Link to="/solutions/education" onClick={() => setIsLeftMenuOpen(false)} className={`block ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-xs py-1 px-3 transition-all duration-300 ease-out ${activeSubMenu === 'solutions' ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`} style={{transitionDelay: activeSubMenu === 'solutions' ? '100ms' : '0ms'}}>Education</Link>
+                  <Link to="/small-business" onClick={() => setIsLeftMenuOpen(false)} className={`block ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-xs py-1 px-3 transition-all duration-300 ease-out ${activeSubMenu === 'solutions' ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`} style={{transitionDelay: activeSubMenu === 'solutions' ? '150ms' : '0ms'}}>Small business</Link>
                   <Link to="/solutions/community" onClick={() => setIsLeftMenuOpen(false)} className={`block ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-xs py-1 px-3 transition-all duration-300 ease-out ${activeSubMenu === 'solutions' ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`} style={{transitionDelay: activeSubMenu === 'solutions' ? '200ms' : '0ms'}}>Community</Link>
-                  <Link to="/solutions/government" onClick={() => setIsLeftMenuOpen(false)} className={`block ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-xs py-1 px-3 transition-all duration-300 ease-out ${activeSubMenu === 'solutions' ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`} style={{transitionDelay: activeSubMenu === 'solutions' ? '300ms' : '0ms'}}>Government</Link>
-                  <Link to="/solutions/financial" onClick={() => setIsLeftMenuOpen(false)} className={`block ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-xs py-1 px-3 transition-all duration-300 ease-out ${activeSubMenu === 'solutions' ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`} style={{transitionDelay: activeSubMenu === 'solutions' ? '400ms' : '0ms'}}>Financial Services</Link>
+                  <Link to="/solutions/government" onClick={() => setIsLeftMenuOpen(false)} className={`block ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-xs py-1 px-3 transition-all duration-300 ease-out ${activeSubMenu === 'solutions' ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`} style={{transitionDelay: activeSubMenu === 'solutions' ? '280ms' : '0ms'}}>Government</Link>
+                  <Link to="/solutions/financial" onClick={() => setIsLeftMenuOpen(false)} className={`block ${mutedTextColorClass} ${hoverTextColorClass} font-mono text-xs py-1 px-3 transition-all duration-300 ease-out ${activeSubMenu === 'solutions' ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`} style={{transitionDelay: activeSubMenu === 'solutions' ? '360ms' : '0ms'}}>Financial Services</Link>
                 </div>
               </div>
 
@@ -467,7 +468,6 @@ export const Header = () => {
 
 export const Hero = () => {
   const [textIndex, setTextIndex] = useState(0);
-  const [searchQuery, setSearchQuery] = useState('');
   const { isDarkMode } = React.useContext(ThemeContext);
   const heroTexts = [
     "Super",
@@ -482,22 +482,11 @@ export const Hero = () => {
     return () => clearInterval(interval);
   }, [heroTexts.length]);
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    // Handle search functionality
-    console.log('Searching for:', searchQuery);
-  };
-
   const bgColorClass = isDarkMode ? 'bg-black' : 'bg-white';
   const textColorClass = isDarkMode ? 'text-white' : 'text-black';
   const mutedTextColorClass = isDarkMode ? 'text-gray-400' : 'text-gray-600';
-  const placeholderColorClass = isDarkMode ? 'placeholder-gray-400' : 'placeholder-gray-600';
   const borderColorClass = isDarkMode ? 'border-white/20' : 'border-black/20';
-  const focusBorderColorClass = isDarkMode ? 'focus:border-white/40' : 'focus:border-black/40';
-  const hoverBorderColorClass = isDarkMode ? 'group-hover:border-white/30' : 'group-hover:border-black/30';
   const bgOpacityClass = isDarkMode ? 'bg-white/5' : 'bg-black/5';
-  const focusBgOpacityClass = isDarkMode ? 'focus:bg-white/10' : 'focus:bg-black/10';
-  const hoverBgOpacityClass = isDarkMode ? 'group-hover:bg-white/8' : 'group-hover:bg-black/8';
   const buttonBgOpacityClass = isDarkMode ? 'bg-white/10' : 'bg-black/10';
   const buttonHoverBgOpacityClass = isDarkMode ? 'hover:bg-white/20' : 'hover:bg-black/20';
   const shadowColorClass = isDarkMode ? 'hover:shadow-white/20' : 'hover:shadow-black/20';
@@ -518,8 +507,8 @@ export const Hero = () => {
         }}></div>
       </div>
 
-      <div className="relative z-10 px-4 max-w-2xl mx-auto">
-        <div className="mb-12">
+      <div className="relative z-10 px-4 max-w-3xl mx-auto">
+        <div className="mb-10">
           <h1 className={`text-3xl md:text-4xl lg:text-5xl font-mono font-bold ${textColorClass} tracking-tight leading-tight mb-6`}>
             Advanced
             <br />
@@ -529,34 +518,19 @@ export const Hero = () => {
           </h1>
         </div>
 
-        {/* Search Bar */}
-        <div className="mb-12">
-          <form onSubmit={handleSearch} className="relative max-w-md mx-auto">
-            <div className="relative group">
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search algorithms, research, development..."
-                className={`w-full ${bgOpacityClass} backdrop-blur-sm border ${borderColorClass} rounded-xl px-6 py-4 ${textColorClass} ${placeholderColorClass} font-mono text-sm focus:outline-none ${focusBorderColorClass} ${focusBgOpacityClass} transition-all duration-300 ${hoverBorderColorClass} ${hoverBgOpacityClass}`}
-              />
-              <button
-                type="submit"
-                className={`absolute right-2 top-1/2 -translate-y-1/2 ${buttonBgOpacityClass} backdrop-blur-sm ${textColorClass} p-2 rounded-lg ${buttonHoverBgOpacityClass} transition-all duration-300`}
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </button>
-            </div>
-          </form>
+        <div className={`mb-10 space-y-3 max-w-2xl mx-auto text-sm md:text-base ${mutedTextColorClass} leading-relaxed font-mono text-left sm:text-center`}>
+          <p>
+            Electrical-engineering-grade software company: hardware interfaces, custom applications, and integration
+            layers—specs, tests, and ownership you can audit.
+          </p>
+          <p>
+            We ship for operators and technical leaders who outgrew no-code dashboards: POS and retail systems, marketing
+            and growth software, web surfaces from brochure to product, firmware-adjacent tooling, and privacy-first custom
+            AI when failure is expensive.
+          </p>
         </div>
 
-        <p className={`mb-8 max-w-lg mx-auto text-sm md:text-base ${mutedTextColorClass} leading-relaxed font-mono`}>
-          Research-driven development platform for advanced algorithms and computational systems.
-        </p>
-
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3">
           <Link to="/#features" className={`group relative ${buttonBgOpacityClass} backdrop-blur-sm ${textColorClass} px-6 py-3 rounded-lg text-sm font-mono font-semibold transition-all duration-300 transform hover:scale-105 ${buttonHoverBgOpacityClass} hover:shadow-2xl ${shadowColorClass} overflow-hidden ${borderColorClass}`}>
             <span className="relative z-10">Explore Features</span>
             <div className={`absolute inset-0 ${buttonBgOpacityClass} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
@@ -564,6 +538,16 @@ export const Hero = () => {
           <Link to="/research" className={`group relative bg-transparent border ${borderColorClass} ${textColorClass} px-6 py-3 rounded-lg text-sm font-mono font-semibold transition-all duration-300 transform hover:scale-105 hover:border-opacity-60 hover:bg-opacity-5 overflow-hidden`}>
             <span className="relative z-10">View Research</span>
             <div className={`absolute inset-0 ${bgOpacityClass} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+          </Link>
+          <Link
+            to="/small-business"
+            className={`group relative px-6 py-3 rounded-lg text-sm font-mono font-semibold transition-all duration-300 transform hover:scale-105 border-2 overflow-hidden ${
+              isDarkMode
+                ? 'bg-[#ff7700] text-stone-950 border-[#ffb84d] hover:bg-[#ff9830] shadow-[0_2px_0_rgba(0,0,0,0.3)]'
+                : 'bg-[#ff6600] text-white border-[#e65100] hover:bg-[#ff8533] shadow-[0_2px_0_rgba(180,52,0,0.35)]'
+            }`}
+          >
+            <span className="relative z-10">For small business</span>
           </Link>
         </div>
       </div>
@@ -626,6 +610,7 @@ export const Footer = () => {
       title: "Solutions",
       links: [
         { name: "Education", href: "/solutions/education" },
+        { name: "Small business", href: "/small-business" },
         { name: "Financial Services", href: "/solutions/financial" },
         { name: "Government", href: "/solutions/government" },
         { name: "Community", href: "/solutions/community" }

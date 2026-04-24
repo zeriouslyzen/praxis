@@ -16,6 +16,7 @@ import DevelopmentPlatformPage from './pages/DevelopmentPlatformPage';
 import InnovationLabPage from './pages/InnovationLabPage';
 import DynamicPage, { ResearchPublicationsPage } from './components/DynamicPage';
 import DemoPage from './pages/DemoPage';
+import SmallBusinessPage from './pages/SmallBusinessPage';
 import { ScreenProtection } from './components/ScreenProtection';
 import { AdvancedScreenProtection } from './components/AdvancedScreenProtection';
 import { PerformanceMonitor } from './components/PerformanceMonitor';
@@ -858,7 +859,8 @@ const AppContent = () => {
                 <Route path="/solutions/financial" element={<DynamicPage pageKey="solutions/financial" />} />
                 <Route path="/solutions/government" element={<DynamicPage pageKey="solutions/government" />} />
                 <Route path="/solutions/community" element={<DynamicPage pageKey="solutions/community" />} />
-                
+                <Route path="/small-business" element={<SmallBusinessPage />} />
+
                 {/* Demo Route */}
                 <Route path="/demo" element={<DemoPage />} />
                 

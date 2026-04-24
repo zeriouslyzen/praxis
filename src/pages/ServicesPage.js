@@ -194,33 +194,33 @@ const ServicesPage = () => {
   // Service categories
   const services = [
     {
-      title: "Algorithm Research",
-      description: "Advanced algorithmic research and development services that push the boundaries of computational intelligence. Our research teams develop cutting-edge algorithms for complex problem-solving across multiple domains.",
+      title: "Global Telemetry Aggregation",
+      description: "Deployment of the IntelHQ data integration pipeline. We cross-reference Polymarket financial probabilities with real-time EMS/Radio signals to map state volatility into actionable, localized data structures.",
       features: [
-        "Neural network optimization",
-        "Quantum algorithm design", 
-        "Pattern recognition",
-        "Machine learning architectures"
+        "Financial probability integration",
+        "Geospatial coordinate mapping",
+        "Real-time event normalization",
+        "SDR signal anomaly tracking"
       ]
     },
     {
-      title: "Development Platform",
-      description: "Enterprise-grade development infrastructure designed for high-performance computing and real-time processing. Our platform provides the robust foundation necessary for mission-critical applications.",
+      title: "Execution Isolation & Verification",
+      description: "Implementation of the Akkadia protocol for isolated Subprocess and Podman execution. We systematically mutate binaries and expose logic flaws via deterministic testing before allowing state changes.",
       features: [
-        "High-performance computing",
-        "Distributed processing",
-        "Real-time analytics",
-        "Scalable infrastructure"
+        "Binary-level state mutation",
+        "Side-channel vulnerability testing",
+        "Heuristic logic verification",
+        "Hardware-enforced execution envelopes"
       ]
     },
     {
-      title: "Innovation Lab",
-      description: "Cutting-edge research and development laboratory focused on prototype development and technology integration. We transform theoretical concepts into practical solutions through rapid prototyping and iterative development.",
+      title: "Evolutionary Code Synthesis",
+      description: "Deployment of the ScalarVortex pipeline for logic validation. We continuously test parallel AST mutations against strict Pareto-curves (Correctness vs Speed) to ensure high-fidelity software generation.",
       features: [
-        "Research & development",
-        "Prototype development",
-        "Technology integration",
-        "Rapid iteration cycles"
+        "Deterministic AST manipulation",
+        "Pareto-curve optimization",
+        "Intent-based routing pipelines",
+        "Prefix-cache latency reduction"
       ]
     }
   ];

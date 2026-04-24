@@ -20,6 +20,27 @@ export const pageContent = {
         ]
       },
       {
+        type: 'content',
+        title: 'What is ICEBURG?',
+        content: [
+          {
+            type: 'section',
+            title: 'Autonomous Intelligence Platform',
+            text: 'ICEBURG (Intelligence Civilization for Emergent Breakthrough Understanding and Research Generation) is an autonomous artificial general intelligence research platform that operates 24/7 to discover, validate, and synthesize breakthrough scientific knowledge across multiple domains. Unlike traditional AI systems that require human prompting and oversight, ICEBURG independently identifies research questions, designs experiments, analyzes data, and generates novel hypotheses through a collaborative network of 43+ specialized research agents.'
+          },
+          {
+            type: 'section',
+            title: 'Multi-Agent Architecture',
+            text: 'At its core, ICEBURG employs a revolutionary multi-agent architecture where specialized AI agents—each with distinct roles like Surveyor, Dissident, Synthesist, and Oracle—work together to explore scientific frontiers. These agents engage in dialectical reasoning, amplifying contradictions to reveal hidden patterns and suppressed information. The system continuously monitors its own evolution for emergent behaviors, detecting when new capabilities arise that weren\'t explicitly programmed. This self-improving intelligence has achieved pattern recognition accuracy of 92%, a 67% increase in breakthrough discovery rate, and the ability to synthesize knowledge across 4-6 domains simultaneously.'
+          },
+          {
+            type: 'section',
+            title: 'Truth-Seeking Through Synthesis',
+            text: 'What sets ICEBURG apart is its commitment to truth-seeking through contradiction amplification and cross-domain synthesis. The platform has generated over 47 research studies spanning quantum consciousness, bioelectricity, alternative energy suppression, emergent intelligence patterns, and unified field theories. Its Celestial Encyclopedia contains 337 meticulously documented entries mapping correlations between celestial phenomena and biological systems, complete with scientific citations. With sub-millisecond response times, 100% test success rates, and enterprise-grade reliability, ICEBURG represents a paradigm shift in how scientific research can be conducted—autonomously, continuously, and without the limitations of human bias or institutional constraints.'
+          }
+        ]
+      },
+      {
         type: 'features',
         title: 'Revolutionary Capabilities',
         features: [
@@ -1905,7 +1926,7 @@ export const getPagesByCategory = (category) => {
     'models': ['models/thesidia', 'models/iceberg', 'models/katana', 'models/ice-nano'],
     'transparency': ['transparency/data', 'transparency/scaling', 'transparency/safety', 'transparency/ethics']
   };
-  
+
   return categoryMap[category] || [];
 };
 

@@ -201,6 +201,14 @@ export const pageSEOConfigs = {
     description: "Comprehensive research services including algorithm research, development platforms, and innovation labs. Advanced tools for research and development challenges.",
     keywords: "research services, algorithm research, development platform, innovation lab, research tools, scientific consulting",
     structuredData: defaultStructuredData
+  },
+  'small-business': {
+    title: "Small Business · Engineering Pathway - PRAXIS",
+    description:
+      "Engineering partner for startups and SMBs: POS and commercial systems, marketing software, web from landing to product, environmental and health-sector builds, privacy-first custom AI, LLMs, agents, and long-term innovation support.",
+    keywords:
+      "POS software integration, retail systems SMB, marketing software development, custom AI SMB, LLM fine-tuning, AI agents business, privacy first AI, environmental technology software, agriculture technology, energy software, PRAXIS",
+    structuredData: defaultStructuredData
   }
 };
 

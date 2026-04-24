@@ -220,91 +220,91 @@ const EngineeringPage = () => {
   // Parallax effects
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
-  // Engineering capabilities with aggressive professional language
+  // Engineering capabilities with strict clinical-grade technical language
   const engineeringCapabilities = [
     {
-      title: "Advanced Cognitive Architecture",
-      description: "We engineer neural networks that operate at the intersection of consciousness and computation. Our systems demonstrate emergent intelligence capabilities that transcend traditional AI limitations, enabling autonomous decision-making in complex, dynamic environments.",
-      technologies: ["Neural Architecture Search", "Transformer Optimization", "Reinforcement Learning", "Meta-Learning"],
+      title: "Evolutionary Code Validation",
+      description: "ScalarVortex executes deterministic AST-splicing and Pareto-ranking. The system evaluates variants based on a strict Multi-Objective Score (Correctness - Speed - Complexity), ensuring only verified logical constructs commit to the primary namespace.",
+      technologies: ["AST Manipulation", "Pareto Optimization", "Subprocess Sandboxing"],
       metrics: [
-        { value: "99.7%", label: "Accuracy" },
-        { value: "10x", label: "Speed" },
-        { value: "24/7", label: "Operation" }
+        { value: "N=3", label: "Concurrent Variants" },
+        { value: "Strict", label: "Timeout Envelope" },
+        { value: "100%", label: "Test Coverage" }
       ]
     },
     {
-      title: "Military-Grade Security Infrastructure",
-      description: "Our security protocols exceed Department of Defense standards. We implement zero-trust architectures with quantum-resistant encryption, ensuring that even nation-state actors cannot compromise our research infrastructure or intellectual property.",
-      technologies: ["Quantum Cryptography", "Zero-Trust Architecture", "Hardware Security Modules", "Threat Intelligence"],
+      title: "Global Telemetry Correlation",
+      description: "IntelHQ aggregates disparate data streams including financial event-odds and real-time EMS/Radio signals. These inputs are cross-referenced against a geospatial coordinate system for rapid state analysis.",
+      technologies: ["Signal Aggregation", "Geospatial Mapping", "Data Normalization"],
       metrics: [
-        { value: "256-bit", label: "Encryption" },
-        { value: "99.99%", label: "Uptime" },
-        { value: "0", label: "Breaches" }
+        { value: "1.5M+", label: "Tracked Entities" },
+        { value: "<500ms", label: "Ingestion Latency" },
+        { value: "Continuous", label: "Polling Rate" }
       ]
     },
     {
-      title: "Distributed Computing Grid",
-      description: "We operate a globally distributed computing infrastructure that rivals the world's most powerful supercomputers. Our network processes petabytes of data in real-time, enabling breakthrough discoveries that would take conventional systems decades to achieve.",
-      technologies: ["Edge Computing", "Distributed Ledger", "Container Orchestration", "GPU Clustering"],
+      title: "Execution Sandbox Hardening",
+      description: "Akkadia enforces isolated execution via strict JSON manifests. It identifies vulnerabilities within Podman containers using adversarial self-play, exposing logical flaws before deploying fixes to the main branch.",
+      technologies: ["Podman Isolation", "Adversarial Testing", "Manifest Enforcement"],
       metrics: [
-        { value: "1.2M", label: "Cores" },
-        { value: "50PB", label: "Storage" },
-        { value: "99.9%", label: "Efficiency" }
+        { value: "Zero", label: "Host Access" },
+        { value: "100%", label: "Process Isolation" },
+        { value: "Automated", label: "Patching" }
       ]
     },
     {
-      title: "Autonomous Research Systems",
-      description: "Our systems operate independently, generating hypotheses, designing experiments, and validating results without human intervention. They demonstrate scientific reasoning capabilities that rival the world's leading researchers across multiple domains.",
-      technologies: ["Automated Experimentation", "Hypothesis Generation", "Statistical Analysis", "Peer Review AI"],
+      title: "Local-First Agent Hypervisor",
+      description: "Thesidia functions as a native macOS ARM64 hypervisor. It utilizes token-entropy for intent classification, routing requests directly to specialized pipelines while maintaining zero-latency subagent forking via prefix-cache sharing.",
+      technologies: ["Electron/Bun", "Prefix Caching", "Intent Routing", "ARM64 Native"],
       metrics: [
-        { value: "1000+", label: "Experiments/Day" },
-        { value: "85%", label: "Success Rate" },
-        { value: "3x", label: "Discovery Speed" }
+        { value: "0ms", label: "Memory Sync" },
+        { value: "100%", label: "Local Execution" },
+        { value: "128k", label: "Context Window" }
       ]
     },
     {
-      title: "Quantum Computing Integration",
-      description: "We leverage quantum computing capabilities to solve optimization problems that are intractable for classical systems. Our quantum algorithms accelerate research in cryptography, materials science, and complex system modeling.",
-      technologies: ["Quantum Algorithms", "Quantum Error Correction", "Hybrid Classical-Quantum", "Quantum Machine Learning"],
+      title: "Biomechanical Signal Integration",
+      description: "Real-time mapping of human physiological telemetry (Heart Rate, EMG) alongside environmental SDR (Software Defined Radio) anomalies. This ensures local computational states are directly correlated with physical parameters.",
+      technologies: ["SDR Interferometry", "EMG Telemetry", "Signal Subtraction"],
       metrics: [
-        { value: "1000x", label: "Speedup" },
-        { value: "99.9%", label: "Fidelity" },
-        { value: "50+", label: "Qubits" }
+        { value: "500Hz", label: "Polling Frequency" },
+        { value: "12ms", label: "Signal Latency" },
+        { value: "Differential", label: "Noise Reduction" }
       ]
     },
     {
-      title: "Advanced Data Synthesis",
-      description: "Our systems synthesize information from disparate sources, identifying hidden patterns and generating novel insights that transcend traditional disciplinary boundaries. We process structured and unstructured data at unprecedented scale and speed.",
-      technologies: ["Natural Language Processing", "Computer Vision", "Graph Neural Networks", "Multimodal Learning"],
+      title: "Semantic Falsifiability Routing",
+      description: "Employs a strict 6-step logic chain to evaluate high-dimensional textual outputs. The system separates empirical logic from symbolic interpretation and requires explicit falsifiability conditions before advancing the execution pipeline.",
+      technologies: ["Epistemic Layering", "Falsifiability Gates", "Semantic Parsing"],
       metrics: [
-        { value: "10TB", label: "Data/Hour" },
-        { value: "95%", label: "Accuracy" },
-        { value: "Real-time", label: "Processing" }
+        { value: "6-Step", label: "Logic Validation" },
+        { value: "Binary", label: "Pass/Fail State" },
+        { value: "Strict", label: "Empirical Bound" }
       ]
     }
   ];
 
-  // Military and research tech placeholders
+  // Verification and integration protocol placeholders
   const techPlaceholders = [
     {
-      title: "Advanced Threat Detection",
-      description: "Real-time analysis of global threat vectors using machine learning algorithms trained on classified intelligence datasets.",
-      category: "CLASSIFIED - DEFENSE"
+      title: "Heuristic Interception Gating",
+      description: "Pre-execution evaluation of system-level file and shell commands to prevent destructive operations.",
+      category: "VERIFICATION - SYSTEMS"
     },
     {
-      title: "Quantum Communication Network",
-      description: "Secure communication infrastructure utilizing quantum entanglement for unhackable data transmission across global networks.",
-      category: "CLASSIFIED - QUANTUM"
+      title: "Triple-Store Vectorization",
+      description: "Transformation of episodic research data into Subject-Predicate-Object graphs for state persistence.",
+      category: "INTEGRATION - DATA"
     },
     {
-      title: "Autonomous Research Drones",
-      description: "Unmanned systems capable of independent scientific research in remote or hazardous environments with minimal human oversight.",
-      category: "CLASSIFIED - AUTONOMOUS"
+      title: "Visual Regression Auditing",
+      description: "Headless DOM rendering for pixel-level UI validation against deterministic baselines.",
+      category: "VERIFICATION - UI"
     },
     {
-      title: "Neural Interface Technology",
-      description: "Direct brain-computer interfaces enabling seamless interaction between human cognition and artificial intelligence systems.",
-      category: "CLASSIFIED - NEURAL"
+      title: "Semantic Router Allocation",
+      description: "Automated distribution of computational tasks across agent logic pools based on capability matrices.",
+      category: "INTEGRATION - COMPUTE"
     }
   ];
 
@@ -350,7 +350,7 @@ const EngineeringPage = () => {
             transition={{ duration: 0.6, delay: 0.8 }}
           >
             <TypingText 
-              text="Where military-grade engineering meets cutting-edge research. We build systems that operate at the bleeding edge of technological possibility."
+              text="Where rigorous empirical validation meets deterministic computation. We build systems optimized for local execution and operational stability."
               speed={30}
               delay={2000}
               className={mutedTextColorClass}
@@ -447,11 +447,11 @@ const EngineeringPage = () => {
               viewport={{ once: true }}
             >
               <h3 className={`text-lg font-bold ${textColorClass} mb-3 font-mono`}>
-                Precision Engineering
+                Empirical Validation
               </h3>
               <p className={`${mutedTextColorClass} leading-relaxed font-mono text-sm`}>
-                We engineer systems with the precision of military hardware and the innovation of cutting-edge research. 
-                Every component is designed for maximum performance, reliability, and scalability under extreme conditions.
+                Every computational logic cycle is subject to strict deterministic verification. 
+                We enforce hardware-level timeouts and isolation to prevent unvalidated state mutations.
               </p>
             </motion.div>
             <motion.div
@@ -461,11 +461,11 @@ const EngineeringPage = () => {
               viewport={{ once: true }}
             >
               <h3 className={`text-lg font-bold ${textColorClass} mb-3 font-mono`}>
-                Autonomous Operation
+                Local Sovereignty
               </h3>
               <p className={`${mutedTextColorClass} leading-relaxed font-mono text-sm`}>
-                Our systems operate with complete autonomy, making intelligent decisions in real-time without human intervention. 
-                They adapt, learn, and evolve to maintain peak performance in dynamic environments.
+                Systems are designed to function offline within an air-gapped topology.
+                Data persistence, routing, and processing remain strictly constrained to local bare-metal hardware.
               </p>
             </motion.div>
           </div>

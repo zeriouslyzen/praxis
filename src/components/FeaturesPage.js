@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { ThemeContext } from '../contexts/AppContext';
+import AgentIntelligenceSection from './AgentIntelligenceSection';
 
 // Feature Category Component with Advanced Animations
 const FeatureCategory = ({ title, description, features, icon, gradient, index }) => {
@@ -226,17 +227,17 @@ const FeaturesPage = () => {
   // Parallax effects
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
-  // Feature categories with compelling but non-revealing descriptions
+  // Feature categories with clinical-grade technical specifications
   const featureCategories = [
     {
-      title: "Autonomous Research Engine",
-      description: "Self-directed research capabilities that operate continuously, identifying emerging patterns and generating novel insights across multiple domains without human intervention.",
+      title: "Agentic Architecture & Logic Engines",
+      description: "Local-first, deterministic execution environments with continuous validation and self-correction loops running natively on Apple Silicon.",
       features: [
-        "24/7 autonomous operation and monitoring",
-        "Cross-domain knowledge synthesis and integration",
-        "Emergent pattern recognition and analysis",
-        "Self-improving research methodologies",
-        "Automated quality control and validation"
+        "Token-entropy intent routing via local-first macOS hypervisor",
+        "Pareto-ranking genetic logic synthesis for multi-objective optimization",
+        "Adaptive Computation Time (ACT) with thermal-aware throttling",
+        "Sub-second latency via prefix-cache sharing across agent Swarms",
+        "Visual regression auditing with pixel-level DOM comparisons"
       ],
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -246,14 +247,14 @@ const FeaturesPage = () => {
       gradient: isDarkMode ? "from-blue-500/20 to-purple-500/20" : "from-blue-500/10 to-purple-500/10"
     },
     {
-      title: "Cognitive Architecture",
-      description: "Advanced multi-agent systems with specialized cognitive modules that work in concert to process complex information and generate sophisticated research outputs.",
+      title: "Signal & Biophysical Processing",
+      description: "Hardware-integrated pipelines correlating non-local data streams, human biometrics, and environmental RF anomalies.",
       features: [
-        "Multi-agent coordination and communication",
-        "Specialized cognitive processing modules",
-        "Context-aware information processing",
-        "Dynamic task allocation and optimization",
-        "Meta-cognitive monitoring and adjustment"
+        "Differential SDR Interferometry for non-Hertzian anomaly isolation",
+        "EEG Latent Diffusion mapping to visual cortex image reconstruction",
+        "Saccadic and EMG signal correlation with environmental RF states",
+        "Rydberg Gas-Cell Detection for micron-scale electric field mapping",
+        "Piezoelectric haptic synchronization via high-precision feedback loops"
       ],
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -263,14 +264,14 @@ const FeaturesPage = () => {
       gradient: isDarkMode ? "from-green-500/20 to-teal-500/20" : "from-green-500/10 to-teal-500/10"
     },
     {
-      title: "Knowledge Synthesis Platform",
-      description: "Advanced systems for integrating disparate information sources, identifying hidden connections, and generating comprehensive research frameworks that transcend traditional disciplinary boundaries.",
+      title: "Multi-Agent Orchestration Infrastructure",
+      description: "Enterprise-grade orchestration layers decomposing complex tasks using structured routing and memory vectorization.",
       features: [
-        "Multi-source information integration",
-        "Hidden pattern and connection discovery",
-        "Cross-disciplinary knowledge synthesis",
-        "Automated literature review and analysis",
-        "Novel theoretical framework generation"
+        "Hierarchical Task Decomposition using Directed Acyclic Graphs (DAGs)",
+        "Semantic Routing based on execution capability-vector matching",
+        "Graph-based Entity-Relationship mapping for institutional structures",
+        "Automated extraction of euphemisms and structural text markers",
+        "Triple-store context persistence for infinite-horizon retrieval"
       ],
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -280,14 +281,14 @@ const FeaturesPage = () => {
       gradient: isDarkMode ? "from-purple-500/20 to-pink-500/20" : "from-purple-500/10 to-pink-500/10"
     },
     {
-      title: "Quality Assurance Systems",
-      description: "Comprehensive validation and quality control mechanisms that ensure research outputs meet the highest standards of accuracy, reliability, and scientific rigor.",
+      title: "Adversarial Code Hardening",
+      description: "Automated, self-playing loops where intelligence systems attempt to breach, test, and rewrite execution paths.",
       features: [
-        "Multi-level validation pipelines",
-        "Automated fact-checking and verification",
-        "Bias detection and correction systems",
-        "Peer review simulation and validation",
-        "Continuous quality monitoring and improvement"
+        "Red-team synthesis of adversarial unit tests against root namespaces",
+        "Subprocess-isolated Execution Sandboxes with strict timeout envelopes",
+        "Auto-healing dependency resolution and stack trace interpretation",
+        "Epistemic Layering for formal separation of empirical vs symbolic logic",
+        "Heuristic Interception gating for system-level shell and file commands"
       ],
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -298,15 +299,15 @@ const FeaturesPage = () => {
     }
   ];
 
-  // Research capabilities with impressive but non-revealing metrics
+  // Research capabilities with clinical metrics
   const researchCapabilities = [
     {
-      title: "Research Output Generation",
-      description: "Automated generation of comprehensive research documents, analysis reports, and theoretical frameworks.",
+      title: "Deterministic Execution",
+      description: "Guaranteed code logic paths across physical and ephemeral directories.",
       metrics: [
-        { value: "42+", label: "Research Papers" },
-        { value: "24/7", label: "Operation" },
-        { value: "95%", label: "Accuracy Rate" }
+        { value: "0ms", label: "Prefix-Cache Sync" },
+        { value: "N=3", label: "Variant Competition" },
+        { value: "100%", label: "Test Coverage" }
       ],
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -315,12 +316,12 @@ const FeaturesPage = () => {
       )
     },
     {
-      title: "Cross-Domain Analysis",
-      description: "Integration and analysis across multiple scientific disciplines to identify novel connections and insights.",
+      title: "Biomechanical Synthesis",
+      description: "Direct correlation of environmental states with user physiology.",
       metrics: [
-        { value: "15+", label: "Domains" },
-        { value: "400%", label: "Discovery Rate" },
-        { value: "Real-time", label: "Processing" }
+        { value: "500Hz", label: "SDR Polling" },
+        { value: "12ms", label: "EMG Latency" },
+        { value: "A-Field", label: "Vector Range" }
       ],
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -329,16 +330,30 @@ const FeaturesPage = () => {
       )
     },
     {
-      title: "Risk Assessment",
-      description: "Advanced systems for identifying and analyzing potential risks across various domains and applications.",
+      title: "Interception Loop",
+      description: "Hardened permission systems filtering system calls prior to execution.",
       metrics: [
-        { value: "Multi-layer", label: "Detection" },
-        { value: "99.7%", label: "Precision" },
-        { value: "Automated", label: "Response" }
+        { value: "0-100", label: "Risk Score" },
+        { value: "RegEx", label: "Domain Filter" },
+        { value: "Zero", label: "Bypass Config" }
       ],
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+        </svg>
+      )
+    },
+    {
+      title: "Agent Intelligence Registry",
+      description: "Containerized indexing of agent roles, multi-agent spawn patterns, and operational outcomes without file-by-file review.",
+      metrics: [
+        { value: "300+", label: "Agent Sessions" },
+        { value: "SQLite", label: "Compact DB" },
+        { value: "Live", label: "Interactive View" }
+      ],
+      icon: (
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 7h18M3 12h18M3 17h18" />
         </svg>
       )
     }
@@ -395,9 +410,9 @@ const FeaturesPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            Advanced autonomous research systems that operate continuously, generating breakthrough insights 
-            and discoveries across multiple scientific domains through sophisticated cognitive architectures 
-            and knowledge synthesis platforms.
+            Clinical-grade technical systems executing fully autonomous, deterministic operations on local hardware. 
+            Integrating phase-space engineering, deterministic execution pipelines, and biophysical sensory telemetry 
+            for uncompromising operational accuracy.
           </motion.p>
         </motion.div>
 
@@ -433,12 +448,16 @@ const FeaturesPage = () => {
           </div>
         </motion.div>
 
+        <div className="mb-24 max-w-6xl mx-auto px-2 sm:px-0">
+          <AgentIntelligenceSection title="Agent Intelligence Registry" />
+        </div>
+
         {/* Research Capabilities - UNCHANGED as requested */}
         <div className="mb-24">
           <h2 className={`text-2xl font-bold ${textColorClass} text-center mb-8 font-mono`}>
             Operational Capabilities
           </h2>
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {researchCapabilities.map((capability, index) => (
               <ResearchCapability
                 key={index}
@@ -481,12 +500,11 @@ const FeaturesPage = () => {
               viewport={{ once: true }}
             >
               <h3 className={`text-lg font-bold ${textColorClass} mb-3 font-mono`}>
-                Autonomous Operation
+                Deterministic Operations
               </h3>
               <p className={`${mutedTextColorClass} leading-relaxed font-mono text-sm`}>
-                Self-directed research capabilities that operate independently, setting research agendas, 
-                conducting investigations, and generating insights without human intervention. The system 
-                continuously monitors its own performance and adapts its methodologies for optimal results.
+                Engineered for 100% offline provenance using local LLM integration and deterministic sub-process sandboxes. 
+                All system actions are continuously validated against expected parameter envelopes before commitment, preventing execution hallucination.
               </p>
             </motion.div>
             <motion.div
@@ -496,13 +514,11 @@ const FeaturesPage = () => {
               viewport={{ once: true }}
             >
               <h3 className={`text-lg font-bold ${textColorClass} mb-3 font-mono`}>
-                Knowledge Integration
+                Cross-Layer Auditing
               </h3>
               <p className={`${mutedTextColorClass} leading-relaxed font-mono text-sm`}>
-                Advanced systems for synthesizing information from disparate sources, identifying hidden 
-                connections, and generating novel theoretical frameworks that transcend traditional 
-                disciplinary boundaries. This enables breakthrough discoveries that would be impossible 
-                through conventional research methods.
+                Sovereign architectural design forces explicit decoupling of logic processing, rendering structural evaluations independent of empirical execution. 
+                Enables simultaneous multi-scale structural mapping spanning individual, system, and hardware layers.
               </p>
             </motion.div>
           </div>

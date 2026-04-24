@@ -102,12 +102,14 @@ PRAXIS/
 - **Terminal Elements**: Code blocks and terminal-style containers
 
 ### Sections
-- **Hero**: Matrix rain background with animated neural network and search bar
+- **Hero**: Matrix rain background with animated neural network; primary CTAs include **For small business** (safety-orange cone styling) linking to the SMB pathway
 - **About**: Four-module animated experience with cycling visualizations
+- **Features**: Includes **Agent Intelligence** registry (`AgentIntelligenceSection`) fed by `public/data/agent-intelligence.json`
 - **Services**: Three main service offerings with advanced styling
 - **Technology**: Technical architecture with neural network visualization
 - **Case Studies**: Success metrics and outcomes
 - **Footer**: Company information with tech styling
+- **Small business pathway**: Route **`/small-business`** — drafting-style page (objectives, commercial/POS/marketing/web, accelerator-style partnership, privacy-first AI, micrographics). Linked from Solutions menu and footer
 
 ## 🚀 Available Scripts
 
@@ -115,11 +117,24 @@ PRAXIS/
 - `npm run build` - Builds the app for production
 - `npm test` - Launches the test runner
 - `npm run eject` - Ejects from Create React App (one-way operation)
+- `npm run agents:build` - Builds the local agent intelligence SQLite and JSON datasets
+- `npm run agents:build:docker` - Runs the same build in a containerized pipeline
+
+### Agent Intelligence Pipeline
+
+The project includes a builder that scans configured project roots and emits a public registry for the site:
+
+- **Projects root**: set `AGENT_PROJECTS_DIR` to your local checkout directory (see `DEFAULT_PROJECTS_DIR` in the builder if unset)
+- **SQLite output** (optional local artifact): `data/agent-intelligence/agent_intelligence.db`
+- **Frontend bundle**: `public/data/agent-intelligence.json` (committed or regenerated in CI)
+- **Privacy**: exported JSON omits host filesystem paths; uses empty `evidence_paths`, `evidence_display` strings, and generic `source: local-development-scan`
+- **Builder**: `scripts/agent_intelligence/build_agent_intelligence.py`
+- **Container**: `docker-compose.agent-intelligence.yml` (see `npm run agents:build:docker`)
 
 ## 🌟 Key Components
 
 - **Header**: Fixed navigation with tech styling and left slide-out menu
-- **Hero**: Full-screen landing with matrix rain, neural network, and search functionality
+- **Hero**: Full-screen landing with matrix rain, neural network, and CTAs (features, research, small business pathway)
 - **AnimatedAbout**: Four-module research intelligence experience
   - **ResearchEngine**: Three.js 3D visualization with WebGL fallback
   - **PatternRecognition**: Canvas-based data transformation

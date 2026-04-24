@@ -1,0 +1,13 @@
+services:
+  agent-intelligence-builder:
+    build:
+      context: .
+      dockerfile: scripts/agent_intelligence/Dockerfile
+    environment:
+      AGENT_PROJECTS_DIR: /host-projects
+      AGENT_DB_PATH: /workspace-output/agent_intelligence.db
+      AGENT_EXPORT_JSON: /workspace-public/agent-intelligence.json
+    volumes:
+      - ${AGENT_PROJECTS_DIR:-/Users/jackdanger/Desktop/Projects}:/host-projects:ro
+      - ./data/agent-intelligence:/workspace-output
+      - ./public/data:/workspace-public
