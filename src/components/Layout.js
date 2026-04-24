@@ -530,25 +530,28 @@ export const Hero = () => {
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3">
-          <Link to="/#features" className={`group relative ${buttonBgOpacityClass} backdrop-blur-sm ${textColorClass} px-6 py-3 rounded-lg text-sm font-mono font-semibold transition-all duration-300 transform hover:scale-105 ${buttonHoverBgOpacityClass} hover:shadow-2xl ${shadowColorClass} overflow-hidden ${borderColorClass}`}>
+        <div className="w-full max-w-full overflow-hidden">
+          <div className="flex flex-nowrap sm:flex-wrap items-center justify-center gap-2 sm:gap-3">
+          <Link to="/#features" className={`group relative ${buttonBgOpacityClass} backdrop-blur-sm ${textColorClass} px-3 sm:px-6 py-2 sm:py-3 rounded-lg text-[11px] sm:text-sm font-mono font-semibold text-center whitespace-nowrap transition-all duration-300 transform hover:scale-105 ${buttonHoverBgOpacityClass} hover:shadow-2xl ${shadowColorClass} overflow-hidden ${borderColorClass}`}>
             <span className="relative z-10">Explore Features</span>
             <div className={`absolute inset-0 ${buttonBgOpacityClass} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
           </Link>
-          <Link to="/research" className={`group relative bg-transparent border ${borderColorClass} ${textColorClass} px-6 py-3 rounded-lg text-sm font-mono font-semibold transition-all duration-300 transform hover:scale-105 hover:border-opacity-60 hover:bg-opacity-5 overflow-hidden`}>
+          <Link to="/research" className={`group relative bg-transparent border ${borderColorClass} ${textColorClass} px-3 sm:px-6 py-2 sm:py-3 rounded-lg text-[11px] sm:text-sm font-mono font-semibold text-center whitespace-nowrap transition-all duration-300 transform hover:scale-105 hover:border-opacity-60 hover:bg-opacity-5 overflow-hidden`}>
             <span className="relative z-10">View Research</span>
             <div className={`absolute inset-0 ${bgOpacityClass} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
           </Link>
           <Link
             to="/small-business"
-            className={`group relative px-6 py-3 rounded-lg text-sm font-mono font-semibold transition-all duration-300 transform hover:scale-105 border-2 overflow-hidden ${
+            className={`group relative px-3 sm:px-6 py-2 sm:py-3 rounded-lg text-[11px] sm:text-sm font-mono font-semibold text-center whitespace-nowrap transition-all duration-300 transform hover:scale-105 border-2 overflow-hidden ${
               isDarkMode
                 ? 'bg-[#ff7700] text-stone-950 border-[#ffb84d] hover:bg-[#ff9830] shadow-[0_2px_0_rgba(0,0,0,0.3)]'
                 : 'bg-[#ff6600] text-white border-[#e65100] hover:bg-[#ff8533] shadow-[0_2px_0_rgba(180,52,0,0.35)]'
             }`}
           >
-            <span className="relative z-10">For small business</span>
+            <span className="relative z-10 sm:hidden">Small Biz</span>
+            <span className="relative z-10 hidden sm:inline">For small business</span>
           </Link>
+          </div>
         </div>
       </div>
     </section>
